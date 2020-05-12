@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件复习</title>
+</head>
+<body>
+<!--默认行为-->
+<a href="http://www.baidu.com">百度</a>
+<script>
+    /*
+    * 鼠标事件
+    * click  dblclick  mousedown  mousemove mouseup  mouseover  mouseleave  mouseout  mouseenter
+    *
+    * 滚轮事件
+    * onmousewheel
+    *
+    * 键盘事件
+    * keydown  keyup  keypress
+    *
+    * 文档事件
+    * onload   onbeforeunload
+    *
+    * 表单事件
+    * focus  blur  submit
+    *
+    * 默认行为  冒泡
+    *
+    * */
+    var a = document.querySelector('a');
+
+    a.onclick = function(e){
+        //阻止默认行为
+        alert('今天是礼拜六!!!');
+        //方法一
+        // return false;
+        //方法二
+        e.preventDefault();
+    }
+</script>
+</body>
+</html>

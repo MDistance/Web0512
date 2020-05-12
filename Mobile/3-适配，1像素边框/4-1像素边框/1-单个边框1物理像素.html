@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一像素问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 150px;
+            height: 100px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        #one {
+            border-bottom: solid 1px #000;
+        }
+
+        #two {
+            position: relative;
+        }
+
+        #two::after {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 100%;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            background: black;
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 2) {
+            #two::after {
+                transform: scaleY(0.5)
+            }
+        }
+
+        @media (-webkit-min-device-pixel-ratio: 3) {
+            #two::after {
+                transform: scaleY(0.333)
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="one"></div>
+
+<div id="two"></div>
+</body>
+</html>

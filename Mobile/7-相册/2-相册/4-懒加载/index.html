@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相册</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div id="app">
+    <!--头部结构-->
+    <header>
+        三国女将
+    </header>
+    <!--内容区-->
+    <section id="content">
+        <div class="img-list">
+            <ul class="nvjiangs">
+
+            </ul>
+        </div>
+    </section>
+</div>
+<script src="./js/transformCSS.js"></script>
+<script src="./js/tweenAnimation.js"></script>
+<script src="./js/touchscroll.js"></script>
+<script>
+    // <li><img src="./img/1.jpg" alt=""></li>
+
+    var nvjiangs = document.querySelector('.nvjiangs');
+    var imgList = document.querySelector('.img-list');
+    var content = document.querySelector('#content');
+
+    /*构架数据仓库*/
+    var arr = [];// 100 个图片路径
+    for (var i = 0; i < 100; i++) {
+        arr.push('./img/' + (i % 18 ) + '.jpg');
+    }
+
+    /*动态创建li元素*/
+    function createLi() {
+        /*14个 图片元素*/
+        for (var i = 0; i < 14; i++) {
+            //创建
+            var li = document.createElement('li');
+            var img = document.createElement('img');
+            //设置路径
+            img.dataset.src = arr[i];
+            //设置样式
+            img.style.opacity = 0;
+            li.appendChild(img);
+            //设置属性
+            li.dataset.isloaded = 0;
+            //插入到 ul中
+            nvjiangs.appendChild(li);
+        }
+    }
+
+    createLi();
+
+    //实现可滑动
+    var touchscroll = new Touchscroll('#content', '.img-list');
+
+    //实现懒加载
+    function lazyload() {
+        //对图片的位置进行检测
+        var lis = document.querySelectorAll('#content li');
+        //遍历元素
+        lis.forEach(function (li) {
+            //检测
+            if (li.dataset.isloaded == 1) return;
+            //检测尺寸
+            var translateY = Math.abs(transformCSS(imgList, 'translateY'));
+            //获取外层元素的高度
+            var contentHeight = content.offsetHeight;
+            //获取当前的这个 li 距离父级元素顶部的偏移
+            var liTop = li.offsetTop;
+            if (liTop <= translateY + contentHeight) {
+                setTimeout(function () {
+                    //加载图片
+                    var img = li.querySelector('img');
+                    img.src = img.dataset.src;
+                    //图片加载完毕之后透明度设置为 1
+                    img.addEventListener('load', function(){
+                        img.style.opacity = 1;
+                    });
+
+                    img.addEventListener('error', function(){
+                        img.src = './img/noimage.png';
+                    });
+                }, 1000)
+                //修改标识
+                li.dataset.isloaded = 1;
+            }
+        });
+    }
+
+    lazyload();
+
+    //绑定事件
+    content.addEventListener('touchmove', function () {
+        lazyload();
+    });
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>移动端轮播图</title>
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+<body>
+<div id="app">
+    <div id="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-item"><img src="./img/1.jpg" width="100%" alt=""></div>
+            <div class="swiper-item"><img src="./img/2.jpg" width="100%" alt=""></div>
+            <div class="swiper-item"><img src="./img/3.jpg" width="100%" alt=""></div>
+            <div class="swiper-item"><img src="./img/4.jpg" width="100%" alt=""></div>
+            <div class="swiper-item"><img src="./img/5.jpg" width="100%" alt=""></div>
+        </div>
+
+        <div class="pagination"></div>
+    </div>
+</div>
+<script src="./js/transformCSS.js"></script>
+<script src="./js/swiper.js"></script>
+<script>
+    var swiper = new Swiper('#swiper',{
+        auto: true,
+        loop: true,
+        pagination: true,
+        time: 3000
+    });
+</script>
+</body>
+</html>

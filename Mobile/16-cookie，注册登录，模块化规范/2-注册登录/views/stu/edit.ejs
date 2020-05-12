@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学员修改</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <h2 class="page-header">用户修改</h2>
+            <form method="post" action="/stu/<%=stu._id%>/update">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">姓名</label>
+                    <input type="text" value="<%=stu.name%>" name="name" class="form-control" id="exampleInputEmail1" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phoneNumber">手机号</label>
+                    <input type="text" value="<%=stu.phone%>" name="phone" class="form-control" id="phoneNumber" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">年龄</label>
+                    <input type="text" value="<%=stu.age%>" class="form-control" name="age" id="exampleInputPassword1" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">籍贯</label>
+                    <select name="jiguan" class="form-control">
+                        <option>请选择</option>
+                        <option value="山西" <%if(stu.jiguan === '山西'){%> selected <%}%>>山西</option>
+                        <option value="山东" <%if(stu.jiguan === '山东'){%> selected <%}%> >山东</option>
+                        <option value="河北" <%if(stu.jiguan === '河北'){%> selected <%}%>>河北</option>
+                        <option value="河南" <%if(stu.jiguan === '河南'){%> selected <%}%>>河南</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">性别</label>
+                    <div class="">
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="inlineRadio1" value="1"  <%if(stu.gender == 1){%> checked <%}%> > 男
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="gender" id="inlineRadio2" value="0" <%if(stu.gender == 0){%> checked <%}%>> 女
+                        </label>
+                    </div>
+                </div>
+
+                <hr>
+
+                <button type="submit" class="btn btn-primary btn-block">提交</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+
+<script>
+    var ST_PHONE = false;
+    //检测用户输入是否合法  jquery
+    $('input[name="phone"]').blur(function () {
+        //检测用户的输入值是否合法  this  => $(this) jquery对象
+        var phone = $(this).val();
+        //正则匹配
+        var reg = /^1\d{10}$/;
+        var res = reg.test(phone);
+        //检测
+        if (!res) {
+            //当前表单项 增加 has-error
+            $(this).parent().addClass('has-error');
+            ST_PHONE = false;
+        }else{
+            $(this).parent().removeClass('has-error');
+            ST_PHONE = true;
+        }
+    });
+
+    //提交事件
+    $('form').submit(function(e){
+        //在代码中触发元素的丧失焦点事件
+        $('input[name="phone"]').trigger('blur');
+
+        if(!ST_PHONE){
+            //阻止默认行为
+            e.preventDefault();
+        }
+    });
+
+</script>
+</body>
+</html>

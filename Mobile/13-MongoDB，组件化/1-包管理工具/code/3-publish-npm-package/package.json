@@ -1,0 +1,12 @@
+{
+  "name": "flack-owner-feather",
+  "version": "1.0.1",
+  "description": "这是一个用来生成随机数的功能函数",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xiaohigh",
+  "license": "ISC",
+  "keywords": ["random","html","javascript"]
+}

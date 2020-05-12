@@ -1,0 +1,34 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+    "manifest_version": 2,
+    "name": "谷歌服务助手",
+    "short_name":"Google Service Helper",
+    "version": "1.18.11.13",
+    "description": "一款为开发者设计的chrome扩展,轻松访问Google、Android、Golang官网,免费快速无限制,自由零距离。",
+    "browser_action": {
+        "default_icon": {
+            "19": "assets/arrow19.png",
+            "38": "assets/arrow38.png"
+        },
+        "default_title": "谷歌服务助手",
+        "default_popup": "html/popup.html"
+    },
+    "icons": {
+        "16": "assets/arrow16.png",
+        "48": "assets/arrow48.png",
+        "128": "assets/arrow128.png"
+    },
+    "permissions": [
+        "proxy",
+        "management",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "js/background.js"
+        ]
+    }
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=600">
+    <!--device 设备-->
+    <meta name="viewport" content="width=device-width">
+    <!--initial-scale 0.5  initial 初始化 scale 比例-->
+    <meta name="viewport" content="initial-scale=0.5">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="viewport" content="width=520, initial-scale=0.6">
+    <!-- minimum 最小的 -  scale 比例 -->
+    <meta name="viewport" content="minimum-scale=0.6">
+    <!--maximum最大的scale比例-->
+    <meta name="viewport" content="maximum-scale=3">
+    <!--user 用户 scalable 能否缩放 -->
+    <meta name="viewport" content="user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>viewport</title>
+</head>
+<body>
+<div id="info"></div>
+<script>
+    //输出当前页面的布局视口宽度
+    console.log(document.documentElement.clientWidth);
+    //使用定时器
+    setInterval(function () {
+        //显示宽度
+        var info = document.querySelector('#info');
+        info.innerHTML = '布局视口的宽度' + document.documentElement.clientWidth + '<br>视觉视口的宽度' + window.innerWidth
+    }, 100);
+
+</script>
+</body>
+</html>

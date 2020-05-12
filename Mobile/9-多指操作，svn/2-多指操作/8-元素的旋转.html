@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>元素的旋转</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <img src="./img/test.png" alt="">
+</div>
+
+<script src="https://cdn.bootcss.com/vConsole/3.3.2/vconsole.min.js"></script>
+<script src="./js/transformCSS.js"></script>
+<script src="./js/gesture.js"></script>
+
+<script>
+
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    })
+    /**
+     * 1. 修改 transform: rotate
+     * 2. 在哪个位置修改 change 事件中
+     * 3. 修改为多少呢
+     */
+    new VConsole;
+    var box = document.querySelector('#box');
+    //绑定事件
+    gesture(box, {
+        start: function (e) {
+            //获取手势开始后的夹角
+            box.startJiaoDu = getDegree(e.targetTouches[0], e.targetTouches[1]);
+            box.degree = transformCSS(box, 'rotate');
+        },
+        change: function (e) {
+            //获取手势改变后的夹角 e.rotation
+            box.endJiaoDu = getDegree(e.targetTouches[0], e.targetTouches[1]);
+            var jiaodu = box.endJiaoDu - box.startJiaoDu;
+            //设置元素的 CSS 样式
+            transformCSS(box, 'rotate', box.degree + jiaodu);
+        }
+    });
+
+    /**
+     *
+     * 根据两个触点的位置 计算出所形成的夹角(单位是 度)
+     * @param t1
+     * @param t2
+     */
+    function getDegree(t1, t2) {
+        var disX = t2.clientX - t1.clientX;
+        var disY = t2.clientY - t1.clientY;
+        var hudu = Math.atan2(disY, disX);//弧度
+        // giao 弧度转为角度   2π弧度 = 360度    2πR = 周长   1弧度 = 360 / 2π = 180 / π
+        return hudu * 180 / Math.PI;
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>竖向滑屏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body, #outer {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .scroll-bar {
+            position: absolute;
+            width: 4px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+            right: 1px;
+            top: 0;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+
+    </div>
+
+    <div class="scroll-bar"></div>
+</div>
+<script src="./js/transformCSS.js"></script>
+<script src="./js/tweenAnimation.js"></script>
+<script>
+
+    var outer = document.querySelector('#outer');
+    var inner = document.querySelector('#inner');
+    var scrollBar = outer.querySelector('.scroll-bar');
+
+    /*在 inner 中填充内容  200 个*/
+    for (var i = 1; i <= 80; i++) {
+        inner.innerHTML += i + '<br>';
+    }
+
+    /**
+     * 滚动条
+     * 1. 更改的是元素的 translateY
+     * 2. touchmove 事件中实现
+     * 3. translateY 设置为多少
+     */
+
+    //绑定事件
+    outer.addEventListener('touchstart', function (e) {
+        outer.y = e.changedTouches[0].clientY;
+        outer.t = transformCSS(inner, 'translateY');
+        outer.startTime = Date.now();
+        //清除定时器
+        if (inner.timer && inner.timer['translateY']) {
+            clearInterval(inner.timer['translateY']);
+        }
+        //清空滚动条元素的定时器
+        if (scrollBar.timer && scrollBar.timer['translateY']) {
+            clearInterval(scrollBar.timer['translateY']);
+        }
+    });
+
+    outer.addEventListener('touchmove', function (e) {
+        //获取触摸移动之后的触点位置
+        outer._y = e.changedTouches[0].clientY;
+        //计算新的 translateY 的值
+        var translateY = outer._y - outer.y + outer.t;
+        //设置 inner 的位置
+        transformCSS(inner, 'translateY', translateY);
+        //设置滚动条的位置
+        var scrollBarT = -translateY / inner.offsetHeight * outer.offsetHeight;
+        //设置
+        transformCSS(scrollBar, 'translateY', scrollBarT);
+    });
+
+    outer.addEventListener('touchend', function (e) {
+        //计算速度
+        // t s
+        outer.endTime = Date.now();
+        var disTime = outer.endTime - outer.startTime;
+        //滑动位移
+        outer._y = e.changedTouches[0].clientY;
+        var disDistance = outer._y - outer.y;
+        //计算速度
+        var v = disDistance / disTime;
+        //计算 额外的 位移
+        var s = v * 100;
+
+        //获取 inner 的 translateY 的值
+        var translateY = transformCSS(inner, 'translateY');
+        var init = translateY;
+        translateY += s;
+
+        //切换类型
+        var type = 'easeout';
+
+        if (translateY > 0) {
+            translateY = 0;
+            type = 'back';
+        }
+        var minTranslateY = outer.offsetHeight - inner.offsetHeight;
+        if (translateY < minTranslateY) {
+            translateY = minTranslateY;
+            type = 'back';
+        }
+
+        //设置内容过渡
+        // transformCSS(inner, 'translateY', translateY);
+        tweenAnimation(inner, 'translateY', init, translateY, 500, 20, type);
+
+        //获取当前滚动条的位置
+        var scrollBarTranslateY = transformCSS(scrollBar, 'translateY');
+        var endTranslateY = -translateY / inner.offsetHeight * outer.offsetHeight;
+        //设置滚动条的过渡
+        tweenAnimation(scrollBar, 'translateY', scrollBarTranslateY, endTranslateY, 500, 20, type)
+    });
+
+    //初始化
+    function init() {
+        //设置滚动条的高度
+        var scrollBarHeight = outer.offsetHeight / inner.offsetHeight * outer.offsetHeight;
+        //设置
+        scrollBar.style.height = scrollBarHeight + 'px';
+    }
+
+    init();
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>整体的边框控制</title>
+    <style>
+        /* 375 100px  300px*/
+        #box{
+            width:3rem;
+            height:1rem;
+            margin: 1rem auto;
+            border:solid 1px #000;
+        }
+        #box2{
+            width:3rem;
+            height:1rem;
+            margin: 1rem auto;
+            border:solid 0.01rem #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+<script>
+    function shipei(){
+        document.documentElement.style.fontSize = document.documentElement.clientWidth * 100 / 375 + 'px';
+    }
+    shipei();
+    window.onresize = shipei;
+
+    //将布局视口变大   怎样能控制布局视口的大小  375   750   initial-scale=0.5
+    //获取viewport元素对象
+    var viewport = document.querySelector('meta[name="viewport"]');
+    var scale = 1 / window.devicePixelRatio;// 3
+    viewport.content = 'initial-scale='+scale+',user-scalable=no';
+
+    //修改根标签的大小
+    var fontSize = parseInt(document.documentElement.style.fontSize);// 100px => 100
+    //相乘
+    var newSize = fontSize * window.devicePixelRatio;
+    //设置
+    document.documentElement.style.fontSize = newSize + 'px';
+
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>滑屏</title>
+    <script src="./js/holder.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            height: 200px;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="wrapper">
+        <div class="item"><img src="holder.js/100px200?&bg=#90a&text=梅花" alt=""></div>
+        <div class="item"><img src="holder.js/100px200?bg=#efa&text=墙角数枝梅" alt=""></div>
+        <div class="item"><img src="holder.js/100px200?bg=#bef&text=凌寒独自开" alt=""></div>
+        <div class="item"><img src="holder.js/100px200?bg=#8ef&text=遥知不是雪" alt=""></div>
+        <div class="item"><img src="holder.js/100px200?bg=#a94&text=为有暗香来" alt=""></div>
+    </div>
+</div>
+<img src="holder.js/300x200?bg=#521&text=logo" alt="">
+
+<div class="item"><img src="holder.js/100px300" alt=""></div>
+
+<script src="./js/transformCSS.js"></script>
+<script>
+    //获取元素
+    var container = document.querySelector('.container');
+    var wrapper = document.querySelector('.wrapper');
+    var index = 0;
+
+    container.addEventListener('touchstart', function (e) {
+        //获取包裹元素距离顶部的偏移
+        container.t = transformCSS(wrapper, 'translateY');
+        //
+        container.y = e.targetTouches[0].clientY;
+        wrapper.style.transition = 'none';
+    });
+
+    container.addEventListener('touchmove', function (e) {
+        //滑动之后的触点位置
+        container._y = e.targetTouches[0].clientY;
+        //
+        var translateY = container._y - container.y + container.t;
+        //
+        transformCSS(wrapper, 'translateY', translateY);
+    });
+
+    container.addEventListener('touchend', function (e) {
+        //滑动之后的触点位置
+        container._y = e.changedTouches[0].clientY;
+
+        if (container._y > container.y) {
+            index--;
+        } else {
+            index++;
+        }
+        wrapper.style.transition = 'all 0.5s';
+
+        // 0 0
+        // 1 -200
+        // 2 -400
+        //index -200*index
+        var translateY = -index * container.offsetHeight;
+        //设置
+        transformCSS(wrapper, 'translateY', translateY);
+
+    });
+
+
+</script>
+</body>
+</html>

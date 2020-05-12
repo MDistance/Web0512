@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学员信息</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2 class="page-header">学员信息 <a class="btn btn-primary btn-sm" href="/stu/create">添加</a></h2>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                    <th>籍贯</th>
+                    <th>手机号</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% for(var i = 0;i < stus.length;i++){ %>
+                <tr>
+                    <td><%= stus[i].name %></td>
+                    <td><%= stus[i].age %></td>
+                    <td><%= stus[i].gender %></td>
+                    <td><%= stus[i].jiguan %></td>
+                    <td><%= stus[i].phone %></td>
+                    <td><a class="btn btn-xs btn-warning" href="/stu/<%= stus[i]._id %>/edit">修改</a>
+                        <a class="btn btn-xs btn-danger" href="/stu/<%= stus[i]._id %>/delete">删除</a></td>
+                </tr>
+                <% } %>
+                </tbody>
+            </table>
+
+            <nav aria-label="Page navigation">
+                <ul class="pagination pull-right">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <%for(var i=1;i<=totalPage;i++){%>
+                    <li <%if(page==i){%> class="active" <%}%>  ><a href="/stu?page=<%=i%>"><%=i%></a></li>
+                    <%}%>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+</body>
+</html>

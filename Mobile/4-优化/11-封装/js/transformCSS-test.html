@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        #box{
+            width:200px;
+            height:200px;
+            background:#87a;
+        }
+
+        #box2{
+            width:200px;
+            height:200px;
+            background:#a98;
+            transform: scale(3);
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box2"></div>
+
+<script src="./transformCSS.js"></script>
+<script>
+    var box = document.querySelector('#box');
+    var box2 = document.querySelector('#box2');
+
+    transformCSS(box,'translateX', 200);
+    transformCSS(box,'rotate', 45);
+
+    //读取
+    var rotate = transformCSS(box, 'rotate');
+    var scale = transformCSS(box, 'scale');
+    var translateX = transformCSS(box, 'translateX');
+    console.log(rotate);
+    console.log(scale);
+    console.log(translateX);
+
+    var scale = transformCSS(box2, 'scale');
+    console.log(scale);
+
+</script>
+</body>
+</html>

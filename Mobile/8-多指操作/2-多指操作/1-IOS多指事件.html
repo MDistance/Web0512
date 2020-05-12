@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手势事件</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+        #box {
+            width: 100%;
+            height: 200px;
+            background: #90a;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    document.documentElement.addEventListener('touchstart', function(e){
+        e.preventDefault();
+    },{
+        passive: false
+    });
+
+
+    var box = document.querySelector('#box');
+
+    //gesture 手势
+    box.addEventListener('gesturestart', function () {
+        this.style.background = 'red';
+    });
+
+    //手势改变事件
+    // rotation  旋转
+    // scale     缩放比例
+    box.addEventListener('gesturechange', function (e) {
+        this.style.background = 'yellow';
+        this.innerHTML = '旋转角度e.rotation:' + e.rotation + '<br>';
+        this.innerHTML += '缩放比例e.scale:' + e.scale;
+    });
+
+    //手势结束事件
+    box.addEventListener('gestureend', function () {
+        this.style.background = 'blue';
+    });
+
+    
+</script>
+</body>
+</html>

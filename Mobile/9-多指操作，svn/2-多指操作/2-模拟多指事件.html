@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>手势事件</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100%;
+            height: 200px;
+            background: #90a;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    });
+
+    //获取元素
+    var box = document.querySelector('#box');
+    var gestureStartTriggered = false;// 手势事件是否已经出发过了
+
+    box.addEventListener('touchstart', function (e) {
+        //屏幕上的触点信息
+        if (e.touches.length >= 2) {
+            //执行 手势开始事件处理程序
+            this.style.background = 'red';
+            gestureStartTriggered = true;
+        }
+    });
+
+    //模拟手势改变事件
+    box.addEventListener('touchmove', function (e) {
+        if (e.touches.length >= 2) {
+            //执行手势改变事件的处理程序
+            this.style.background = 'yellow';
+            this.innerHTML = Math.random();
+        }
+    });
+
+    //模拟手势的结束事件
+    box.addEventListener('touchend', function (e) {
+        if (e.touches.length < 2 && gestureStartTriggered) {
+            //手势结束事件处理程序
+            this.style.background = 'blue';
+            gestureStartTriggered = false;
+        }
+
+    });
+
+    /*function rand(m,n){
+        return Math.floor(Math.random() * (n-m)) + m;
+    }
+
+    rand(1, 100);*/
+
+</script>
+</body>
+</html>

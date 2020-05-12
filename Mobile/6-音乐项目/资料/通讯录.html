@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>通讯录</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #header {
+            height: 10vh;
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            line-height: 10vh;
+            color: white;
+            font-size: 20px;
+        }
+
+        #main {
+            width: 100vw;
+            height: 90vh;
+            overflow: hidden;
+        }
+
+        ul li {
+            box-sizing: border-box;
+            height: 10vh;
+            line-height: 10vh;
+            font-size: 16px;
+            padding-left: 20px;
+            border-top: solid 1px #ddd;
+            border-bottom: solid 1px #ddd;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="header">通讯录</div>
+    <main id="main">
+        <ul id="content">
+        </ul>
+    </main>
+</div>
+<script src="./transformCSS.js"></script>
+<script>
+    var app = document.querySelector('#app');
+    var main = document.querySelector('main');
+    var content = document.querySelector('#content');
+
+    var names = ['勾诗桃', '连盼山', '咸从筠', '许雅容', '徐云霞', '晏新苗', '文星星', '许忆雪', '禄芷秀', '须苇然', '晃觅风', '万雅晗', '贡合瑞', '廖珺琪', '沈安蕾', '杨安波', '朱天悦', '卓梓美', '车妍妍', '潘晓彤', '幸平乐', '须惜香', '邵令美', '逢千束', '通怜珊', '苍语雪', '堵鸣晨', '汤红叶', '彭荏苒', '龙秋芸', '沃香巧', '从列琴', '潘平安', '禄秋芸'];
+
+    names.forEach(function (name) {
+        var li = document.createElement('li');
+        li.innerHTML = name;
+        content.appendChild(li);
+    });
+
+    //
+    main.addEventListener('touchstart', function (e) {
+        main.y = e.changedTouches[0].clientY;
+        main.t = transformCSS(content, 'translateY');
+        //起始触摸时间
+        main.startTime = Date.now();
+        //移除过渡
+		content.style.transition = 'none';
+    });
+
+    main.addEventListener('touchmove', function (e) {
+        main._y = e.changedTouches[0].clientY;
+        var translateY = main._y - main.y + main.t;
+        transformCSS(content, 'translateY', translateY);
+    });
+
+    main.addEventListener('touchend', function (e) {
+        //获取结束时的触点位置
+        main._y = e.changedTouches[0].clientY;
+        //获取触摸结束时的时间戳
+        main.endTime = Date.now();
+        //获取元素当前的 Y 轴偏移
+		var translateY = transformCSS(content, 'translateY');
+
+        var disY = main._y - main.y;
+        var disTime = main.endTime - main.startTime;
+
+        var v = disY / disTime;
+
+        var s = v * 100;
+
+        translateY += s;
+		//设置过渡
+		content.style.transition = 'all 5s ease-out';
+        //设置
+		transformCSS(content, 'translateY', translateY);
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+header {
+  height: 10vh;
+  color: white;
+  font-family: 宋体;
+  text-align: center;
+  line-height: 10vh;
+  background: black;
+  font-size: 20px;
+}
+#content {
+  height: 90vh;
+}
+#content .nvjiangs {
+  overflow: hidden;
+  position: relative;
+}
+#content .nvjiangs li {
+  background: #eee;
+  background-image: url("../img/loadingImg.gif");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 44vw;
+  height: 44vw;
+  float: left;
+  border-radius: 4vw;
+  overflow: hidden;
+  margin: 3vw;
+}
+#content .nvjiangs li img {
+  width: 100%;
+  display: block;
+  transition: opacity 1s;
+}
+#content .img-list {
+  position: relative;
+}
+#content .img-list #pull-to-update {
+  position: absolute;
+  width: 100%;
+  height: 20vh;
+  font-size: 20px;
+  line-height: 20vh;
+  text-align: center;
+  bottom: -20vh;
+}
+/*# sourceMappingURL=app.css.map */

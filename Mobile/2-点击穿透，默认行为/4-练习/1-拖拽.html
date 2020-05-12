@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background: #eeaabb;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //拖拽效果实现
+    // 1. 修改 CSS 样式
+    // left + top  √
+    // margin-top margin-left
+    // padding-top padding-left
+    // translateX  translateY
+
+    // 2. 什么时候修改位置
+    // 手指在滑动过程中 改变位置
+
+    // 3. 设置为多少(水平方向为例)
+
+    // 画图
+    var box = document.querySelector('#box');
+
+    box.addEventListener('touchstart', function (e) {
+        //获取按下时 触点距离左侧偏移量
+        this.x = e.changedTouches[0].clientX;
+        //获取元素相对左侧的偏移量
+        this.l = box.offsetLeft;
+
+        this.y = e.changedTouches[0].clientY;
+        this.t = box.offsetTop;
+    });
+
+    box.addEventListener('touchmove', function (e) {
+        //获取滑动过程中  触点的位置
+        this._x = e.changedTouches[0].clientX;
+        var newLeft = this._x - (this.x - this.l);
+        //获取垂直方向
+        this._y = e.changedTouches[0].clientY;
+        var newTop = this._y - (this.y - this.t);
+
+        //检测越界
+        //判断左侧
+        if(newLeft<=0){
+            newLeft = 0;
+        }
+
+        //判断右侧
+        var maxLeft = document.documentElement.clientWidth - box.offsetWidth;
+        if(newLeft >= maxLeft){
+            newLeft = maxLeft;
+        }
+        //设置 left 的样式
+        box.style.left = newLeft + 'px';
+        box.style.top = newTop + 'px';
+    });
+
+    box.addEventListener('touchend', function () {
+    });
+
+
+</script>
+</body>
+</html>

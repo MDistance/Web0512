@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>歌曲列表页面</title>
+</head>
+<body>
+    <h1>歌曲列表</h1>
+    <table border="1">
+        <tr><td>歌曲名称</td><td>歌手</td></tr>
+        <%for(var i=0;i<songs.songlist.length;i++){%>
+        <tr><td><%=songs.songlist[i].data.songname%></td><td><%=songs.songlist[i].data.singer[0].name%></td></tr>
+        <%}%>
+    </table>
+</body>
+</html>

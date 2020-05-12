@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>封装</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 100%;
+            height: 200px;
+            background: #90a;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    });
+
+    //获取元素
+    var box = document.querySelector('#box');
+
+    /**
+     * 函数名
+     * gesture
+     *
+     * 作用
+     * 绑定手势事件
+     *
+     * 实例
+     * gesture(box, {
+     *     start: function(){
+     *         console.log('手势刚刚开始哦');
+     *     },
+     *     change: function(){
+     *         console.log('手势正在改变中。。。。');
+     *     },
+     *     end: function(){}
+     * });
+     */
+    // var gestureStartTrigger = false;
+    function gesture(el, callbacks) {
+        //定义标识变量
+        el.gestureStartTrigger = false;
+        //绑定事件
+        el.addEventListener('touchstart', function(e){
+            if(e.touches.length >= 2){
+                ///执行手势开始事件的处理程序
+                if(callbacks  &&  typeof callbacks.start === 'function'){
+                    callbacks.start();
+                    el.gestureStartTrigger = true;
+                }
+            }
+        });
+
+        el.addEventListener('touchmove', function(e){
+            if(e.touches.length >= 2){
+                ///执行手势开始事件的处理程序
+                if(callbacks  &&  typeof callbacks.change === 'function'){
+                    callbacks.change();
+                }
+            }
+        });
+
+        el.addEventListener('touchend', function(e){
+            if(e.touches.length < 2 && el.gestureStartTrigger){
+                ///执行手势开始事件的处理程序
+                if(callbacks  &&  typeof callbacks.end === 'function'){
+                    callbacks.end();
+                }
+                el.gestureStartTrigger = false;
+            }
+        });
+    }
+
+    gesture(box, {
+        start: function () {
+            box.style.background = 'red';
+        },
+
+        change: function () {
+            box.style.background = 'yellow';
+            box.innerHTML  = Math.random();
+        },
+
+        end: function () {
+            box.style.background = 'blue';
+        }
+    })
+
+
+</script>
+</body>
+</html>

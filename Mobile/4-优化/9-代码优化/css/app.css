@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#swiper-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  /*小圆点*/
+}
+#swiper-container .swiper-wrapper {
+  width: 500%;
+  left: 0;
+  overflow: hidden;
+}
+#swiper-container .swiper-wrapper .swiper-item {
+  width: 20%;
+  float: left;
+}
+#swiper-container .swiper-wrapper .swiper-item img {
+  display: block;
+  width: 100%;
+}
+#swiper-container .swiper-pagination {
+  position: absolute;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+}
+#swiper-container .swiper-pagination span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+#swiper-container .swiper-pagination .active {
+  background: deeppink;
+}
+/*# sourceMappingURL=app.css.map */

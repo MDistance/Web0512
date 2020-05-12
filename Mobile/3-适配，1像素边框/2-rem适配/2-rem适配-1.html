@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rem适配-1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #banner {
+            width: 3.35rem;
+            height: 1.44rem;
+            margin: 0.97rem auto 0;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="banner"></div>
+
+<script>
+    function shipei() {
+        //获取当前设备的宽度
+        var w = document.documentElement.clientWidth;
+        //计算font-size的值
+        var fontSize = w * 100 / 375;
+        //设置根标签的字体大小
+        document.documentElement.style.fontSize = fontSize + 'px';
+    }
+    shipei();
+    window.onresize = function () {
+        shipei();
+    }
+</script>
+</body>
+</html>

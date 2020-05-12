@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>懒加载测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+
+
+        #content {
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        #content .item {
+            width: 44vw;
+            height: 44vw;
+            flex: none;
+            border: solid 1px #ddd;
+            margin-bottom: 20px;
+            background:#eee;
+        }
+
+		#content .item img{
+			width:100%;
+		}
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="content">
+        <div class="item" data-src="./img/1.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/2.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/3.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/4.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/5.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/6.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/7.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/8.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/9.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/10.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/11.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/12.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/13.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/14.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/15.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/16.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/17.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/18.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/1.jpg">
+            <img src="" alt="">
+        </div>
+        <div class="item" data-src="./img/2.jpg">
+            <img src="" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    //获取元素
+    var items = document.querySelectorAll('.item');
+
+    items.forEach(function(item){
+        item.dataset.isloaded = '0';
+    });
+
+    function lazyload(){
+        items.forEach(function(item){
+            //增加判断
+            if(item.dataset.isloaded == '1') return;
+            //获取窗口的滚动高度
+            var sT = document.documentElement.scrollTop;
+            //获取视口的高度
+            var wH = document.documentElement.clientHeight;
+            //获取当前元素距离顶部的距离
+            var itemTop = item.offsetTop;
+            if(itemTop <= sT + wH && itemTop + item.offsetHeight >= sT){
+                //进入了可视区域
+                var src = item.dataset.src;
+                //设置
+                var img = item.querySelector('img');
+                img.src = src;
+                //状态设置
+                item.dataset.isloaded = '1';
+            }
+        });
+    }
+
+    //窗口滚动事件
+    window.addEventListener('scroll', function(){
+        lazyload();
+    });
+
+    lazyload();
+</script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相册</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        html, body, #app {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        header {
+            height: 10vh;
+            width: 100vw;
+            background: rgba(0, 0, 0, 1);
+            color: white;
+            line-height: 10vh;
+            font-size: 20px;
+            text-align: center;
+            font-family: '宋体';
+            position: relative;
+            z-index: 10;
+        }
+
+        #main {
+            height: 90vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        #main #content {
+            height: auto;
+        }
+
+        #content .bottom {
+            height: 20vh;
+            width: 100vw;
+            line-height: 20vh;
+            color: black;
+            font-size: 20px;
+            font-family: '宋体';
+            text-align: center;
+            position: absolute;
+            bottom: -20vh;
+        }
+
+        #content .images {
+            overflow: hidden;
+        }
+
+
+        #content .images li {
+            width: 44vw;
+            height: 44vw;
+            background: #eee;
+            float: left;
+            margin: 3vw;
+            border-radius: 3vw;
+            overflow: hidden;
+            background: url('./img/loadingImg.gif') no-repeat center;
+        }
+
+        #content .images li img {
+            width: 100%;
+            display: block;
+            opacity: 0;
+            transition: opacity 2s;
+        }
+
+        .scroll-bar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 4px;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        #app .preview{
+            width:100%;
+            height:100%;
+            position: absolute;
+            left:0;
+            top:0;
+            z-index:20;
+            background:white;
+            transform: scale(0);
+            transition: transform 1s;
+        }
+        #app .preview .header{
+            height:10vh;
+            width:100vw;
+            background:black;
+            text-align: center;
+            color:white;
+            font-family: '宋体';
+            font-size:18px;
+            font-weight: normal;
+            line-height:10vh;
+            position:relative;
+        }
+
+        #app .preview .header .close{
+            position:absolute;
+            right:10px;
+        }
+
+        .preview .content{
+            height:90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <header>三国女将</header>
+    <section id="main">
+        <div id="content">
+            <ul class="images">
+
+            </ul>
+            <div class="bottom">上拉加载更多数据</div>
+        </div>
+        <div class="scroll-bar"></div>
+    </section>
+
+    <!--预览区域 start-->
+    <div class="preview">
+        <div class="header">
+            大图预览
+            <span class="close">&times;</span>
+        </div>
+        <div class="content">
+            <div id="big-image">
+                <img id="bimage" src="./img/1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!--预览区域 end-->
+</div>
+
+<script src="./js/transformCSS.js"></script>
+<script src="./js/tweenAnimation.js"></script>
+<script src="./js/touchscroll.js"></script>
+<script src="./js/gesture.js"></script>
+<script src="./js/touchview.js"></script>
+<script>
+    //获取元素
+    var main = document.querySelector('#main');
+    var bimage = document.querySelector('#bimage');
+    var content = document.querySelector('#content');
+    var images = document.querySelector('.images');
+    var bottom = content.querySelector('.bottom');
+    var preview = document.querySelector('.preview');
+    var close = document.querySelector('.close');
+	var bigImage = document.querySelector('#big-image');
+    var isScroll = false; //状态变量
+    //声明一个数组
+    var arr = [];
+    var length = 50;
+    var index = 0;
+    var isFirst = true;//状态变量 是否第一次进行数据创建
+	
+
+    //初始化
+    function init() {
+        for (var i = 0; i < length; i++) {
+            //拼接路径
+            var src = './img/' + (i % 18+1) + '.jpg';
+            arr.push(src);
+        }
+    }
+    init();
+
+    //动态创建 li 元素  14
+    function createLi() {
+        var end = index + 14;
+        for (var i = index; i < end; i++) {
+            //判断是否越界
+            if (i >= length) {
+                //1. 修改bottom元素的文本
+                bottom.innerHTML = '大兄弟,数据没了!!!';
+                //2. 循环不执行
+                break;
+            }
+            //创建 li
+            var li = document.createElement('li');
+            //创建img
+            // var img = document.createElement('img');
+            // img.src = arr[i];
+            //将 img 插入到 li
+            // li.appendChild(img);
+            //将 li 插入到 ul 中
+            //将当前 img 的 src 属性存入到标签中
+            li.dataset.src = arr[i];
+            //增加标记
+            li.hasLoaded = false; // 没有加载
+            images.appendChild(li);
+        }
+        lazyload();
+        //将 index 的值指向下一个
+        index = end;
+        //如果不是第一次 则重新计算scroll-bar的高度
+        if (!isFirst) {
+            //重新计算 scroll-bar 的高度
+            touchscroll.init();
+        }
+        isFirst = false;
+    }
+    createLi();
+
+    //touchscoll
+    var touchscroll = new Touchscroll('#main', '#content', {
+        move: function () {
+            //修改状态变量的值
+            isScroll = true;
+            //懒加载
+            lazyload();
+            //文字大小的改变   font-size  10px -> 20px   scale  0 ->  1
+            // 计算获得当前的比例
+            var minTranslateY = -(content.offsetHeight - main.offsetHeight);
+            var currentTranslateY = transformCSS(content, 'translateY');
+            if (currentTranslateY < minTranslateY) {
+                //获取距离差
+                var disX = minTranslateY - currentTranslateY;
+                // var scale = disX / bottom.offsetHeight > 1 ? 1 : disX / bottom.offsetHeight;
+                var scale = Math.min(disX / bottom.offsetHeight, 1);
+
+                transformCSS(bottom, 'scale', scale);
+            }
+        },
+        //touchend事件回调
+        end: function () {
+            isScroll = false;
+            //检测当前的位置
+            var minTranslateY = -(content.offsetHeight - main.offsetHeight);
+            var currentTranslateY = transformCSS(content, 'translateY');
+            var disX = minTranslateY - currentTranslateY;
+            if (disX > bottom.offsetHeight) {
+                createLi();
+            }
+        }
+    });
+
+    // 懒加载
+    function lazyload() {
+        //获取 li 元素
+        var lis = images.querySelectorAll('li');
+        //遍历数组
+        lis.forEach(function (li) {
+            //判断li是否已经加载
+            if (li.hasLoaded) return;
+            //获取尺寸  滚动距离
+            var contentTranslateY = Math.abs(transformCSS(content, 'translateY'));
+            //获取可见区域的高度
+            var mainHeight = main.offsetHeight;
+            //获取元素距离父级元素顶部的距离
+            var liTop = li.offsetTop;
+
+            if (liTop < mainHeight + contentTranslateY - 10 && (liTop + li.offsetHeight) > contentTranslateY) {
+                //模拟真实的网络情况 延时
+                setTimeout(function () {
+                    //这里加载图片
+                    var img = document.createElement('img');
+                    //获取 src
+                    var src = li.dataset.src;
+                    img.src = src;
+                    //如果图片加载完毕  设置图片的透明度为 1
+                    img.addEventListener('load', function () {
+                        img.style.opacity = 1;
+                    });
+                    //图片加载失败事件
+                    img.addEventListener('error', function () {
+                        img.src = './img/noimage.png';
+                    });
+                    //将 img 插入到 li中
+                    li.appendChild(img);
+                }, 1000);
+
+                li.hasLoaded = true;
+            }
+        });
+    }
+
+    //点击显示 大图
+    /*var lis = images.querySelectorAll('li');
+    lis.forEach(function(li){
+        li.addEventListener('touchend', function(e){
+            //判断是否正在滚动中.....
+            if(isScroll) return;
+
+            //1. 让图片切换为当前点击的那张图
+            bimage.src = this.dataset.src;
+
+            //2. 大图预览区 缩放显示
+            transformCSS(preview, 'scale', 1);
+        });
+    });*/
+    //事件委托
+    images.addEventListener('touchend', function(e){
+        console.log(e);
+        //检测是否在滚动中....
+        if(isScroll) return;
+        //检测事件源是否为 图片
+        if(e.target.nodeName === 'IMG'){
+            //获取目标元素的 img src
+            var src = e.target.src;
+            //大图设置 src 属性
+            bimage.src = src;
+            //预览区显示
+            transformCSS(preview, 'scale', 1);
+            var x = e.changedTouches[0].clientX;
+            var y = e.changedTouches[0].clientY;
+            //设置变形的起始点
+            preview.style.transformOrigin = x+'px '+y+'px';
+        }
+    });
+
+    //点击关闭预览
+    close.addEventListener('touchstart', function(){
+        transformCSS(preview,'scale', 0);
+		transformCSS(bigImage, 'scale', 1);
+		transformCSS(bigImage, 'rotate', 0);
+    });
+	
+	//大图的缩放与旋转
+	var touchview = new Touchview(bigImage);
+</script>
+</body>
+</html>

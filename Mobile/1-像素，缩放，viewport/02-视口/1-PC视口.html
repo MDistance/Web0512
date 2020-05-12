@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视口相关的尺寸</title>
+    <style>
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //获取可视区域的宽度
+    console.log(document.documentElement.clientWidth);
+
+    //获取可视区域的宽度  包含滚动条宽度
+    console.log(window.innerWidth);
+
+    //包含外侧的阴影
+    console.log(window.outerWidth);
+
+    //获取屏幕的宽度
+    console.log(screen.width);
+</script>
+</body>
+</html>

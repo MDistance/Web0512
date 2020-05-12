@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/*根标签的字体大小*/
+#app {
+  padding: 1.96rem 0.69333333rem 0rem;
+  /*头部*/
+  /*内容*/
+}
+#app header {
+  width: 8.61333333rem;
+  height: 3.86666667rem;
+  background: #76D1A7;
+}
+#app section {
+  padding-top: 0.57333333rem;
+  display: flex;
+  justify-content: space-between;
+}
+#app section .left {
+  width: 1.68rem;
+  height: 5.42666667rem;
+  background: #c464a5;
+}
+#app section .right {
+  width: 6.34666667rem;
+  height: 8.66666667rem;
+  background: #697cc3;
+}
+/*# sourceMappingURL=app.css.map */

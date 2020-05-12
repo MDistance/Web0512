@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击穿透方法二-2</title>
+    <script src="https://cdn.bootcss.com/holder/2.9.6/holder.min.js"></script>
+    <style>
+        #banner {
+            width: 300px;
+            margin: 100px auto 10px;
+        }
+
+        nav {
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between
+        }
+
+        .item {
+            width: 20%;
+            float: left;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        #zhezhao {
+            position: absolute;
+            left: 0px;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            text-align: center;
+            padding-top: 100px;
+            color: white;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div id="banner">
+        <a href="http://www.baidu.com"><img data-src="holder.js/100px200?bg=#521" alt=""></a>
+    </div>
+    <nav>
+        <div class="item"><img src="holder.js/100px60?bg=#98b" alt=""></div>
+        <div class="item"><img src="holder.js/100px60?bg=#98b" alt=""></div>
+        <div class="item"><img src="holder.js/100px60?bg=#98b" alt=""></div>
+        <div class="item"><img src="holder.js/100px60?bg=#98b" alt=""></div>
+    </nav>
+
+    <div id="zhezhao">
+        <h3>恭喜您充值成功</h3>
+        <p>
+            <button>点击关闭</button>
+        </p>
+    </div>
+</div>
+<script>
+    //获取按钮
+    var btn = document.querySelector('button');
+
+    btn.addEventListener('touchstart', function (e) {
+        //获取元素
+        var zhezhao = document.querySelector('#zhezhao');
+        zhezhao.style.display = 'none';
+    });
+
+    //获取 HTML 标签
+    var app = document.querySelector('#app');
+    app.addEventListener('touchstart', function(e){
+        e.preventDefault();
+    });
+</script>
+</body>
+</html>

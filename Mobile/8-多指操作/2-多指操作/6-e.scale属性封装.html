@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>e.scale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 300px;
+            height: 300px;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+<div id="box">
+    <img src="./img/test.png" alt="">
+</div>
+
+<script src="https://cdn.bootcss.com/vConsole/3.3.2/vconsole.min.js"></script>
+<script src="./js/transformCSS.js"></script>
+<script src="./js/gesture.js"></script>
+
+<script>
+
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    })
+    /**
+     * 1. 修改 scale
+     * 2. 在哪个位置修改 change 事件中
+     * 3.
+     */
+    // var res = 8**2;
+    // var res = Math.pow(8,2);
+    // console.log(res);
+    new VConsole;
+    var box = document.querySelector('#box');
+    //绑定事件
+    gesture(box, {
+        start: function (e) {
+            //手势开始时两个触点之间的距离
+            box.startDis = getDistance(e.targetTouches[0], e.targetTouches[1]);
+
+            //获取元素当前的 scale 的值
+            box.scale = transformCSS(box, 'scale');
+        },
+        change: function (e) {
+            //计算开始和结束时的触点间距
+            box.endDis = getDistance(e.targetTouches[0], e.targetTouches[1]);
+            //当前手势的比例
+            var scale = box.endDis / box.startDis;
+            //设置元素的变形样式
+            transformCSS(box, 'scale', scale * box.scale);
+        }
+
+    });
+
+    /**
+     * 函数封装 获取两个触点之间的距离
+     */
+    function getDistance(t1, t2) {
+        var disX = t1.clientX - t2.clientX;
+        var disY = t1.clientY - t2.clientY;
+
+        //计算开始和结束时的触点间距
+        return Math.sqrt(disX * disX + disY * disY);
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>独立页面</title>
+    <script src="https://cdn.bootcss.com/holder/2.9.6/holder.min.js"></script>
+    <link rel="stylesheet" href="./css/app.css">
+    <style>
+        #test{
+            width:200px;
+        }
+    </style>
+</head>
+<body>
+<div id="huandengpian">
+    <div class="swiper-wrapper">
+        <div class="swiper-item"><img src="holder.js/100px300?bg=#852&text=鹅鹅鹅" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px300?bg=#a56&text=曲项向天歌" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px300?bg=#e98&text=白毛浮绿水" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px300?bg=#b23&text=红掌拨清波" alt=""></div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+
+<div id="abc">
+    <div class="swiper-wrapper">
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#26b&text=222" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#a68&text=333" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#b96&text=444" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#c52&text=555" alt=""></div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+
+<div id="test">
+    <div class="swiper-wrapper">
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#26b&text=222" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#a68&text=333" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#b96&text=444" alt=""></div>
+        <div class="swiper-item"><img src="holder.js/100px150?bg=#c52&text=555" alt=""></div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+</div>
+
+<script src="./js/transformCSS.js"></script>
+<script src="./js/swiper.js"></script>
+
+<script>
+    new Swiper('#huandengpian');
+    new Swiper('#abc',{
+        loop: true,
+        auto: true,
+        dots: true
+    });
+
+    new Swiper('#test',{
+        loop: true,
+        auto: true,
+        dots: true
+    });
+</script>
+</body>
+</html>

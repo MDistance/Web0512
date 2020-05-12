@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+<body>
+<img id="one" src="https://picsum.photos/id/234/300/300" alt="">
+<br>
+<img id="two" src="https://picsum.photos/id/345/300/300" alt="">
+<script src="./js/transformCSS.js"></script>
+<script src="./js/gesture.js"></script>
+<script src="./js/touchview.js"></script>
+<script>
+    document.documentElement.addEventListener('touchstart', function(e){
+        e.preventDefault();
+    }, {
+        passive: false
+    })
+
+    new Touchview('#one');
+    new Touchview('#two');
+</script>
+</body>
+</html>

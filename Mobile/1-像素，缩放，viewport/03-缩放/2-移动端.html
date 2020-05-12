@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四大天王</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #info {
+            clear: both;
+            border: solid 1px #09a;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><img src="./images/liudehua.jpg" alt=""></li>
+    <li><img src="./images/liming.jpg" alt=""></li>
+    <li><img src="./images/zhangxueyou.jpg" alt=""></li>
+    <li><img src="./images/guofucheng.jpg" alt=""></li>
+</ul>
+<div id="info"></div>
+<script>
+    console.log(document.documentElement.clientWidth);
+
+
+    //使用定时器
+    setInterval(function () {
+        //显示宽度
+        var info = document.querySelector('#info');
+        info.innerHTML = '布局视口的宽度' + document.documentElement.clientWidth + '<br>视觉视口的宽度' + window.innerWidth
+    }, 100);
+</script>
+</body>
+</html>

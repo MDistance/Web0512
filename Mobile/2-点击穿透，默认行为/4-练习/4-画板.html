@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画板</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas></canvas>
+
+<script>
+    document.documentElement.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+    }, {
+        passive: false
+    });
+
+    //获取 canvas 标签
+    var canvas = document.querySelector('canvas');
+    //设置宽度和高度
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+
+    //获取画笔对象
+    var ctx = canvas.getContext('2d');
+
+    //触摸开始事件
+    canvas.addEventListener('touchstart', function(e){
+        //开启抬笔
+        ctx.beginPath();
+        //将画笔移动到指定的位置
+        ctx.moveTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+    });
+
+    canvas.addEventListener('touchmove', function(e){
+        //绘制线段
+        ctx.lineTo(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
+        //描边
+        ctx.stroke();
+    });
+
+</script>
+</body>
+</html>
