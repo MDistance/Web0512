@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = 10;
+			var b = 'zhaoliying';
+			
+			//第一步：把数据封装为对象
+			
+			var obj = {
+				a:a,
+				b:b
+			}
+			
+			//第二步：把对象转化为JSON串  ,然后通过我们的ajax就可以把这个json数据传给后端
+			var result = JSON.stringify(obj);
+			console.log(result);
+			
+			
+			//假设后端给我们传回来的数据，那也必须是json数据格式，如果我们想要解析数据，就是上面的逆运算
+			
+			//先把后端传过来的json串转化为前端里面的对象或者对象的数组，然后进行操作
+			
+			
+			console.log(JSON.parse(result).b);
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

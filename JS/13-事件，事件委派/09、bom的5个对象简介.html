@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//浏览器窗口设置大小的时候发生的事件；
+			//window对象
+			window.onresize = function(){
+				console.log(document.documentElement.clientWidth);
+				console.log(screen.width);
+				console.log(screen.height);
+			}
+
+			//location对象，描述页面的地址
+			//可以读取网址也可以设置网址立即跳转
+//			console.log(location.href);
+//			location.href = 'https://www.baidu.com';
+			
+			//history
+//			history.back();//回退一页
+//			history.forward();//前进一页
+//			history.go();//传递参数,跳转到哪一页
+			
+			//navigator 
+			console.log(navigator.appName);//当前浏览器的名称，高级浏览器都是网景
+			console.log(navigator.appVersion);//当前浏览器的版本信息
+			
+			//screen
+//			console.log(screen.width);
+//			console.log(screen.height);
+			
+		</script>
+	</body>
+</html>

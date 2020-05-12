@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//递归是一把双刃剑，用好了就很好，用不好程序就会带来不可挽回的结果；
+			//因此递归函数，不是随便在自己内部调自己的
+			//想要构成递归：必须符合2个条件：
+					//1、递归函数必须有一个明显的结束条件
+					//2、递归必须有一个趋近于结束条件的趋势；
+			
+//			function fn(){
+//				console.log('i love you~ zhao li ying~');
+//				fn();
+//			}
+//			
+//			fn();
+
+
+
+			//使用递归函数求阶乘
+			function factorial(n){
+				//结束条件
+				if(n <= 1){
+					return 1;
+				}
+				return n * factorial(n - 1);
+			}
+			
+			var result = factorial(5);
+			console.log(result);
+			
+//			5!    5*4!
+//			4!    4*3!
+			
+			
+			
+
+		</script>
+	</body>
+</html>

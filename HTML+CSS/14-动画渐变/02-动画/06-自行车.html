@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 130px;
+				height:130px;
+				border: 1px solid #000;
+				margin: 200px auto;
+				background: url(img/bike.png) no-repeat 0 0;
+				animation: donghua .5s steps(32) infinite;
+			}
+			@keyframes donghua{
+				from{
+					background-position-y: 0;
+				}
+				to{
+					background-position-y: -4160px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

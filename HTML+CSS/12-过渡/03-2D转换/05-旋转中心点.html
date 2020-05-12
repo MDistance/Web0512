@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 252px;
+				height: 300px;
+				border:1px solid #000;
+				margin: 100px auto ;
+			}
+			img{
+				display: block;
+				transition: all 2s;
+				/*
+				  旋转中心点: 水平 left  center(默认值) right
+							 垂直  top   center(默认值) bottom
+							
+				 */
+				/* transform-origin: right center ; */
+				/*  水平和垂直可以用数值 */
+				transform-origin: 60px 40px ;
+			}
+			div:hover img{
+				transform: rotate(360deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<img src="img/huge.jpg" >
+		</div>
+	</body>
+</html>

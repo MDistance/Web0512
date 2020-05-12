@@ -1,0 +1,106 @@
+/* 基础设置 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl,
+input,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* 
+		当前字号的百分比
+	 */
+	font-size: 100%;
+}
+
+i,
+em {
+	font-style: normal
+}
+
+a,
+s,
+del,
+u,
+ins {
+	text-decoration: none;
+}
+
+/* 去除轮廓线 */
+input,
+button {
+	outline: none;
+}
+
+table,
+td,
+th {
+	border: 1px solid red;
+}
+
+table {
+	width: 300px;
+	height: 300px;
+	/* 
+		单元格与单元格之间的间距  相当于是 cellspacing属性
+	 */
+	border-spacing: 0;
+	/* 1px边框 */
+	border-collapse: collapse;
+}
+
+img {
+	/* 底部4px留白 */
+	display: block;
+}
+
+/*
+	伪类方式
+ */
+.clearfix:after {
+	content: "";
+	clear: both;
+	display: block;
+	height: 0;
+}
+
+
+/* 风格设置 */
+body {
+	
+	color: #6C6C6C;
+	background: #eff0f4;
+}
+
+a {
+	/* color: #6C6C6C; */
+	text-decoration: none;
+}
+
+a:hover {
+	/* color: #f40; */
+}
+
+
+
+

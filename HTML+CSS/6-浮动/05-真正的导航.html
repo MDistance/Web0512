@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.nav{
+				width: 610px;
+				margin: 0 auto;
+			}
+			.nav ul li{
+				/* width: 300px;
+				height: 300px; */
+				border:1px solid #000;
+				float:left;
+				margin: 10px;
+			}
+			.nav ul li a{
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				color:#fff;
+				text-decoration: none;
+				background: red;
+				text-align: center;
+				/*
+				 三种方式的共同点是设置宽高起作用,不同点排列方式,但是对于li来说,只有一个子元素a,
+				 li的大小被a撑开,不牵扯排列方式
+				 */
+				/* 
+				   块级是最好的显示模式
+				 */
+				display: block;
+			/* 		float:left; */
+			/* 	display:inline-block; */
+			}
+			.nav ul li a:hover{
+				color:yellow;
+				background: green;
+			}
+			.footer{
+				height: 300px;
+				background: greenyellow;
+			}
+			/*
+				伪类方式
+			 */
+			.clearfix:after{
+				content:"";
+				clear:both;
+				display: block;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			将多个a标签排列在一起,搜索引擎会认为是在作弊,叫做关键词堆砌
+		 -->
+		 <div class="nav">
+			 <!-- 给浮动元素的父亲标签设置clearfix -->
+			 <ul class="clearfix">
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航1</a>
+					<!-- <a href="##">导航2</a> -->
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				 <li>
+					 <a href="##">导航</a>
+				 </li>
+				
+			 </ul>
+		 </div>
+		 <div class="footer"></div>
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 200px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			赵丽颖，我爱你~
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				
+				var box = document.getElementById('box');
+				
+				box.onmousedown = function(event){
+					event = event || window.event;
+					//鼠标点下 获取鼠标的初始位置，和元素的初始位置；
+					var eleX = box.offsetLeft;
+					var eleY = box.offsetTop;
+					var startX = event.clientX;
+					var startY = event.clientY;
+					
+					//全局捕获意思是，当这个事件发生后，将鼠标之后的所有事件全部捕获到元素身上。和其它的功能无关
+					//专门针对ie低版本浏览器在拖拽有文本的时候出现禁止拖拽的问题；
+					box.setCapture && box.setCapture();
+					
+					//添加移动事件
+					//添加的move事件如果放在元素身上，鼠标移动过快，就会跑出元素，因为计算速度跟不上鼠标；
+					//因为鼠标移出去，移动事件就不会发生在元素身上，因此元素就不会再去移动
+					//所以我们把事件添加在document身上，这样的话，即使鼠标移出元素，移动事件还是会触发。
+					//元素最终还是会跟着移动
+					
+					//这里我们利用了事件冒泡,事件无论是发生在元素身上还是发生在元素外部，都会冒泡到document身上，这样
+					//document添加事件监听，就可以在事件处理回调当中去处理box元素了；
+					document.onmousemove = function(event){
+						event = event || window.event;
+						//拿鼠标每一次移动的结束位置
+						var endX = event.clientX;
+						var endY = event.clientY;
+						
+						//根据每一次移动的鼠标结束位置和初始位置求出鼠标距离差
+						var disX = endX - startX;
+						var disY = endY - startY;
+						
+						//求出元素每一次移动的最终位置
+						var lastX = eleX + disX;
+						var lastY = eleY + disY;
+						
+						//设置最终位置之前，要去限定临界值
+						
+						if(lastX > document.documentElement.clientWidth - box.offsetWidth - 50){
+							lastX = document.documentElement.clientWidth - box.offsetWidth
+						}else if(lastX < 50){
+							lastX = 0;
+						}
+						
+						if(lastY > document.documentElement.clientHeight - box.offsetHeight - 50){
+							lastY = document.documentElement.clientHeight - box.offsetHeight
+						}else if(lastY < 50){
+							lastY = 0;
+						}
+						
+						
+						//设置给元素对应的left和top
+						box.style.left = lastX + 'px';
+						box.style.top = lastY + 'px';
+						
+						
+						
+						//
+							//设置完之后，去判断元素是否和图片发生碰撞，进行更换图片；
+						//因为设置之前，虽然能判断元素距离是否和图片会发生碰撞不会，但是真正元素并没有移动，也就是没有真正的碰撞发生；
+						var boxL = lastX + box.offsetWidth;
+						var boxT = lastY + box.offsetHeight;
+						var boxR = lastX;
+						var boxB = lastY;
+						
+						var imgL = imgNode.getBoundingClientRect().left;//只能读不能写
+						var imgT = imgNode.getBoundingClientRect().top;
+						var imgR = imgL + imgNode.offsetWidth;
+						var imgB = imgT + imgNode.offsetHeight;
+						
+						
+						
+						if(boxL < imgL || boxT < imgT || boxR > imgR || boxB > imgB){
+							//碰不上
+							imgNode.src = 'img/2.jpg';
+						}else{
+							imgNode.src = 'img/3.jpg';
+						}
+						
+					}
+					
+					//鼠标抬起之后要去解绑鼠标移动事件，因为pc端鼠标移动事件不会自动解绑
+					document.onmouseup = function(){
+						document.onmousemove = document.onmouseup =  null;
+						//全局捕获有添加就有释放；
+						box.releaseCapture&&box.releaseCapture()
+					}
+					
+					
+					
+					//取消浏览器默认行为；
+					//dom0事件和dom2事件方法有所不同
+					//如果你用的是dom0事件，要取消浏览器默认行为，事件最后加return false
+					//如果你用的是dom2事件，事件当中要使用一个方法去取消浏览器默认行为；event.preventDefault();
+					
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

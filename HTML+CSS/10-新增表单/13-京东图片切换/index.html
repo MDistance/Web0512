@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.box{
+				width: 805px;
+				height: 590px;
+				/* background: pink; */
+				margin: 10px auto 0;
+			}
+			.box-t{
+				width: 805px;
+				height: 506px;
+				position: relative;
+			}
+			.box-t img{
+				width: 805px;
+				height: 506px;
+				display: block;
+			}
+			.box-t>li{
+				position: absolute;
+				left:0;
+				top:0;
+			}
+			/* 由于定位在层级相同时,后写的标签压在先写上面,所以提高第一个li的层级 */
+			.box-t>li:first-child{
+				z-index: 1;
+			}
+			.box-b{
+				margin-top: 5px;
+				overflow: hidden;
+			}
+			.box-b li{
+				float:left;
+				margin-right: 5px;
+			}
+			.box-b li a img{
+				display: block;
+				width: 130px;
+				height: 80px;
+			}
+			.box-b li:last-of-type{
+				margin: 0;
+			}
+			/*
+				利用锚点链接,目标到标签上,实现target伪类中的属性
+			 */
+			.box-t li:target{
+				z-index: 2;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="box-t">
+				<li id="jd01">
+					<a href="##">
+						<img src="img/jd001.jpg" >
+					</a>
+				</li>
+				<li id="jd02">
+					<a href="##">
+						<img src="img/jd002.jpg" >
+					</a>
+				</li>
+				<li id="jd03">
+					<a href="##">
+						<img src="img/jd003.jpg" >
+					</a>
+				</li>
+				<li id="jd04">
+					<a href="##">
+						<img src="img/jd004.jpg" >
+					</a>
+				</li>
+				<li id="jd05">
+					<a href="##">
+						<img src="img/jd005.jpg" >
+					</a>
+				</li>
+				<li id="jd06">
+					<a href="##">
+						<img src="img/jd006.jpg" >
+					</a>
+				</li>
+			</ul>
+			<ul class="box-b">
+				<li>
+					<a href="#jd01">
+						<img src="img/jd001.jpg" >
+					</a>
+				</li>
+				<li>
+					<a href="#jd02">
+						<img src="img/jd002.jpg" >
+					</a>
+				</li>
+				<li>
+					<a href="#jd03">
+						<img src="img/jd003.jpg" >
+					</a>
+				</li>
+				<li>
+					<a href="#jd04">
+						<img src="img/jd004.jpg" >
+					</a>
+				</li>
+				<li>
+					<a href="#jd05">
+						<img src="img/jd005.jpg" >
+					</a>
+				</li>
+				<li>
+					<a href="#jd06">
+						<img src="img/jd006.jpg" >
+					</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

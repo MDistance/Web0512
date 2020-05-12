@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			input{
+				outline: none;
+			}
+			img{
+				display: block;
+			}
+			ul,li{
+				list-style: none;
+			}
+			.clearFix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript" src="js/jquery-1.10.1.js">
+			
+		</script>
+		<script type="text/javascript">
+//			function fn(){};//字面量
+//			var fn = function(){};//函数表达式定义
+//			fn();
+//			此处省略100行代码
+			fn();
+			
+			//函数表达式，没有名字，没办法进行调用，但是没有名字我们可以自己调用
+			
+//			function(){
+//				console.log('i love you~');
+//			}
+			//匿名函数自调用表达式
+			
+			//特点：
+//				定义的时候就执行了;
+//				只能执行一次,以后想再执行,没门;
+//				匿名函数自调用不会发生预解析;
+			//作用：
+				//1、通常用来对项目进行初始化用的；
+				//2、用来防止命名空间被污染；
+				//3、封装代码，隐藏代码的实现
+				
+			
+				
+			//下面虽然我们写了两个一模一样的匿名函数，但是他们是不同的函数
+			//要想函数两次是调用的同一个，必须是有名函数；
+//			(function(){
+//				console.log('i love you~');
+//			})();
+//			
+//			
+//			(function(){
+//				console.log('i love you~');
+//			})();
+			
+			
+			
+			//匿名函数防止命名空间被污染；
+			var a = 10;
+			var b = 20;
+			function add(a,b){
+				return a + b;
+			}
+			var a = 'zhaoliying';
+			add(a,b);
+			
+
+			 
+			(function(){
+				var a = 10;
+				var b = 20;
+				function add(a,b){
+					return a + b;
+				}
+				
+				add(a,b);
+			})();
+			
+		
+			
+			
+		</script>
+	</body>
+</html>

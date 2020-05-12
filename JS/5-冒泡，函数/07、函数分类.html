@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//无参无返回值  (一般打印特定的东西或者给项目分模块的时候用到)
+			function printLove(){
+				for(var i = 0; i < 100; i++){
+					console.log('i love you!');
+				}
+			}
+			
+			printLove();
+			
+			
+			//有参无返回值(给某个事物设置一个属性值)
+			function printLove(n){
+//				return;
+				for(var i = 0; i < n; i++){
+					console.log('i love you!');
+				}
+			}
+			
+			printLove(10);
+			
+			
+			
+			//无参有返回值；
+			//求3和2的和
+			function add(){
+				return 3 + 2;
+			}
+			
+			
+			//有参有返回值(通常我们见到的都是有参有返回值的；)
+			
+			function add(a,b){
+				return a +b;
+			}
+			var result = add(10,8);
+			
+		</script>
+	</body>
+</html>

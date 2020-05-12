@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			img{
+				display: block;
+				width: 100px;
+				height: 80px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<img src="img/9.jpg" />
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var imgNode = document.querySelector('img');
+				document.addEventListener('mousemove',function(event){
+					event = event || window.event;
+					//鼠标跟随其实就是拿到鼠标的位置设置给图片
+	//				console.log(event.clientX,event.clientY);
+	//				console.log('i love you~');
+					imgNode.style.left = event.clientX + 'px';
+					imgNode.style.top = event.clientY + 'px';
+				});
+			}
+			
+		</script>
+	</body>
+</html>

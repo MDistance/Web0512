@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 300px;
+				height: 200px;
+				border: 1px solid #000;
+				display: flex;
+			}
+			.box span:nth-of-type(1){
+				background: red;
+			}
+			.box span:nth-of-type(2){
+				background: blue;
+			}
+			.box span:nth-of-type(3){
+				background: yellow;
+				/* 弹性元素显示顺序: 按照文档流的顺序,最后按照顺序显示设置order的元素*/
+				order: 1;
+			}
+			.box span:nth-of-type(4){
+				background: palevioletred;
+				order: 2;
+			}
+			.box span:nth-of-type(5){
+				background: goldenrod;
+				order: 3;
+			}
+			.box span:nth-of-type(6){
+				background: skyblue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+			<span>6</span>
+		</div>
+	</body>
+</html>

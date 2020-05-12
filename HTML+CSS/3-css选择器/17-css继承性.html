@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * css继承性: 标签可以继承祖先所有关于设置文本的属性,优先继承最近的父辈元素,
+			 * 			  继承的权重是0
+			 */
+			.box{
+				color:red !important;
+				font-size: 30px;
+				font-weight: 700;
+				text-align: center;
+				width: 500px;
+				height: 500px;
+				background: gray;
+			}
+			.s1{
+				color:blue;
+			}
+			.s2{
+				color:pink;
+			}
+			/*span{
+				color:yellow;
+			}
+			span{
+				color:green;
+			}*/
+			p{
+				color:gold;
+			}
+			b{
+				color:deeppink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span class="s1">我是span</span>
+			<span class="s2">我是span</span>
+			<p>我是段落
+				<b>加粗</b>
+			</p>
+			<i>我是倾斜</i>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,136 @@
+/*
+ * 基础初始化
+ */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+dl,
+p,
+form,
+input,
+button {
+	margin: 0;
+	padding: 0;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/*
+	 *  当前父元素字号的百分比
+	 */
+	font-size: 100%;
+}
+
+b,
+strong {
+	font-weight: 400;
+}
+
+i,
+em {
+	font-style: normal;
+}
+
+u,
+ins,
+s,
+del {
+	text-decoration: none;
+}
+
+table {
+	/*border:1px solid red;
+	width:300px;
+	height: 300px;*/
+	/* 单元格与单元格之间的间距*/
+	border-spacing: 0;
+	/* 1px边框*/
+	border-collapse: collapse;
+}
+
+input,
+button {
+	/* 去除轮廓线*/
+	outline: none;
+}
+
+
+/*
+			 * img底部4px留白
+			 * 解决方案:
+			 */
+
+img {
+	display: block;
+}
+
+.clearfix:after {
+	content: '.';
+	clear: both;
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+
+
+/*
+ * 风格设置
+ */
+
+body {
+	/* 字体可以有多个,按照顺序优先,当计算机有某个字体,优先使用*/
+	font: 12px/1.5 tahoma, arial, \5b8b\4f53;
+	color: #6C6C6C;
+}
+
+a {
+	color: #6C6C6C;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #f40;
+}
+
+.fontF40 {
+	color: #f40 !important;
+}
+
+
+/*图标字体*/
+
+@font-face {
+	font-family: 'iconfont';
+	src: url('../font/iconfont.eot');
+	/* IE9*/
+	src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../font/iconfont.woff') format('woff'), /* chrome、firefox */
+	url('../font/iconfont.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	url('../font/iconfont.svg#iconfont') format('svg');
+	/* iOS 4.1- */
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 12px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-stroke-width: 0.2px;
+	-moz-osx-font-smoothing: grayscale;
+}

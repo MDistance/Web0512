@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			//区别1 绑定次数不用
+			//dom0绑定同样的类型的事件只能绑定一次，如果多次绑定后面会覆盖前面
+			var box = document.getElementById('box');
+			
+//			box.onclick = function(){
+//				console.log('i love you~');
+//			}
+//			
+//			box.onclick = function(){
+//				console.log('i hate you~');
+//			}
+			
+			////dom2绑定同样的类型的事件可以多次绑定，触发事件后事件回调会从上到下依次执行；
+			box.addEventListener('click',function(){
+				console.log('i love you~');
+			})
+			
+			box.addEventListener('click',function(){
+				console.log('i hate you~');
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

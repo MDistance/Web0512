@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				/*
+				 * 转换成行内块显示模式
+				 */
+				display: inline-block;
+			}
+			span{
+				width:200px;
+		        height:200px;
+		        background: green;
+				font-size: 30px;
+				/*
+				 * 转换成行内块显示模式
+				 */
+				display: inline-block;
+			}
+			img{
+				/*
+				 * 转换成块级显示模式
+				 */
+				display: block;
+			}
+			b{
+				/*
+				 * 转换成块级显示模式
+				 */
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			显示模式转换: 显示属性:display
+			其它显示模式转换成行内块显示模式: display:inline-block;
+			其它显示模式转成块级显示模式:diplay:block;
+		-->
+		<div></div>
+		<div></div>
+		<span>我是span</span>
+		<span>我是span</span>
+		<img src="linzhiling.jpg"/>
+		<img src="liuzhiyuan.jpg"/>
+		<b>加粗</b>
+	</body>
+</html>

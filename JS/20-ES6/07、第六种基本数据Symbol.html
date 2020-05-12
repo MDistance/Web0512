@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义一个symbol值
+			let s1 = Symbol('one');
+			let s2 = Symbol('two');
+			console.log(s1);
+			console.log(s2);
+			console.log(typeof s1);
+			console.log(s1 == s2);
+			
+			
+			
+			//symbol值是唯一的，所以任何的运算都是不行的，它主要用来给对象添加唯一属性用
+			//给对象用symbol值作为属性添加数据之后，这个数据是绝对不会影响其它的属性值的；
+			
+			
+			let obj = {
+				name:'zly',
+				age:32,
+			}
+			
+			obj[s1] = 'haha';
+			obj[s2] = 'heihei';
+			
+			
+			//console.log(obj['Symbol()']);//for in, for of遍历时不会遍历symbol属性,正常也访问不了；
+			//虽然不能正常访问，可以非正常访问；
+			//但是对象的这个属性不能简单的访问了，如果要获取必须使用Object.getOwnPropertySymbols(obj)
+			
+//			let arr = Object.getOwnPropertySymbols(obj);
+//			console.log(arr);
+//			console.log(obj[arr[0]],obj[arr[1]]);
+			
+			
+			
+			
+			
+			//Symbol.iterator方法是提供数据可以使用for of循环的本质；
+			//如果一个数据 有Symbol.iterator方法，就代表可以使用for of ，没有就不行；
+			//...运算符和它也有关系，能使用for of就可以使用...拆包  不能for of就不能...去拆包
+			
+			
+			let arr1 = [1,2,3];
+			console.log(arr1); //可以使用for of
+			
+			let obj1 = {
+				a:100,
+				b:200
+			}
+			
+			console.log(obj1);//对象不可以使用for of
+			
+			for(let value of obj1){
+				console.log(value);
+			}
+			
+			
+		</script>
+	</body>
+</html>

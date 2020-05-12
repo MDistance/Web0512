@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 简单选择器:
+			 * 标签选择器  类选择器  id选择器
+			 * 复合选择器:
+			 * 后代选择器: 将之前的简单选择器结合使用,通过祖先空格后代的方式,根据权重值来设置
+			 * 			   标签的样式
+			 * 
+			 * 权重:
+			 * 标签选择器<类选择器<id选择器<行内式<!important 
+			 *     1       10      100    1000     无穷大
+			 */
+			/*h1{
+				color:red;
+			}*/
+			/*.laoliu{
+				color:red;
+			}
+			.h5{
+				color:gold
+			}*/
+			/*.web h1{
+				color:red;
+			}
+			.web h3{
+				color:yellowgreen;
+			}
+			.web .bz{
+				color:blue;
+			}
+			.web span{
+				color:gray;
+			}*/
+			i{
+				color:deeppink !important;
+			}
+			.girl{
+				color:blue;
+			}
+			.web i{
+				color:gold;
+			}
+			.web h3 i{
+				color:red;
+			}
+			.web .girl{
+				color:mediumspringgreen;
+			}
+			.web h3 .girl{
+				color:skyblue;
+			}
+			.java h3{
+				color:yellow;
+			}
+			.java .bz{
+				color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="web">
+			<span>儿子span</span>
+			<h1>老刘
+				<span>孙子span</span>
+			</h1>
+			<h3 class="bz">班长
+				<i class="girl">女朋友</i>
+			</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+			<h3>前端学员</h3>
+		</div>
+		<div class="java">
+			<h1>老王</h1>
+			<h3>java学员</h3>
+			<h3>java学员</h3>
+			<h3 class="bz">java学员</h3>
+			<h3>java学员</h3>
+			<h3>java学员</h3>
+		</div>
+		<div>
+			<h1>老李</h1>
+			<h3>大数据学员</h3>
+			<h3>大数据学员</h3>
+			<h3>大数据学员</h3>
+			<h3>大数据学员</h3>
+			<h3>大数据学员</h3>
+		</div>
+	</body>
+</html>

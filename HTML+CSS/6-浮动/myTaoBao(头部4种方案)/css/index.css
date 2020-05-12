@@ -1,0 +1,30 @@
+.header-wrap{
+	height: 35px;
+	background:#f5f5f5;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 5px;
+}
+.header{
+	width: 1190px;
+	height: 35px;
+	/* background: pink; */
+	margin: 0 auto;
+}
+.header .list-l{
+	float:left;
+}
+.header .list-l li{
+	float:left;
+	border:1px solid blue;
+}
+.header .list-l li a{
+	line-height: 35px;
+	display: block;
+	border:1px solid red;
+}
+
+
+
+.header .list-r{
+	float:right;
+}

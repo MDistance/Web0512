@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*input{
+				color: rgb(1,1,1);
+			}*/
+		</style>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入您的用户名" value="赵丽颖"/>
+		
+		<script type="text/javascript">
+			var inputNode = document.querySelector('input');
+			
+			inputNode.onfocus = function(){
+				inputNode.style.color = 'red';
+				inputNode.style.backgroundColor = 'green';
+			}
+			
+			
+			inputNode.onblur = function(){
+				var red1 =Math.floor(Math.random()*256); 
+				var green1 =Math.floor(Math.random()*256);
+				var blue1 =Math.floor(Math.random()*256);
+				var red2 =Math.floor(Math.random()*256); 
+				var green2 =Math.floor(Math.random()*256);
+				var blue2 =Math.floor(Math.random()*256);
+				
+				inputNode.style.color = 'rgb('+ red1 +','+ green1 +','+ blue1 +')';
+				inputNode.style.backgroundColor = 'rgb('+ red2 +','+ green2 +','+ blue2 +')';
+			}
+			
+		</script>
+	</body>
+</html>

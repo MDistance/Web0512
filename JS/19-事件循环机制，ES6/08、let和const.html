@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//let   以后做项目尽量使用let
+
+			
+			
+//let第一个特点			
+//			let e;
+//			e = 100;
+//			
+//			let e;
+//			e = 200;
+			
+//			console.log(e);//let定义的变量不能重复定义
+			
+			
+//let第二个特点			
+//			console.log(b);//根据浏览器版本不同报错可能不同
+//			let b = 200; //let定义的变量不会进行预解析
+			
+			
+			
+			
+//let第三个特点			
+//			if(b > 100){
+//				let c = 50; //let定义的变量具有块级作用域，外部不能使用块级作用域当中let定义的变量
+//			}
+//			
+//			console.log(c);
+			
+			
+			
+			
+			//其它和var完全一致；
+			
+			
+			
+			
+			//const
+			
+			const num = 100;//const定义的变量，里面的值无法修改，其余和let一致；
+			console.log(num);
+			num = 1000;//无法修改，修改就报错；
+			
+			
+			
+			const obj = {
+				name:'zly',
+				age:32
+			}
+			
+			obj.name = '颖宝';
+			console.log(obj);
+			
+			
+		</script>
+	</body>
+</html>

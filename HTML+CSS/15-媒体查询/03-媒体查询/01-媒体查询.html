@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+			
+			/* 
+			   媒体查询: 是css中一个条件语句,可以检测设备宽度
+			   @media定义条件的关键字,and是条件连接关键字,and前后最少有一个空格 
+			   由于媒体查询也是css,所以属性还是会遵循层叠性.
+			   通常情况下,媒体插叙写在最后
+			   
+			 */
+			/* 
+				屏幕的宽度大于等于900
+			 */
+			/* 最小宽度 */
+/* 			@media (min-width:900px){
+				div{
+					background: blue;
+					width: 500px;
+					height: 500px;
+				}
+			}  
+ */			
+			/* 屏幕的宽度小于等于1000px */
+			/* 最大宽度 */
+			/* @media (max-width:1000px) {
+				div{
+					background: green;
+				}
+			} */
+			/* 屏幕的宽度在800-1000之间,@media定义条件的关键字,and是条件连接关键字,and前后最少有一个空格 */
+		/* 	@media (min-width:800px) and (max-width:1000px) {
+				.box{
+					background: yellow;
+				}
+			} */
+			/*
+				横竖屏orientation
+				landscape 横屏
+				portrait  竖屏
+				
+				
+			 */
+			/* @media (orientation:portrait){
+				.box{
+					background: blue;
+				}
+			} */
+			/* only:只能,仅仅 */
+			/* screen:表示彩屏设备 */
+			@media only screen and (min-width:800px) and (max-width:1000px){
+				.box{
+					background: blue;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

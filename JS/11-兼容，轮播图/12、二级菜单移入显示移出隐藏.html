@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				list-style: none;
+			}
+			input{
+				outline: none;
+			}
+			img{
+				display: block;
+			}
+			.clearFix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			.list{
+				position: relative;
+				width: 300px;
+				height: 200px;
+			}
+			.list>li{
+				width: 300px;
+				height: 50px;
+				border: 1px solid skyblue;
+				background-color: hotpink;
+				border-bottom: none;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 50px;
+			}
+			.list>li:last-child{
+				border-bottom: 1px solid skyblue;
+			}
+			
+			.list>li .listIn{
+				position: absolute;
+				left: 300px;
+				top: 0;
+				width: 300px;
+				height: 200px;
+				display: none;
+			}
+			
+			.list>li .listIn li{
+				width: 300px;
+				height: 50px;
+				border: 1px solid skyblue;
+				background-color: greenyellow;
+				border-bottom: none;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 50px;
+			}
+			.list>li .listIn li:last-child{
+				border-bottom: 1px solid skyblue;
+			}
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li>
+				<a href="javascript:;">衣服</a>
+				<ul class="listIn">
+					<li>上衣</li>
+					<li>裤子</li>
+					<li>内衣</li>
+					<li>羊毛衫</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">箱包</a>
+				<ul class="listIn">
+					<li>钱包</li>
+					<li>裤子</li>
+					<li>内衣</li>
+					<li>羊毛衫</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">数码</a>
+				<ul class="listIn">
+					<li>相机</li>
+					<li>裤子</li>
+					<li>内衣</li>
+					<li>羊毛衫</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">家电</a>
+				<ul class="listIn">
+					<li>洗衣机</li>
+					<li>裤子</li>
+					<li>内衣</li>
+					<li>羊毛衫</li>
+				</ul>
+			</li>
+		</ul>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var liNodes = document.querySelectorAll('.list>li');
+				var listInNodes = document.querySelectorAll('.list>li .listIn');
+				
+				for(var i = 0; i < liNodes.length; i++){
+					
+					//把每个li对应的下标存储在当前这个li对象身上
+					liNodes[i].index = i;
+					liNodes[i].onmouseenter = function(){
+						listInNodes[this.index].style.display = 'block';
+					}
+					
+					liNodes[i].onmouseleave = function(){
+						listInNodes[this.index].style.display = 'none';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

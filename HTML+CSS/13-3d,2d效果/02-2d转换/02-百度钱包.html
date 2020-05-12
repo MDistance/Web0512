@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: pink;
+			}
+			.box{
+				width: 300px;
+				height: 300px;
+				/* border: 1px solid #000; */
+				margin: 100px auto;
+				position: relative;
+				transition: all 1s ;
+				/* 
+					开启3d空间,给3d效果元素的父元素设置
+				 */
+				transform-style: preserve-3d;
+			}
+			.box-b{
+				width: 300px;
+				height: 300px;
+				background: url(img/bg.png) no-repeat -304px bottom;
+				transform: rotateY(180deg);
+				position: absolute;
+				left:0;
+				top:0;
+				/* 当两个元素是互压状态时, 在进行旋转时,优先会选择显示上面盒子的正面和反面*/
+				/* 此时用背对屏幕不可见,让背对屏幕的元素隐藏,此时可以看到下面的元素了 */
+				/* 背对屏幕不可见 */
+				backface-visibility: hidden ;
+			}
+			.box-t{
+				width: 300px;
+				height: 300px;
+				background: url(img/bg.png) no-repeat 0 bottom;
+				position: absolute;
+				left:0;
+				top:0;
+				/* 背对屏幕不可见 */
+				backface-visibility: hidden ;
+				
+			}
+			.box:hover{
+				transform: rotateY(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="box-b"></div>
+			<div class="box-t"></div>
+		</div>
+	</body>
+</html>t

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000;
+				position: relative;
+			}
+			.two{
+				width: 100px;
+				height: 100px;
+				background: pink;
+				position: absolute;
+				left:0;
+				top:100px;
+				animation: donghua 2s 2s;
+				/* 
+					动画外属性: 在动画的开始之前和动画的结束之后
+					backwards:在动画开始之前,就已经到达开始位置
+					forwards:在动画结束后,停留在动画结束的位置
+					both:backwards和forwards
+				 */
+				animation-fill-mode: both ;
+			}
+			@keyframes donghua{
+				from{
+					top:0px;
+				}
+				to{
+					top:200px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one">
+			<div class="two"></div>
+		</div>
+	</body>
+</html>

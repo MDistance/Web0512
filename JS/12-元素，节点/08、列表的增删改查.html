@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul class="list">
+			<li>泰坦尼克号</li>
+			<li>肖申克的救赎</li>
+			<li>黑客帝国</li>
+			<li>变形金刚</li>
+			<li>复仇者联盟</li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			//在末尾加一个
+			var ulNode = document.querySelector('.list');
+			var liNode = document.createElement('li');
+//			liNode.innerHTML = '金刚狼';
+//			ulNode.appendChild(liNode);
+			
+			//在某一个前面插入一个新的
+//			liNode.innerHTML = '我和我的祖国';
+//			var beforeLi = document.querySelector('li:nth-child(4)');
+//			ulNode.insertBefore(liNode,beforeLi);
+			
+			
+			//使用新的去替换（修改）旧的
+//			liNode.innerHTML = '攀登者';
+//			var repalceLi = document.querySelector('li:nth-child(3)');
+//			ulNode.replaceChild(liNode,repalceLi);
+			
+			
+			//删除
+			var removeLi = document.querySelector('li:first-child');
+//			ulNode.removeChild(removeLi);
+			
+			
+			//删除  ie不支持
+			removeLi.remove()
+			
+			
+		</script>
+		
+		
+		
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<label>哈哈<</label>-->
+		<!--<form>-->
+			<label for="in">用户名：</label>
+			<input type="text" id="in" placeholder="请输入您的用户名" />
+		<!--</form>-->
+		
+		<script type="text/javascript">
+			var inputNode = document.querySelector('#in');
+			
+			inputNode.onkeyup = function(event){
+				//与其说讲键盘事件，不如说讲怎么区分键盘上哪一个键的事件
+				console.log(event);
+				console.log(event.keyCode);
+				
+				
+				if(event.keyCode == 38){
+					//上键的逻辑
+					console.log('哈哈');
+				}else if(event.keyCode == 40){
+					//下键的逻辑
+					console.log('呵呵');
+				}else if(event.keyCode == 13){
+					console.log('嘎嘎');//回车
+				}
+			}
+			
+			//键盘事件除了一般给表单元素添加外，document也是可以添加的，document是页面的最外层元素，只是看不到；
+//			document.onkeyup = function(event){
+//				console.log(event.keyCode);
+//				if(event.keyCode == 9){
+//					console.log('tab');
+//				}
+//			}
+			
+			
+			
+//			function add(a,b){
+//				return a + b;
+//			}
+//			
+//			add(10,8)
+			
+			
+			
+		</script>
+	</body>
+</html>

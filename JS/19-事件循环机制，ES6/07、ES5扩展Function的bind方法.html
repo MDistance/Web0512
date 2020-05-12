@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//call和apply
+			//1、改变函数的执行者this   2、执行函数
+			//bind和call还有apply很类似，只不过bind只干了一件事，bind只会改变执行者，不会自动执行
+			//bind返回的是改变了执行者this之后的函数；
+			
+			function add(a,b){
+				console.log(this);
+			}
+			add();//this  window；
+			
+			var obj = {
+				name:'zly',
+				age:32
+			}
+			
+			var result = add.bind(obj,1,2);
+			result();
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+				线性渐变: 沿着一条轴线进行渐变
+				径向渐变: 沿着圆心由内向外进行渐变
+			 */
+			.one{
+				width: 300px;
+				height: 300px;
+				/* 径向渐变: 默认从圆心到最远角的渐变 */
+				/* 形状:
+						circle 圆形  正方形永远是圆形
+						ellipse 椭圆 长方形默认是椭圆
+						长方形也可以设置成圆形
+				 */
+				background: radial-gradient(ellipse,red 20%,blue 50%);
+				margin-bottom: 10px;
+				
+			}
+			.two{
+				width: 300px;
+				height: 200px;
+				/* 径向渐变: 默认从圆心到最远角的渐变 */
+				background: radial-gradient(ellipse,red 20%,blue 50%);
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

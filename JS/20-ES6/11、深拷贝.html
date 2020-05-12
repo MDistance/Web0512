@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let arr = [1,2,3,{name:'赵丽颖',age:32}];
+//			console.log(arr);
+			let newArr = [];
+			Object.assign(newArr,arr); //浅拷贝
+//			console.log(newArr);
+			
+			
+			
+			let newArr2 = arr.concat(); //浅拷贝
+			console.log(newArr2);
+			arr[3].name = '戚薇';
+			console.log(newArr2);
+			
+			
+			
+			//深拷贝
+//			
+//			let newArr1 = [];
+//			for(let i = 0; i < arr.length; i++){
+//				if(arr[i] instanceof Object){
+//					let obj = {};
+//					for(let key in arr[i]){
+//						obj[key] = arr[i][key];
+//					}
+//					newArr1.push(obj);
+//				}else{
+//					newArr1.push(arr[i]);
+//				}
+//			}
+//			console.log(newArr1);
+//			
+//			
+//			newArr1[3].name = '杨幂';
+//			console.log(newArr1);
+
+
+
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//设置循环定时器
+			
+			var timer = null;
+			var n = 0;
+			timer = window.setInterval(function(){
+				n++;
+				console.log('i love you~ zhao li ying~');
+				//判断是否打印了10次，如果打印十次，不再打印也就是清除定时器
+				if(n == 10){
+					//清除循环定时器
+					clearInterval(timer);
+				}
+			},1000);
+			
+			
+//			var timer = null;
+//			
+//			function add(){
+//				
+//				
+//				timer = setInterval(function(){
+//					console.log('haha');
+//				},1000);
+//			}
+//			
+//			add()
+//			
+//			
+//			
+//			clearInterval(timer);
+			
+		</script>
+	</body>
+</html>

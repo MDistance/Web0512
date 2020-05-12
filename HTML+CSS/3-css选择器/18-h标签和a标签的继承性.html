@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * h标签在内部对字号进行了设置,所以在继承时,会层叠掉继承的字号值
+			 * a标签在内部对字体颜色进行了设置,所以在继承时,会层叠掉颜色的值
+			 */
+			.box{
+				font-size: 20px;
+				color:red;
+			}
+			.box h1{
+				font-size: 40px;
+				font-weight: 400;
+			}
+			.box a{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span>我是span</span>
+			<p>我是段落</p>
+			<a href="##">超链接</a>
+			<h1>标题</h1>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<script type="text/javascript">
+			window.onload = function(){
+				let btns = document.querySelectorAll('button');
+				for(let i = 0; i < btns.length; i++){
+//					btns[i].index = i;
+					btns[i].onclick = function(){
+						console.log(i);
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

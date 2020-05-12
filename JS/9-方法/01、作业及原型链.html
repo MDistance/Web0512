@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function MobilePhone(name,color,price){
+				this.name = name;
+				this.color = color;
+				this.price = price;
+//				this.brand = '华为';
+				this.eat = function(){
+					
+				}
+				return 2000000;
+			}
+			
+			Object.prototype.brand = '华为';
+			MobilePhone.prototype.playMusic = function(){
+				console.log('可以听音乐');
+			}
+			
+			
+			
+//			var m1 = MobilePhone('p30','black',3000);
+			var m1 = new MobilePhone('p30','black',3000);
+			
+			console.log(m1);
+			console.dir(MobilePhone)
+			
+			m1.name = '荣耀8';//
+			console.log(m1.brand)
+			
+			
+		</script>
+	</body>
+</html>

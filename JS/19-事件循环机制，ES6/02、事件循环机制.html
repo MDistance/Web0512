@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var timeStart = Date.now();
+			var a = 0;
+			
+			setTimeout(function(){
+				console.log(111);
+				var timeEnd = Date.now();
+				console.log(timeEnd - timeStart);
+			},5000);
+			
+			
+			setTimeout(function(){
+				console.log(222);
+				var timeEnd = Date.now();
+				console.log(timeEnd - timeStart);
+			},2000);
+			
+			
+			for(var i = 0; i < 100000; i++){
+				for(var j = 0; j < 50000; j++){
+					a++;
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

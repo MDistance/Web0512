@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p>我是一个段落</p>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				//第一种创建元素的方法：不用；
+//				document.write('<h1>哈哈</h1>');
+				//可以创建一个元素节点，但是这种用法会覆盖原来的东西
+				
+				//body,head和html 比较特殊，我们有专门的方法可以获取到他们两个
+				var bodyNode = document.body;
+				var headNode = document.head;
+				var htmlNode = document.documentElement;
+//				console.log(bodyNode,htmlNode);
+				
+				
+				//创建元素的第二种方式，还是用的比较多的；记得如果不想发生覆盖一定是+=；
+//				bodyNode.innerHTML += '<h2>哈哈</h2>';
+
+
+				//第三种方式 通过dom方法去创建元素节点,用的最多
+				
+				//第一步：先创建一个元素对象
+				var h2Node = document.createElement('h2');
+				//第二步：往元素对象当中添加你要的文本
+				h2Node.innerHTML = '哈哈';
+				//第三步：把创建好的h2元素DOM对象给添加到文档树当中
+				bodyNode.appendChild(h2Node);
+				
+				
+				
+				
+				
+				
+				
+				
+
+			
+
+			}
+			
+		</script>
+	</body>
+</html>

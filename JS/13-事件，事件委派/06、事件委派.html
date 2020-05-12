@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//第三种方式去创建
+			var arr = ['吻别','勇气','奔跑','夜上海','你的酒馆对我打了烊'];
+			
+			var ulNode = document.createElement('ul');
+			
+			ulNode.onmouseover = function(event){
+				event = event || window.event;
+				var target = event.target || event.srcElement;
+				//ul确实可以通过事件冒泡知道移入事件的触发
+				//最大的问题是，怎么找到移入的那一个li
+//				console.log(event.target);
+				//这个target是发生事件的目标元素，代表从外往内找到的最确切的那一个，最内部的那一个；
+				if(target.nodeName == 'LI'){
+					//判断发生事件的目标元素是否是我们想要处理的元素
+					target.style.backgroundColor = 'red';
+				}
+			}
+			
+			ulNode.onmouseout = function(event){
+				event = event || window.event;
+				var target = event.target || event.srcElement;
+				//ul确实可以通过事件冒泡知道移入事件的触发
+				//最大的问题是，怎么找到移入的那一个li
+//				console.log(event.target);
+				//这个target是发生事件的目标元素，代表从外往内找到的最确切的那一个，最内部的那一个；
+				if(target.nodeName == 'LI'){
+					//判断发生事件的目标元素是否是我们想要处理的元素
+					target.style.backgroundColor = '';
+				}
+			}
+			
+		
+			for(var i = 0; i < arr.length; i++){
+				//for循环只是把5个li创建好并且追到UL当中
+				var liNode = document.createElement('li');
+				liNode.innerHTML = arr[i];
+				ulNode.appendChild(liNode);	
+			}
+			
+			
+			
+			
+			
+			
+			
+			//最后我们的Ul也得追加到body当中才能生效；
+			
+			document.body.appendChild(ulNode);
+		
+		</script>
+	</body>
+</html>

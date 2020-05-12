@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 400px;
+				height: 300px;
+				display: flex;
+				border:1px solid #000000;
+			}
+			.box span{
+				width: 200px;
+				/* 
+					收缩率:
+					超出的200px/6份 = 33.3333px
+					
+					用自身的宽度-份数*(33.333px) = 当前元素的宽度
+				 */
+				flex-shrink:0 ;
+			}
+			.box span:nth-of-type(1){
+				background: red;
+				flex-shrink: 1;
+				
+			}
+			.box span:nth-of-type(2){
+				background: green;
+				flex-shrink: 2;
+				
+			}
+			.box span:nth-of-type(3){
+				background: blue;
+				flex-shrink: 3;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</body>
+</html>

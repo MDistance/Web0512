@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function Person(name,age){
+//				this.name = name;
+//				this.age = age;
+//			}
+//			
+//			
+//			Person.prototype.eat = function(){
+//				console.log('吃饭');
+//			}
+//			
+//			var p1 = new Person('zly',32);
+//			p1.eat();
+//			
+//			
+//			function Teacher(name,age,gender){
+//				Person.call(this,name,age);
+//				this.gender = gender;
+//			}
+//			
+//			Teacher.prototype = new Person();
+//			Teacher.prototype.constructor = Teacher;
+//			Teacher.prototype.eat = function(){
+//				console.log('吃肉');
+//			}
+//			
+//			var t1 = new Teacher('ly',32,'male');
+//			t1.eat();
+
+//ES6 类得定义方式(语法糖)
+			class Person{
+				
+				a = 100;//不会用得，但是如果这样写就会在Person相关得实例当中都有属性a:100
+				
+				static b = 200;//static定义得时静态变量，这个属性时专门给Person用的；
+				
+				//构造函数
+				constructor(name,age){
+					this.name = name;
+					this.age = age;
+				}
+				
+				//给实例添加方法
+				eat(){
+					console.log('吃饭');
+				}
+				
+			}
+			
+			class Teacher extends Person{//原来得原型继承方法
+				constructor(name,age,gender){
+					super(name,age);//借助构造函数去继承属性
+					this.gender = gender;
+				}
+				
+				//给实例添加方法
+				eat(){
+					console.log('吃肉');
+				}
+			}
+			var p1 = new Person('zly',32);
+			var t1 = new Teacher('ly',32,'male');
+			console.log(t1,p1);
+			p1.eat();
+			t1.eat();
+			
+//			console.log(Person.eat(),Person.b);
+		</script>
+	</body>
+</html>

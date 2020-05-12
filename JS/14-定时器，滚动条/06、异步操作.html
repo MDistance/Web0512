@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//任何的回调都是异步执行的;
+			//定时器时间不一定准确
+			var a = 0;
+			var timeStart = Date.now();
+			
+			setTimeout(function(){
+				console.log('i love you!');
+				var timeEnd = Date.now();
+				console.log(timeEnd - timeStart);
+			},1000);
+			
+			
+			
+			document.onclick = function(){
+				console.log('嘿嘿')
+			}
+			
+			
+			
+			//异步的操作后面不要出现耗时比较长的代码段，否则异步操作将不再准确；
+			//js是单线程的；
+			//程序  进程  线程
+			//线程是CPU调度执行的最小单元，线程是要依赖进程的，默认每个进程当中都要有一条线程，被称作主线程；
+			
+			
+			
+			
+			
+			
+			
+//			for(var i = 0; i < 100000; i++){
+//				for(var j = 0; j < 20000; j++){
+//					a++;
+//				}
+//			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

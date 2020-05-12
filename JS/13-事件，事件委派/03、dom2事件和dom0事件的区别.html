@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button>解绑</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			//区别2 事件的解绑方式不同
+			//dom0事件添加本质就是让元素对象的一个属性指向了一个函数
+			var box = document.getElementById('box');
+			var btn = document.querySelector('button');
+//			box.onclick = function(){
+//				console.log('i love you~');
+//			}
+//			
+//			//dom0解绑事件，其实就是让元素对象的这个属性所指向的函数成为垃圾对象（断开指向）
+//			btn.onclick = function(){
+//				//dom0事件的解绑非常简单
+//				box.onclick = null;
+//			}
+//			
+			
+			
+			
+			
+			//dom2事件解绑的时候给了解绑的方法；
+			//IE10以上
+			//dom2事件解绑的时候，无论是添加事件还是解绑事件，必须使用的是同一个函数
+			//那么我们就必须把函数定义在外面而且是一个有名函数；
+			//下面的方式是解绑不了的；因为绑定和解绑根本不是同一个函数；
+//			box.addEventListener('click',function(){
+//				console.log('i hate you~');
+//			})
+//			
+//			btn.onclick = function(){
+//				//DOM2解绑事件，要求方法当中的参数和绑定时候一模一样；
+//				box.removeEventListener('click',function(){
+//					console.log('i hate you~');
+//				})
+//			}
+			
+			function fn(){
+				console.log('i hate you!');
+			}
+			
+//			box.addEventListener('click',fn)
+//			
+//			btn.onclick = function(){
+//				//DOM2解绑事件，要求方法当中的参数和绑定时候一模一样；
+//				box.removeEventListener('click',fn)
+//			}
+			
+			
+			
+			//IE10以下
+			box.attachEvent('onclick',fn);
+			btn.onclick = function(){
+				box.detachEvent('onclick',fn);
+			}
+			
+			//兼容性封装解绑事件；
+			
+			
+		</script>
+	</body>
+</html>

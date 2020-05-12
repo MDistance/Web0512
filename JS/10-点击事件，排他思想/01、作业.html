@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//字符串翻转
+			var str = 'ffdfsdjgd1312324sffdf';
+			
+			
+			
+//			var arr = str.split('');
+//			arr.reverse();
+//			str = arr.join('');
+//			
+//			console.log(str);
+			
+			
+			// 打印字符串中出现字母最多的次数   *****
+			//‘123111312’
+//			{
+//			  '1':1,
+			 //'2':1,
+//			   '3':1
+//			}
+			
+//			var obj = {
+//				name:'zly',
+//				age:32
+//			};
+////			obj.name;
+////			
+////			obj['name']
+//			
+////			var a = 'name';
+////			obj[a]
+			
+			
+			var obj = {};
+			var max = 0;
+			var result = '';
+			for(var i = 0; i < str.length; i++){
+				var temp = str.charAt(i); 
+//				console.log(obj[temp]);
+//				if(obj[temp]){
+//					obj[temp] += 1;
+//				}else{
+//					obj[temp] = 1;
+//				}
+
+				obj[temp]?obj[temp] += 1:obj[temp] = 1;
+
+			}
+			
+	
+			for(var key in obj){
+				if(max <= obj[key]){
+					max = obj[key];
+					result = key;
+				}
+			}
+			
+			
+			console.log(result,max);
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

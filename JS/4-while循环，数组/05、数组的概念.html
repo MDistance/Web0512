@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var num1 = 10;
+//			var num2 = 20;
+//			var num3 = 30;
+			
+			//数组：
+			//一次性可以存储多个数据,这多个数据可以是同种类型,也可以不同类型
+			
+			//数组的定义：
+			//1 array    字面量定义数组的方式
+			var arr = [1,2,3,4];
+			var arr = [];
+			console.log(arr);
+			
+			//2  构造函数定义数组
+			//坑：通过构造函数去定义数组的时候，如果括号当中只有一个参数，那么这个参数代表的是定义的数组长度，里面存的都是undefined
+			
+			var arr1 = new Array(4,3);
+			console.log(arr1);
+			
+			
+			
+			//当你定义好一个数组，就已经确定了两个重要的概念：  数组的长度   数组的下标（索引）
+			//读   写
+			var arr2 = ['赵丽颖','杨幂','迪丽热巴','唐嫣','古力娜扎'];
+			
+			arr2[2] = '郑爽';
+			console.log(arr2);
+//			arr2[arr2.length];//数组当中如果读取的数据超过数组的长度，不会报错，而是undefined
+			arr2[arr2.length] = '迪丽热巴';
+			arr2[arr2.length] = '江疏影';//在数组的末尾，再添加一条数据；
+			console.log(arr2);
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

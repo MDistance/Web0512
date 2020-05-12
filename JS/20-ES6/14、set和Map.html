@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//集合   
+			let set = new Set([1,2,3,4,1,2,1,3,2,4]);
+			console.log(set);
+			console.log(set.size);
+			set.add(5);//只能增一个
+			console.log(set);
+			set.delete(1);
+			console.log(set);
+			console.log(set.has(1));
+			set.clear();
+			console.log(set);
+			
+			
+			
+			//数组去重
+			//1、自己遍历 使用flag
+			
+			//2、indexof()   -1
+			
+			//3、使用 集合
+			
+			
+			let arr = [1,2,3,4,5,1,2,1,4,5];
+			let newArr = [];
+			newArr.push(...new Set(arr));//变成一个集合，还要原来的数组结构
+			console.log(newArr);
+			
+			
+			//map 映射
+			
+			let map1 = new Map([['name','赵丽颖'],['age',30]]);
+			console.log(map1);
+			
+			console.log(map1.size);
+			map1.set('height',170);
+			console.log(map1);
+			
+			console.log(map1.get('age'));
+			
+			
+			map1.delete('height');
+			console.log(map1);
+			
+			
+			console.log(map1.has('name'));
+			
+			
+			map1.clear();
+			console.log(map1);
+		</script>
+	</body>
+</html>

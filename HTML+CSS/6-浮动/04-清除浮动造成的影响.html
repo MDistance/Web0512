@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+				浮动造成的影响:由于子元素设置浮动后,是一个浮动流,脱离了标准流的状态,此时
+				父元素会认为没有标准流的内容了,父元素又没有设置固定高度,此时父元素高度是0
+				
+				清除浮动造成的影响:
+				解决方案:
+				1.给父元素设置固定高度
+				2.在父元素的最后添加一个块元素,设置clear属性,值是both
+				3.给父元素设置overflow属性
+				4.给父元素调用clearfix类名
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background: red;
+				float:right;
+			}
+			.two{
+				width: 200px;
+				height: 200px;
+				background: green;
+				float:right;
+			}
+			.three{
+				width: 300px;
+				height: 300px;
+				background: blue;
+				float:right;
+			}
+			.main{
+				height: 500px;
+				background: yellow;
+			}
+			.header{
+				width: 1000px;
+				/* 有时需要用内容把父元素撑开高度 */
+			/* 	height: 300px; */
+				margin: 0 auto;
+				border: 1px solid #000;
+				
+				/* overflow: hidden; */
+			}
+			.last{
+				height: 0;
+				background: orchid;
+				/*
+				 结束之前的浮动
+				 left:结束左浮动
+				 right:结束右浮动
+				 both:结束左右浮动
+				 */
+				clear:both;
+			}
+			/*
+				伪类方式
+			 */
+			.clearfix:after{
+				content:"";
+				clear:both;
+				display: block;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header clearfix">
+			<div class="one"></div>
+			<div class="two"></div>
+			<div class="three"></div>
+			<!-- 额外标签法 -->
+			<!-- <div class="last"></div> -->
+		</div>
+		<div class="main"></div>
+	</body>
+</html>

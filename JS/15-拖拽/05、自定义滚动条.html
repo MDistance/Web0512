@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				list-style: none;
+			}
+			img{
+				display: block;
+			}
+			input{
+				outline: none;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			.clearFix::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			
+			#wrap{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			
+			#wrap .scrollBar{
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 30px;
+				height: 100%;
+				border-left: 1px solid green;
+				border-right: 1px solid green;
+			}
+			
+			#wrap .scrollBar .scrollIn{
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translateX(-50%);
+				width: 26px;
+				height: 60px;
+				background-color: hotpink;
+				/*margin: 0 auto;*/
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<!--这个div是用来模拟body区域的，一般情况下我们最好让少数的元素和body直接接触-->
+			<div class="content">
+				
+			</div>
+			
+			<!--模拟滚动条的滑槽和滑块-->
+			<div class="scrollBar">
+				<div class="scrollIn"></div>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			
+			
+			
+			
+			
+			
+			//滑动滚动条，其实就是拖拽滑块
+			window.onload = function(){
+				var scrollIn = document.querySelector('#wrap .scrollBar .scrollIn');
+				scrollIn.onmousedown = function(event){
+					event = event || window.event;
+					var eleY = scrollIn.offsetTop;
+					var startY = event.clientY;
+					scrollIn.setCapture && scrollIn.setCapture();
+					document.onmousemove = function(event){
+						event = event || window.event;
+						var endY = event.clientY;
+						var disY = endY - startY;
+						var lastY = eleY + disY;
+						
+						//限定滑块拖拽的临界值
+						if(lastY > document.documentElement.clientHeight - scrollIn.offsetHeight){
+							lastY = document.documentElement.clientHeight - scrollIn.offsetHeight
+						}else if(lastY < 0){
+							lastY = 0;
+						}
+						
+						
+						scrollIn.style.top = lastY + 'px';
+					}
+					document.onmouseup = function(){
+						document.onmousemove = document.onmouseup =  null;
+						//全局捕获有添加就有释放；
+						scrollIn.releaseCapture&&scrollIn.releaseCapture()
+					}
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

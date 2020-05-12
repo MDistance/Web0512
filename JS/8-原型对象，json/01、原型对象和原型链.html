@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Rocket(name,category,size,color){
+				this.name = name;
+				this.category = category;
+				this.size = size;
+				this.color = color;
+//				this.fire = function(){
+//					console.log('发射火箭');
+//				}  //意味着每个构造的实例对象当中都会有一个fire属性，每个fire属性都指向了自己的一个函数
+					//如果实例化的对象很多，会造成内存的大量浪费，因为这些方法功能都是一样的；
+			}
+
+//			Rocket.prototype.fire = function(){
+//					console.log('发射火箭');
+//			};//在原型对象当中添加上fire这个方法，好处就是可以资源共享，节省内存。因为所有的对象在调用fire方法的时候
+//			//都会遵循原型链去查找fire属性，从自己内部找不到，就会通过隐式原型对象自动找到原型对象当中的fire方法；
+//			
+//			Object.prototype.fire = function(){
+//				console.log('发射火箭');
+//			};
+
+
+			
+			
+			var r1 = new Rocket('嫦娥','1号',30,'white');
+			
+			r1.__proto__.fire = function(){
+				console.log('发射火箭');
+			};
+			
+			
+			
+			
+			
+			
+			var r2 = new Rocket('神州','5号',50,'blue');
+
+			console.log(r1.fire());//报错，报的是调用的时候的错，而不是找属性的错，属性确实没找到，但是不报错，
+								 //返回undefined。但是接着你堆undefinded调用发生错误
+			r2.fire()
+			
+			
+			
+			
+			
+//			var a = Rocket('嫦娥','1号',30,'white');
+//			console.log(r1.name);
+//			console.log(r1["name"]);
+//			r1.name = '长征';
+//			console.log(r1);
+//			r1.fire();
+//			r2.fire();
+			
+			
+			//原型最终就是为了   资源共享  节省内存
+			
+			//原型链就是为了让一个对象查找属性的时候，有依据；
+			
+			
+			//原型链:一个对象在查找属性的时候，先从自身内部去找，如果没有找到，继续顺着隐式原型去找到原型对象，如果原型对象当中有，就是用，没有，那么继续
+			//顺着原型对象的隐式原型找到原型对象的原型对象，如果有就用没有继续往上找，直到找到Object构造函数的显式原型对象为止，如果有就用，没有，返回undefined；
+			//不会报错；
+			
+			//作用域链找到顶端如果没有会报错；
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			body{
+				background: #333;
+				padding-top: 10px;
+				padding-left: 10px;
+			}
+			.box li{
+				width: 330px;
+				height: 200px;
+				background: url(img/1.jpg) no-repeat center center;
+				float:left;
+				/* margin-right:10px ; */
+				border-right:10px solid #333;
+				box-sizing: border-box;
+			}
+			.box li:nth-of-type(2){
+				background-image: url(img/2.jpg);
+			} 
+			.box li:nth-of-type(3){
+				background-image: url(img/3.jpg);
+			} 
+			.box li:nth-of-type(4){
+				background-image: url(img/4.jpg);
+				/* margin: 0; */
+				
+			} 
+			@media (min-width:1200px) {
+				.box li{
+					width: 25%;
+				}
+			}
+			@media (min-width:750px) and (max-width:1200px) {
+				.box li{
+					width:50%;
+					margin-bottom: 10px;
+				}
+			}
+			@media (max-width:750px) {
+				.box li{
+					width: 100%;
+					margin-bottom: 10px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.box{
+				position: fixed;
+				right:0;
+				top:50%;
+				transform: translateY(-50%);
+			}
+			.box ul li{
+				width: 40px;
+				height: 40px;
+				/* background: #333; */
+				margin-bottom: 10px;
+				position: relative;
+				cursor: pointer;
+			}
+			.box ul li em{
+				width: 100%;
+				height: 100%;
+				background:#333 url(img/i1.png) no-repeat center center ;
+				position: absolute;
+				left:0;
+				top:0;
+				
+			}
+			.box ul li:nth-of-type(2) em{
+				background-image: url(img/i2.png);
+			}
+			.box ul li:nth-of-type(3) em{
+				background-image: url(img/i3.png);
+			}
+			.box ul li span{
+				width: 70px;
+				padding-left: 15px;
+				height: 100%;
+				line-height: 40px;
+				background:#333 ;
+				position: absolute;
+				left:0px;
+				top:0;
+				color:#fff;
+				font-size: 14px;
+				/* 只有位移时,需要过渡,变色不需要过渡 */
+				transition: left 0.2s linear
+				/* 复合属性的分组写法 */
+				/* transition: left 0.2s linear,top 0.2 linear; */
+				/* transition-property: left,top; */
+			}
+			.box ul li span,.box ul li em{
+				border-radius: 5px 0 0 5px;
+			}
+			
+			.box ul li:hover em{
+				background-color: darkred;
+				/* 由于只有鼠标移入时,变颜色有过渡,移入没有过渡,所有将过渡属性加在hover状态下 */
+				transition: all 0.2s;
+			}
+			.box ul li:hover span{
+				background-color: darkred;
+				left:-80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul>
+				<li>
+					<span>购物车</span>
+					<em></em>
+				</li>
+				<li>
+					<span>我的关注</span>
+					<em></em>
+				</li>
+				<li>
+					<span>足迹</span>
+					<em></em>
+				</li>
+				
+			</ul>
+		</div>
+	</body>
+</html>

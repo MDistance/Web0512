@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+				之前的三种显示模式,我们称为叫标准流
+				浮动:是一个属性float,也叫浮动流,浮动是一个半脱离标准流的状态,如今我们用浮动来做
+				网页的横向布局,加了浮动的元素会对后面的块元素造成影响,不会对前面的块元素造成影响,
+				所以说浮动会影响到后面的块元素,所以叫半脱离标准流
+				
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background: red;
+				float:left;
+			}
+			.two{
+				width: 200px;
+				height: 200px;
+				background: green;
+				float:left;
+			}
+			.three{
+				width: 300px;
+				height: 300px;
+				background: blue;
+				float:left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+	</body>
+</html>

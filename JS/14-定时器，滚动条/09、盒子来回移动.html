@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var step = 3;
+			setInterval(function(){
+				//拿到盒子目前的left值
+				//对这个left值加上固定的px再赋值给这个盒子
+				
+				var startleft = box.offsetLeft;
+				var endLeft = startleft + step;
+				
+				if(endLeft > document.documentElement.clientWidth - box.offsetWidth){
+					endLeft = document.documentElement.clientWidth - box.offsetWidth;
+					step = -3;
+				}else if(endLeft < 0){
+					endLeft = 0;
+					step = 3;
+				}
+				
+				box.style.left = endLeft + 'px';
+				
+				
+			},16)
+		</script>
+	</body>
+</html>

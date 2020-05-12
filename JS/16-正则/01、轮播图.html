@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			img {
+				display: block;
+			}
+			
+			input {
+				outline: none;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.clearFix::after {
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			#box {
+				position: relative;
+				width: 600px;
+				height: 300px;
+				margin: 50px auto;
+				overflow: hidden;
+			}
+			
+			#box .list {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 4200px;
+				height: 300px;
+			}
+			
+			#box .list li {
+				float: left;
+				width: 600px;
+				height: 300px;
+			}
+			
+			#box .list li img {
+				width: 600px;
+				height: 300px;
+			}
+			
+			#box span {
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 50px;
+				height: 100px;
+				background-color: rgba(50, 50, 50, .6);
+				font-size: 40px;
+				text-align: center;
+				line-height: 100px;
+				opacity: 0;
+				transition: opacity 2s;
+			}
+			
+			#box .left {
+				left: 0;
+			}
+			
+			#box .right {
+				right: 0;
+			}
+			
+			#box .iconList {
+				position: absolute;
+				left: 50%;
+				bottom: 10px;
+				transform: translateX(-50%);
+				overflow: hidden;
+				/*开启BFC：oveflow:hidden和position:absolute都会开启，父元素会自动找到自己的高度*/
+			}
+			
+			#box .iconList li {
+				float: left;
+				width: 40px;
+				height: 40px;
+				background-color: greenyellow;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+			
+			#box .iconList li.current {
+				background-color: hotpink;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<ul class="list">
+				<!--pc端的无缝结构，前面要加最后一张，最后要加第一张-->
+				<li><img src="img/9.jpg" alt="" /></li>
+				<li><img src="img/2.jpg" alt="" /></li>
+				<li><img src="img/3.jpg" alt="" /></li>
+				<li><img src="img/4.jpg" alt="" /></li>
+				<li><img src="img/6.jpg" alt="" /></li>
+				<li><img src="img/9.jpg" alt="" /></li>
+				<li><img src="img/2.jpg" alt="" /></li>
+			</ul>
+
+			<span class="left"> < </span>
+			<span class="right"> > </span>
+
+			<ul class="iconList">
+				<li class="current"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var spanNodes = document.querySelectorAll('#box span');
+				var box = document.getElementById('box');
+				var list = document.querySelector('#box .list');
+				var iconItems = document.querySelectorAll('#box .iconList li');
+				var timeAll = 600; //点击的时候走一张需要的总时间
+				var timeStep = 20; //每走一步所需要的时间
+				var timer = null;
+				var autoTimer = null;
+				var isMove = false; //判断图片是否在切换
+
+				//加了无缝之后，保证显示的还是原来的第一张
+				list.style.left = -600 + 'px';
+
+				box.onmouseover = function() {
+					spanNodes[0].style.opacity = 1;
+					spanNodes[1].style.opacity = 1;
+					clearInterval(autoTimer);
+
+				}
+				box.onmouseout = function() {
+					spanNodes[0].style.opacity = 0;
+					spanNodes[1].style.opacity = 0;
+					autoRun();
+
+				}
+
+				//点击右侧按钮图片切换
+				//				spanNodes[1].onclick = function(){
+				//					var dis = -600;//每一次点击元素要移动的距离
+				//					var lastX = list.offsetLeft + dis;//每一次点击之后元素最终的位置
+				//					var step =  dis/(timeAll / timeStep);//要计算出每一步走多少距离；
+				//					timer = setInterval(function(){
+				//						var left = list.offsetLeft + step;
+				//						
+				//						if(left == lastX){
+				//							//当元素走的位置恰好和上面计算的元素最终位置相同，就停止定时器；
+				//							clearInterval(timer)
+				//						}
+				//						list.style.left = left + 'px';
+				//					},timeStep);
+				//				}
+				//点击左侧按钮图片切换
+				//				spanNodes[0].onclick = function(){
+				//					var dis = 600;//每一次点击元素要移动的距离
+				//					var lastX = list.offsetLeft + dis;//每一次点击之后元素最终的位置
+				//					var step =  dis/(timeAll / timeStep);//要计算出每一步走多少距离；
+				//					timer = setInterval(function(){
+				//						var left = list.offsetLeft + step;
+				//						
+				//						if(left == lastX){
+				//							//当元素走的位置恰好和上面计算的元素最终位置相同，就停止定时器；
+				//							clearInterval(timer)
+				//						}
+				//						list.style.left = left + 'px';
+				//					},timeStep);
+				//				}
+				//				
+				spanNodes[1].onclick = function() {
+					move(true); //如果点击的是右侧，传参为true
+				}
+
+				spanNodes[0].onclick = function() {
+					move(false); //如果点击的是左侧，传参为false
+				}
+
+				function move(flag) {
+
+					//2、第二次点击进来先判断是否在切换，如果是，直接退出函数，后面逻辑不再执行
+					if(isMove) {
+						return;
+					}
+
+					//1、第一次点击变为true
+					isMove = true;
+
+					//3、延迟600毫秒把ismove变为false,否则后序点击都不会起作用
+					setTimeout(function() {
+						isMove = false;
+					}, 600);
+
+					if(typeof flag == 'boolean') {
+						if(flag) {
+							var dis = -600; //每一次点击元素要移动的距离
+						} else {
+							var dis = 600; //每一次点击元素要移动的距离
+						}
+					} else {
+						var dis = flag - list.offsetLeft; //每一次点小圆点元素要移动的距离
+					}
+
+					var lastX = list.offsetLeft + dis; //每一次点击之后元素最终的位置
+					var step = dis / (timeAll / timeStep); //要计算出每一步走多少距离；
+					timer = setInterval(function() {
+						var left = list.offsetLeft + step;
+
+						if(left == lastX) {
+							//当元素走的位置恰好和上面计算的元素最终位置相同，就停止定时器；
+							clearInterval(timer);
+							//无缝逻辑
+							if(left == -3600) {
+								left = -600;
+							} else if(left == 0) {
+								left = -3000;
+							}
+						}
+
+						list.style.left = left + 'px';
+					}, timeStep);
+
+					//排它小圆点变色
+					//先让所有的小圆点变绿
+					for(var i = 0; i < iconItems.length; i++) {
+						iconItems[i].className = '';
+					}
+
+					//让显示图片对应的小圆点变红
+					//找到准备显示的图片的下标，计算出变红的小圆点的下标
+					var index = -lastX / 600 - 1;
+					if(index > 4) {
+						index = 0;
+					} else if(index < 0) {
+						index = 4;
+					}
+
+					iconItems[index].className = 'current';
+				}
+
+				//点击小圆点切换图片
+
+				for(var i = 0; i < iconItems.length; i++) {
+					iconItems[i].index = i;
+					iconItems[i].onclick = function() {
+						move(-(this.index + 1) * 600); //根据点击小圆点的下标，求出要显示图片的最终位置
+						autoIndex = this.index + 1; //当点击小圆点的时候，更新自动轮播的图片下标；
+					}
+				}
+
+				//自动轮播  独立考虑
+
+				var autoIndex = 1; //图片的下标
+				autoRun();
+				function autoRun() {
+					autoTimer = setInterval(function() {
+						autoIndex++;
+						move(autoIndex * -600); //根据图片的下标求出要显示图片的最终位置
+						if(autoIndex == 6) {
+							autoIndex = 1;
+						}
+					}, 2000); //2秒切换一张，但是切换一张切换的过程使用的是600ms
+				}
+
+			}
+		</script>
+
+	</body>
+
+</html>

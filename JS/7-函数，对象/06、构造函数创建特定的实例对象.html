@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建一个特定的类（理解，在这里类就是函数，只不过这个函数不会当作普通函数去用，本质上还是函数）
+			
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.speak = function(){
+					console.log('说话');
+				}
+			}
+			
+			var p1 = Person('zhaoliying',32,'famale');//函数当普通函数用，返回值看return，this指向window
+			var p2 = new Person('zhaoliying',32,'famale');//如果是当构造函数去用，返回值不看return，返回实例化的对象,this指向准备实例化出来的对象
+			console.log(p1,window);
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

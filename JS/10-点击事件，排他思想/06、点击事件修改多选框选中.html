@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<input type="checkbox" id="check" />
+		
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var inputCheck = document.getElementById('check');
+				btn.onclick = function(){
+					//以后我们使用js操作元素属性的时候，如果元素当中属性和属性值相同，那么在js当中
+					//属性值要改为布尔值进行操作；
+					
+					//点击只是用来选中
+//					inputCheck.checked = true;
+					//点击切换选中状态
+					inputCheck.checked = !inputCheck.checked;
+				}
+				
+			}
+		</script>
+		
+		
+	</body>
+</html>

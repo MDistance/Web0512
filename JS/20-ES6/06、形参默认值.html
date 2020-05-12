@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//传参  就求传递的参数的和
+			//不传参，默认求1+2的和 //让不传参的形参有默认值
+			function fn(a=1,b=2){//ES6给的形参默认值
+//				if(a == undefined){
+//					a = 1
+//				}
+//				
+//				if(b == undefined){
+//					b = 2
+//				}   之前ES5的做法
+				
+				return a + b;
+			}
+			
+			console.log(fn());
+			
+		</script>
+	</body>
+</html>

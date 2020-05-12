@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//定义对象的方式
+			//1、字面量定义
+			//对象的所有的名或者键 我们都称作属性
+			//对象的所有的值，我们都叫属性值；
+			//对象的属性也分  属性和方法；属性一般都是名词，方法一般都是动词；
+			
+			var obj = {
+				name:'赵丽颖',
+				'age':32,
+				"height":165,
+				gender:'famale',
+				eat:function(){
+					console.log('啥都吃!');
+				},
+				movies:['花千骨','陆贞传奇','楚乔传','青云志'],
+				isMarray:true,
+			}
+			
+			//2、构造函数定义
+//			var car = new Object({name:'幻影',brand:'劳斯莱斯',color:'black',price:20000000});
+//			console.log(car);
+			
+			
+			//3、工厂模式定义对象
+			
+			
+			function createObject(){
+				var obj = new Object();
+				return obj;
+			}
+			
+			var `	 = createObject();
+			console.log(person);
+			
+			
+			
+			//注意： 上面我们定义的所有对象都称作：Object的实例对象
+			
+			
+			
+			
+			var obj1 = {};
+			var obj2 = new Object();
+			//创建了没有属性的 Object的实例对象
+			//以后我往这个对象当中填了人的属性，那么这个对象就是人
+			//如果我填了狗的属性，那么这个对象就是狗
+			//如果我填了车的属性，那么这个对象就是车
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

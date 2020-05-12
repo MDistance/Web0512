@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj = {
+				firstName:'赵',
+				lastName:'丽颖',
+			}
+			
+			
+//			obj.fullName = '赵丽颖';
+//			console.log(obj);
+//			
+//			
+//			obj.firstName = '刘';
+//			console.log(obj);
+			//'赵-丽颖'
+			Object.defineProperties(obj,{
+				fullName:{
+					get:function(){
+						return this.firstName + this.lastName;
+					},
+					set:function(data){
+						var arr = data.split('-');
+						this.firstName = arr[0];
+						this.lastName = arr[1];
+					}
+				}
+			})
+			
+			obj.fullName = '戚-薇';
+			console.log(obj);
+			
+			obj.firstName = '赵';
+			console.log(obj.fullName);
+			
+			
+		</script>
+	</body>
+</html>

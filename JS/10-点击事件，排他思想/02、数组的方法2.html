@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/**{
+				margin:0;padding: 0;
+			}*/
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			1. Array.prototype.indexOf(value) : 得到值在数组中的第一个下标
+			//功能：得到值在数组中的第一个下标
+			//参数：传递一个值
+			//返回值：如果参数是在数组当中返回参数的下标，如果参数根本不在数组当中返回-1;
+			var arr = [1,2,3,1,2,3,4];
+//			var result = arr.indexOf(5);
+//			console.log(result,arr);
+			
+			
+			//数组去重
+//			var newArr = [];
+//			
+//			for(var i = 0; i < arr.length; i++){
+//				if(newArr.indexOf(arr[i]) == -1){
+//					newArr.push(arr[i]);
+//				}
+//			}
+//			console.log(newArr);
+
+
+//			2. Array.prototype.lastIndexOf(value) : 得到值在数组中的最后一个下标
+//			var result = arr.lastIndexOf(2);
+//			console.log(result);
+			
+//			3. Array.prototype.forEach(function(item, index){}) : 遍历数组
+			//功能：遍历数组
+			//参数：回调函数
+			//返回值：undefined
+
+//			var result = arr.forEach(function(value,index){
+//				console.log(value,index);
+//			});
+//			console.log(arr,result);
+
+
+//			4. Array.prototype.map(function(item, index){}) : 遍历数组返回一个新的数组，返回加工之后的值
+//				map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。
+//				map() 方法按照原始数组元素顺序依次处理元素。
+//				注意： map() 不会对空数组进行检测。
+//				注意： map() 不会改变原始数组。
+
+
+				//功能：返回一个新数组，这个数组和原数组有关系，和每一个元素都有关系，每个新元素都要添加到新数组当中；
+				//参数：回调函数；
+				//返回值：返回生成的新数组，这个数组和原数组有关系
+
+//			var result = arr.map(function(value,index){
+//				return value + 2;
+//			});
+//			
+//			console.log(result,arr);
+			
+			
+//		
+//			5. Array.prototype.filter(function(item, index){}) : 遍历过滤出一个新的子数组， 返回条件为true的值
+			////功能：返回一个新数组，这个数组和原数组有关系,只不过是从原数组当中过滤筛选出来符合条件的元素组成的新数组
+				//参数：回调函数；
+				//返回值：返回生成的新数组；
+//			var result = arr.filter(function(value,index){
+//				return value > 2;
+//			})
+//			console.log(result,arr);
+			
+//			ES6
+//			1. Array.from(v) : 将伪数组对象或可遍历对象转换为真数组
+//				function add(a,b){
+//	//				console.log(arguments);
+//					var res = Array.from(arguments);
+//					console.log(res);
+//					return a + b;
+//				}
+//	
+//				add(1,2)
+//				
+//				
+//				var arr1 = '12345';
+//				console.log(Array.from(arr1));
+				
+	
+//			2. Array.of(v1, v2, v3) : 将一系列值转换成数组
+				console.log(Array.of(3));//一个值的时候是数组当中一个元素，new Array（3）3代表数组长度；
+
+//			3. find(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素
+//			4. findIndex(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素下标
+
+//			
+			console.log(arr.findIndex(function(value,index){
+				return value > 1;
+			}));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+//			console.log(arr);
+		</script>
+	</body>
+</html>

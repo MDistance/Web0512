@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * css层叠性: 在设置css属性时,不同的属性都可以实现,在设置相同属性时,
+			 * 在权重相同的情况下,后定义会层叠(覆盖)先定义,在权重不同时,实现权重高的
+			 * 
+			 * 权重:
+			 * 标签选择器<类选择器<id选择器<行内式<!important
+			 * 
+			 */
+			#pink{
+				color:pink;
+			}
+			.green{
+				text-align: center;
+				color:green;
+			}
+			div{
+				font-size: 60px;
+			}
+			div{
+				font-weight: 700;
+			}
+			div{
+				color:yellow !important;
+			}
+			div{
+				color:red;
+				
+			}
+			.gold{
+				color:gold;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="gold green" id="pink" style="color:yellowgreen">我是一个盒子</div>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+			   li有class属性名
+			 */
+			/* li[class]{
+				color:red;
+			} */
+			/*
+			   li的class属性值等于box
+			 */
+			/* li[class="box"]{
+				color:red;
+			} */
+			/*
+			   li的class属性值以box开头
+			 */
+		/* 	
+			li[class ^= "box"]{
+				color:red;
+			} 
+			*/
+		   /*
+			   li的class属性值以box结束
+			 */
+			/* li[class $= "box"]{
+				color:red;
+			} */
+			/*
+				li的class属性值有box的独立单词
+			*/
+			li[class ~="box"]{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="box">炒肝</li>
+			<li class="box one">卤煮</li>
+			<li class="xbox">豆汁</li>
+			<li class="boxaa">胶圈</li>
+			<li class="acboxww">茶汤</li>
+			<li>咖啡</li>
+		</ul>
+	</body>
+</html>

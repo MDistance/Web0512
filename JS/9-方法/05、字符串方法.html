@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var str = 'adasd1*234567890123AASDADS';
+			console.log(str.charAt(1)); //index    **********    三要素
+			//获取对应下标的字符       参数是下标；   返回值：获取到的字符
+			
+			console.log(str.charCodeAt(0)); //index
+			//获取对应下标的字符的Unicode码       参数是下标；   返回值：获取到的字符的unicode码
+			
+			
+			console.log(str.concat('iii')); //拼接  str + 'iii';
+			//将原串和传递的字符串参数进行拼接      参数：可以有也可以没有     返回值：没有参数就是复制的原串，如果有返回拼接好的字符串
+			
+
+		
+			console.log(String.fromCharCode(49)); //unicode编码
+			//将字符的unicode码转化为字符     参数：unicode码     返回值：Unicode吗对应的字符
+			
+
+
+			console.log(str.indexOf('2',3)); //********************
+			//返回字串在原串当中的索引位置，子串的首字符的位置；    参数：第一个是子串   第二个代表从哪开始查   
+			//返回值：子串首字符索引位置；如果根本没有传递参数这个子串，返回 -1;
+			console.log(str.lastIndexOf('23')); //求子串位置,默认从末尾开始
+
+
+
+//			console.log(str.replace('1', '**')); //替换字串***********************
+//			//把传递的第一个子串在原串当中替换为传递的第二个串，只能替换一个；
+//			//参数：1、被替换的子串  2、用来替换的串
+			//返回值，替换后的字符串
+			
+
+//			str = '123';
+			console.log(str.localeCompare('123')); //比较大小
+			//用来比较原串和传递的串之间大小
+			//参数：传递一个新的串
+			//返回值：1原串比新串大   -1原串比新串小    0代表相等
+
+
+			//我们这三个方法，要想用到所有的功能，必须和正则表达式配合，后面学了正则后再搞他们；
+//			console.log(str.match(/1/g)); //找到匹配项返回数组
+//			console.log(str.replace('1', '**')); /
+//			console.log(str.search())
+
+
+
+			console.log(str.slice(4,8)); //*************************
+			console.log(str.slice(-4,-1)); 
+			//用来从长串当中截取字串
+//			//参数：start和end两个参数 代表子串的起始位置和结束位置；start 开始（包括 start）到 end 结束（不包括 end）为止的所有字符。
+//			//参数可以使用负数
+			//返回值：返回截取的子串；
+			console.log(str.substring(0, 4)); 
+			//功能参数返回值和上面slice一模一样，但是唯一不同的是参数不允许是负数
+			
+			
+			console.log(str.substr(1, 4)); //后面的参数是长度
+			//功能返回值和上面slice一模一样
+			//参数前面第一个是开始位置，后面是一个长度
+			
+
+
+
+			console.log(str.split('2'));//*************************************
+//			//功能：以指定子串 为间隔将字符串转化（切割）为数组，这个指定的子串将不复存在
+			//参数：指定的子串，如果指定的子串不存在，相当于没有传递参数；
+			//返回值：不传参，整个字符串作为数组的值，
+			//	        传参:切割好的数组
+			
+			
+			
+			
+			
+
+
+//			console.log(str.toLocaleLowerCase());
+////			//与 toLowerCase() 不同的是，toLocaleLowerCase() 方法按照本地方式把字符串转换为小写。只有几种语言（如土耳其语）具有地方特有的大小写映射，所有该方法的返回值通常与 toLowerCase() 一样
+////		console.log(str.toLocaleUpperCase());
+			console.log(str.toLowerCase());
+			console.log(str.toUpperCase());
+			//功能：把字符串转化为对应的大写字符串或者小写字符串
+			//参数：无
+			//返回值：返回转化后的字符串
+			
+			console.log(str.valueOf());  //取字符串对应的值，本身就是值类型
+			console.log(str.toString());
+			
+			//上面valueof和toString经常是用来把对象数据转化为基本数据使用的；
+			
+			
+			
+			
+			//ES6  字符串方法：
+//			
+//			var a = ajax()//json
+//			a = JSON.parse(a);		
+//			var str = a.str;
+//			
+//			if(str.startsWith('a')){
+//				
+//			}else{
+//				
+//			}
+//			
+//			1.	includes(str) : 判断是否包含指定的字符串
+				console.log(str.includes('1**2'));
+			
+//			2. 	startsWith(str) : 判断是否以指定字符串开头
+				console.log(str.startsWith('a'));
+				
+//			3. 	endsWith(str) : 判断是否以指定字符串结尾
+				console.log(str.endsWith('a'));
+				
+//			4. 	repeat(count) : 重复指定次数
+				console.log(str.repeat(-1));//  参数0空串   负数报错   正数 代表重复几次
+			
+			
+		</script>
+	</body>
+
+</html>

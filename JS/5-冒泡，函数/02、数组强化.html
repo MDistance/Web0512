@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数组去重
+			//不影响原数组 创建新数组进行去重
+			var arr = [1,2,3,4,1,2,3,1,1,2,3,4,7,8,2];
+			var newArr = [];
+			var flag = true;
+			for(var i = 0; i < arr.length; i++){
+				//外层循环是从arr当中拿数
+				//内层循环是用外层拿到的数去和newArr当中的数一个一个对比
+				for(var j = 0; j < newArr.length; j++){
+					if(arr[i] == newArr[j]){
+						flag = false;
+						break;
+					}
+				}
+				//
+				if(flag){
+					newArr[newArr.length] = arr[i];
+				}
+				flag = true;
+			}
+			
+			console.log(newArr);
+			
+			
+			
+			
+			
+			
+			
+			//合并数组，原生实现(数组方法后面学)
+			//第一种：在其中一个数组上进行合并第二个数组
+//			var arr1 = [1,2,3,4,5];
+//			var arr2 = [6,7,8,9,10];
+//			var newArr = [];
+//			for(var i = 0; i < arr2.length; i++){
+//				arr1[arr1.length] = arr2[i];
+//			}
+//			
+//			console.log(arr1);
+			//第二种，新建数组，不动原来的两个数组，把原来的两个数组当中的值，合并在新数组当中
+//			for(var i = 0; i < arr1.length; i++){
+//				newArr[newArr.length] = arr1[i];
+//			}
+//			for(var i = 0; i < arr2.length; i++){
+//				newArr[newArr.length] = arr2[i];
+//			}
+//			console.log(newArr,arr1,arr2);
+			
+			
+		</script>
+	</body>
+</html>

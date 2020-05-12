@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//this关键字,this代表的是这个函数的执行者或者调用者
+			
+			function fn(){
+				var a = 10;
+				
+//				console.log(this);
+				console.log('i love you~');
+				function fn1(){
+					console.log(this);
+				}
+				fn1();
+			}
+			
+			var a = 10;
+//			console.dir(fn);
+			window.fn();
+			
+			
+			
+			
+			var obj = {
+				name:'赵丽颖',
+				age:32,
+				eat:function(){
+					console.log(this);
+				}
+			}
+			
+			obj.eat();
+			
+		</script>
+	</body>
+</html>

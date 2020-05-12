@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--p[class="p1"]{我是段落$}*4-->
+		<p id="pp" style="visibility: hidden;"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<script type="text/javascript">
+			window.onload = function(){
+				//获取所有的P
+				var pNodes = document.querySelectorAll('p');
+				for(var i = 0; i < pNodes.length; i++){
+					pNodes[i].onclick = function(){
+						for(var j = 0; j < pNodes.length; j++){
+							//设置内容
+//							pNodes[j].innerHTML = '<h2>哈哈</h2>';
+//							pNodes[j].innerText = '<h2>哈哈</h2>';
+//							pNodes[j].textContent = '哈哈';
+							//读取内容
+							
+//							console.log(pNodes[j].innerHTML)//带内部标签输出
+//							console.log(pNodes[j].innerText)//只输出文本，不带标签
+							console.log(pNodes[j].textContent);	
+
+
+						} 
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

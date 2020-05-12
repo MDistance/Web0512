@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+			}
+			
+			.list{
+				overflow: hidden;
+			}
+			
+			.list li{
+				float: left;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: gray;
+				margin-right: 10px;
+			}
+			
+			.list li.current{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li class="current"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			window.onload = function(){
+				var liNodes = document.querySelectorAll('.list li');
+				
+				for(var i = 0; i < liNodes.length; i++){
+					liNodes[i].onclick = function(){
+						//先让所有的li变成灰色，本质就是把class属性值改为''
+						for(var j = 0; j < liNodes.length; j++){
+							liNodes[j].className = '';
+						}
+						
+						this.className = 'current';
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>

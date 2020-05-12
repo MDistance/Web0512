@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//对象的方法都可以简化
+			//对象的属性，要看属性名和属性值是否名字一样；
+			//属性的值，一定是靠变量赋值的
+			var name = 'zly';
+			var obj1 = {
+				name:name,
+			}
+			
+			//属性名和属性值一致，通常都是前端往后台传递数据的时候使用
+			
+			var a = 100;
+			var b = 'haha';
+			
+			var obj = {
+//				a:a,
+//				b:b
+				a,
+				b,
+//				eat:function(){
+//					
+//				}
+				eat(){
+					console.log('chifan');
+				}
+				
+			}
+			
+			
+			//今后大部分对象是这样写的，属性名还是之前的（除非往后端传数据）；
+			
+			var newObj = {
+				name:'zly',
+				set(){
+					console.log(111);
+				}
+			}
+			
+			newObj.set();
+			
+		</script>
+	</body>
+</html>

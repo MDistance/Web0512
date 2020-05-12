@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+				行内块元素在进行横向布局时,设置自身垂直方向的高度,内边距,外边距会影响周围的元素
+				行内元素横向布局:垂直方向的内边距会压到上下的元素,垂直方向的外边距不起作用,
+				如果想调整垂直方向的位置,只能用行高设置,此时其它同行的文本也会跟着移动,因为文本始终
+				沿基线对齐
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background: red;
+				/* display: inline-block; */
+				
+			}
+			.two{
+				width: 200px;
+				height: 200px;
+				background: green;
+				/* display: inline-block; */
+			}
+			.three{
+				width: 300px;
+				height: 300px;
+				background: blue;
+				/* display: inline-block; */
+			}
+			span{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one"></div>
+	<!-- 	<div class="two"></div>
+		<div class="three"></div> -->
+		<span>我是span</span>
+		<span>我是span</span>
+		<span>我是span</span>
+	</body>
+</html>

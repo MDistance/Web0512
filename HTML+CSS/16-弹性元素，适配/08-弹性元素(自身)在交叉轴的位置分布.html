@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+				弹性布局: 伸缩布局  弹性盒子  flex布局
+				弹性布局指的是父级与子级之间的关系
+				父级: 弹性容器
+				子级: 弹性元素(弹性项  弹性项目)
+				主轴: 水平方向(默认) 从左向右
+				交叉轴(侧轴,垂轴): 垂直方向(默认) 从上向下
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box01{
+				border:1px solid #000;
+				/* 弹性容器 (给父级设置)*/
+				display: flex;
+				margin-bottom: 10px;
+				flex-wrap: wrap;
+			}
+			.box02{
+				border:1px solid blue;
+				width: 400px;
+				height: 500px;
+				display: flex;
+				/* 弹性元素在交叉轴的位置分布(不换行的情况) */
+				/*
+				   align-items:
+				   flex-start 居上  (居开始)
+				   flex-end   居下  (居结束)
+				   center     居中
+				   stretch(默认值) 不设置弹性元素的高度,和交叉轴高度相同
+				 */
+				/* flex-wrap: wrap; */
+				/* align-content: center; */
+				align-items: center;
+			}
+			.box01 div,.box02 div{
+				width: 100px;
+				height: 100px;
+			}
+			.box01 div:nth-of-type(1),.box02 div:nth-of-type(1){
+				background: red;
+			}
+			.box01 div:nth-of-type(2),.box02 div:nth-of-type(2){
+				background: green;
+				/* 设置自身在交叉轴的位置分布(不换行)*/
+				/* align-self: 
+				   flex-start 居上  (居开始)
+				   flex-end   居下  (居结束)
+				   center     居中
+				*/
+				align-self: flex-start;
+			}
+			.box01 div:nth-of-type(3),.box02 div:nth-of-type(3){
+				background: blue;
+			}
+			.box01 div:nth-of-type(4),.box02 div:nth-of-type(4){
+				background: blueviolet;
+			}
+			.box01 div:nth-of-type(5),.box02 div:nth-of-type(5){
+				background: yellowgreen;
+			}
+			.box01 div:nth-of-type(6),.box02 div:nth-of-type(6){
+				background: darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box01">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<div class="box02">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//... 拆包 和 打包的作用(一般都是操作数组用的，但是不是必须是数组)
+			
+			//拆包；
+			let arr = [1,2,3,4];
+			let arr1 = [5,6,7,8];
+			
+			arr.push(...arr1);
+			console.log(arr);
+			console.log(...arr1);
+			
+			
+			let arr2 = [100,200,...arr1,300];
+			console.log(arr2);
+			
+			
+//			let arr2 = arr.concat(arr1);
+//			console.log(arr2);
+			
+			//打包 通常是在函数传参的时候,我们也称作不定参传参
+			//打包得时候...arr只能放在形参最后面；
+			function add(a,b,...arr){
+				let sum = 0;
+				console.log(arr instanceof Array);
+				console.log(arr);
+				
+				//for of循环
+				for(let value of arr){
+					sum += value;
+					//for of遍历的是值 不是下标
+				}
+				
+				
+				
+				return a + b + sum;
+			}
+			
+			console.log(add(1,2,3,4,5,6,7,8,9,0,10,11,100));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

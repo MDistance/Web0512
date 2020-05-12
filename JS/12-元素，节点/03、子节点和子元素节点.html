@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			<p>我是段落1</p>
+			<div>嘿嘿</div>
+			<p>我是段落2</p>
+			<!--哈哈-->
+		</div>
+		
+		
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			console.log(box.childNodes);//子节点
+			console.log(box.children);//子元素节点
+			//子节点：包含子元素节点   文本节点   注释节点
+			//	   nodeName     nodeType    nodeValue
+//			子元素节点:   元素名大写                         1          null
+//			文本节点:    #text          3          文本内容
+//			注释节点:    #comment       8          注释内容
+
+			
+			
+			//从子节点当中选出子元素节点
+			var arr = [];
+			var arr1 = [];
+			for(var i = 0; i < box.childNodes.length; i++){
+				if(box.childNodes[i].nodeType == 1){
+					arr.push(box.childNodes[i]);
+				}
+			}
+			console.log(arr);
+			
+			//从子元素节点当中选出元素节点（因为低版本拿到的除了子元素还有注释）
+			
+			for(var i = 0; i < box.children.length; i++){
+				if(box.children[i].nodeType == 1){
+					arr1.push(box.children[i]);
+				}
+			}
+			console.log(arr1);
+			
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

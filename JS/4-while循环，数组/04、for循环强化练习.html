@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//打印三位数位上有3或者7的数字
+			
+//			for(var i = 100; i <= 999; i++){
+//				//678/100   6.78   67.8
+//				var b = parseInt(i / 100); 
+//				var s = parseInt(i / 10 % 10);
+//				var g = i % 10;
+//				
+//				if(b == 3 || b == 7 || s == 3 || s == 7 || g == 3 || g == 7){
+//					console.log(i);
+//				}
+//			}
+			
+			//100的阶乘
+			
+//			var product = 1;
+//			
+//			for(var i = 1; i < 101; i++){
+//				product *= i;
+//			}
+//			console.log(product);	
+			
+			
+			//水仙花数
+			
+//			for(var i = 100; i <= 999; i++){
+//				//678/100   6.78   67.8
+//				var b = parseInt(i / 100); 
+//				var s = parseInt(i / 10 % 10);
+//				var g = i % 10;
+//				
+//				if(b*b*b + s*s*s + g*g*g == i){
+//					console.log(i);
+//				}
+//			}
+			
+			
+			
+			
+			//输出1-100之间所有的素数（质数）
+			
+//			90   1 90    2-89     90/3
+			//标志位思想；立个flag;
+			
+//			var flag = true;
+//			
+//			for(var i = 1; i < 101; i++){
+//				for(var j = 2; j < i; j++){
+//					if(i % j == 0){
+//						flag = false;
+//						break;
+//					}
+//				}
+//				//
+//				if(flag && i != 1){
+//					console.log(i);
+//				}
+//				
+//				flag = true;//重置标志位；
+//			}
+			
+			
+			
+			//求质数第二种  计数器去求
+//			var n = 0;
+//			for(var i = 1; i < 101; i++){
+//				for(var j = 1; j <= i; j++){
+//					if(i % j == 0){
+//						n++;
+//					}
+//				}
+//				
+//				if(n == 2){
+//					console.log(i);
+//				}
+//				
+//				n = 0;//重置计数器；
+//				
+//			}
+			
+			
+			
+			//求1!+2!+3!+...+20!的值
+			var sum = 0;
+			var product = 1;
+			for(var i = 1; i <= 20; i++){
+				product *= i;   //  n!  = n * (n-1)!      3! = 3 * 2!
+				sum += product;
+			}
+//			console.log(product);
+			console.log(sum);
+			
+			
+			//100!
+//			var product  = 1;
+//			for(var i = 1; i <= 100; i++){
+//				product *= i;  
+////				console.log(product);
+//			}
+//			console.log(product); //100!
+			
+			//打印等腰三角形
+			for(var i = 0; i < 7; i++){
+				//用来打空格的
+				for(var j = 0; j < 6 - i; j++){
+					document.write('&ensp;');
+				}
+				
+				//用来打*
+				for(var k = 0; k < 2 * i + 1; k++){
+					document.write('*');
+				}
+				
+				//换行
+				document.write('<br>');
+				
+			}
+			
+		</script>
+	</body>
+</html>

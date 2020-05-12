@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//预解析  预解释  变量提升
+
+			//			var a = 10;
+			//			console.log(a);
+			//			
+			//			
+			//			
+			//			var a;
+			//			a = 10;
+			//			console.log(a);
+
+			//存在了预解析，所以结果是uandefined
+			//			var a;
+			//			console.log(a);//undefined
+			//			a = 10;
+
+			//预解析面试题
+			//1
+			//			alert(a);    
+			//			a = 0;
+
+			//2
+			//			alert(a);    
+			//			var a = 0;
+			//			alert(a); 
+			//			
+
+			//3
+			//			function a(){ alert('我是函数') }
+			//			alert(a);    
+			//			a = '我是变量';
+			//			alert(a); 
+
+			//4   a = 10  a++  11   hanshu
+			//			function a(){ alert('我是函数') }
+			////			var a;
+			//			alert(a); //function a(){ alert('我是函数') }
+			//			a++;  //
+			//			alert(a); //  NaN
+			//			a = '我是变量';
+			//			alert(a)   //‘我是变量’
+
+			//5
+//			function fn() {
+//				var a;
+//				alert(a);//undefined
+//				a = 1;
+//				alert(a);//1
+//			}
+//			var a;
+//			alert(a);//undefined
+//			a = 0;
+//			alert(a);//0
+//			fn();
+//			alert(a);//0
+			
+			//6
+//			function fn(){
+//		   		alert(a);    
+//		   		a = 1;
+//		   		alert(a);   
+//			}
+//			var a;
+//			alert(a);    
+//			a = 0;
+//			alert(a);    
+//			fn()
+//			alert(a);  
+			
+			//7
+			
+//			function fn(){
+//				   alert(a);    
+//				   a = 1;
+//				   alert(a);   
+//			}
+			function fn(){
+				alert(a)
+				var a = 0;
+				alert(a++);
+			}
+			
+			var a;
+			alert(a);    
+			a = 0;
+			alert(a);    
+			fn()
+			alert(a); 
+			
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			
+			
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+//				return 100;//[]
+				//把函数当构造函数去调用的时候，最后一般都是返回实例化对象
+				//但是return 的值也会影响，如果return的是基本数据类型，那么不会影响返回实例化对象
+				//如果return的是对象类型，那么返回的就是这个对象的地址，而不是实例化对象的地址了；
+			}
+			
+			
+			
+			function Teacher(name,age,gender){
+				
+//				this.name = name;
+//				this.age = age;
+				//借用父类的构造函数实现属性继承,继承父类当中的属性；（构造函数继承）
+				Person.call(this,name,age);
+				this.gender = gender;
+			}
+			
+			function Student(name,age,gender,height){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.height = height;
+			}
+			
+			
+			
+//			Student.prototype.eat = function(){
+//				console.log('吃饭');
+//			}
+//			
+//			
+//			Teacher.prototype.eat = function(){
+//				console.log('吃饭');
+//			}
+			
+			
+			Person.prototype.eat = function(){
+				console.log('吃饭');
+			}
+			
+			//方法的继承： 原型继承，目的就是继承父类的方法；
+			//让子类的原型是父类的一个实例；
+			//手动给子类的原型对象添加构造器
+			
+			Teacher.prototype = new Person();
+			Teacher.prototype.constructor = Teacher;
+			
+			//方法重写就是给子类添加自己的和父类同名的方法；
+//			Teacher.prototype.eat = function(){
+//				console.log('吃肉');
+//			}
+			
+			//方法重载（了解）
+			Teacher.prototype.eat = function(foodType){
+				if(typeof foodType == 'number'){
+					console.log('吃饭');
+				}else if(typeof foodType == 'string'){
+					console.log('吃面');
+				}else if(typeof foodType == 'boolean'){
+					console.log('吃肉');
+				}else{
+					console.log('减肥饿着');
+				}
+			}
+			
+			
+			var p1 = new Person('赵丽颖',32);
+			var t1 = new Teacher('ly',32,'male');
+			var s1 = new Student('zsy',18,'male');
+			p1.eat();
+			t1.eat();
+			console.log(p1);
+			console.log(t1);
+//			s1.eat();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			body{
+				height: 5000px;
+			}
+			.banner {
+				width: 1226px;
+				height: 460px;
+				background: pink;
+				margin: 100px auto 0;
+				position: relative;
+			}
+
+			.leftNav {
+				width: 234px;
+				height: 420px;
+				/* 第二种: css3中的属性,只有背景透明,文本不透明*/
+				background: rgba(0, 0, 0, .5);
+				position: absolute;
+				left: 0;
+				top: 0;
+				/*第一种: 透明属性 背景和文本都透明*/
+				/* opacity: 0.5; */
+				color: #fff;
+				padding: 20px 0;
+			}
+
+			.txt {
+				width: 234px;
+				height: 460px;
+				/* background: #000; */
+				position: absolute;
+				left: 0;
+				top: 0;
+				/* 透明属性 */
+				/* opacity: 0.5; */
+				color: #fff;
+			}
+
+			img {
+				display: block;
+			}
+
+			/* 第一种 */
+			/* 			.banner span{
+				width: 41px;
+				height: 69px;
+				background: pink;
+				position: absolute;
+				left:234px;
+				top:50%;
+				margin-top: -35px;
+			}
+ */
+			/* 第二种 */
+			.banner .leftBtn,
+			.banner .rightBtn {
+				width: 41px;
+				height: 69px;
+				background: url(icon-slides.png) no-repeat -84px 0px;
+				position: absolute;
+
+				top: 50%;
+				margin-top: -35px;
+				cursor: pointer;
+			}
+
+			.banner .leftBtn {
+				left: 234px;
+			}
+
+			.banner .rightBtn {
+				/*
+					偏移量:当水平方向left,right同时存在时,left优先
+						   当垂直方向top,bottom同时存在时,top优先
+				 */
+				/* left:auto; */
+				right: 0;
+				background-position-x: -126px;
+			}
+			.banner .leftBtn:hover{
+				background-position-x: 0;
+			}
+			.banner .rightBtn:hover{
+				background-position-x: -42px;
+			}
+			.banner ol {
+				position: absolute;
+				right: 34px;
+				bottom: 26px;
+			}
+
+			.banner ol li {
+				float: left;
+				width: 6px;
+				height: 6px;
+				background: rgba(0, 0, 0, .4);
+				border: 2px solid #b7b7b7;
+				border-radius: 50%;
+				margin-left: 8px;
+				cursor: pointer;
+
+			}
+
+			.banner ol li:hover {
+				background: rgba(255, 255, 255, .4);
+			}
+
+			.leftNav .list li a {
+				display: block;
+				height: 42px;
+				line-height: 42px;
+				/* text-align: center; */
+				color: #fff;
+				font-size: 14px;
+				padding: 0 25px;
+			}
+
+			.leftNav .list li {
+				position: relative;
+			}
+
+			.leftNav .list li a:hover {
+				background: #ff6700;
+			}
+
+			/*
+				移入a时,后代h3的样式
+			 */
+			.leftNav .list li a:hover h3 {
+				color: blue;
+			}
+
+			/*
+				移入a时,后代em的样式
+			 */
+			.leftNav .list li a:hover em {
+				color: green;
+			}
+			.leftNav .list li:hover .content{
+				display: block;
+			}
+			.leftNav .list li a h3 {
+				float: left;
+				font-size: 14px;
+				font-weight: 400;
+			}
+
+			.leftNav .list li a em {
+				font-style: normal;
+				float: right;
+			}
+
+			.leftNav .list li .content {
+				width: 991px;
+				height: 458px;
+				background: yellow;
+				border: 1px solid #ccc;
+				border-left: none;
+				position: absolute;
+				left: 234px;
+				top: -20px;
+				z-index: 999;
+				display: none;
+			}
+			.rightMenu{
+				position: fixed;
+			/* 由于固定定位的参考点是浏览器(窗口的),right:0表示浏览器的最右端,此时浏览器窗口是可变的*/
+			/*	right:34px;*/
+				/* 设置到窗口宽度的一半,整好也是版心宽度的一半,向右走版心的一半*/
+				left:50%;
+				margin-left: 613px;
+				top:50%;
+			}
+			.rightMenu ul li a{
+				display: block;
+				width: 25px;
+				height: 40px;
+				border: 1px solid blue;
+				background:url(iconMi.png) no-repeat 3px center;
+			}
+			.rightMenu ul .two a{
+				background-position-x: -36px;
+			}
+			.rightMenu ul li a:hover{
+				background-position-x: -17px;
+			}
+			.rightMenu ul .two a:hover{
+				background-position-x: -58px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<!-- <div class="banner">
+			<ul>
+				<li>
+					<a href="##">
+						<img src="banner.webp" />
+					</a>
+				</li>
+			</ul>
+			<div class="leftNav">
+				
+			</div>
+			由于opacity属性会让背景和文本都透明,再定位一个相同大小的元素,压在透明背景元素的上面,负责
+			显示文本
+			<div class="txt">fdjsakfdsjfkldsjfkldsjfkdsfl</div>
+		</div> -->
+		<div class="banner">
+			<ul>
+				<li>
+					<a href="##">
+						<img src="banner.webp" />
+					</a>
+				</li>
+			</ul>
+			<!-- 左侧导航 -->
+			<div class="leftNav">
+				<ul class="list">
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+						<div class="content"></div>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+					<li>
+						<a href="##">
+							<h3>手机电话卡</h3>
+							<em>></em>
+						</a>
+					</li>
+
+				</ul>
+			</div>
+			<span class="leftBtn"></span>
+			<span class="rightBtn"></span>
+			<ol>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+			<!-- <div class="txt">fdjsakfdsjfkldsjfkldsjfkdsfl</div> -->
+		</div>
+		
+		<div class="rightMenu">
+			<ul>
+				<li>
+					<a href="##"></a>
+				</li>
+				<li class="two">
+					<a href="##"></a>
+				</li>
+				<li>
+					<a href="##"></a>
+				</li>
+				<li>
+					<a href="##"></a>
+				</li>
+				<li>
+					<a href="##"></a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

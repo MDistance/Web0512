@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 复合属性:之前学习的属性叫做单属性,单属性是一个属性名对应一个属性值,
+			 * 复合属性是一个属性名对应多个属性值
+			 */
+			.one{
+				color:red;
+				/*font-size: 40px;
+				font-style: italic;
+				font-weight: 700;
+				font-family: "宋体";
+				line-height: 100px;
+				*/
+				background: pink;
+				/* 是否倾斜   是否加粗   字号/行高  字体  */
+				/*font:italic 700 40px/100px "宋体";*/
+				/* font属性:最少要写字号和字体,否则报错 */
+				/*font: 40px "微软雅黑";*/
+				/*font-size: 40px;*/
+				
+				
+				/*当复合属性和单属性同时存在时,要先设置复合属性,再设置单属性,层叠复合属性中的
+                                 单个值				 
+				 * */
+				font: 40px "宋体";
+				font-weight: 700;
+			}
+			i{
+				/* 字体样式
+				 
+				 * normal 正常
+				 * italic 倾斜
+				 * */
+				font-style: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one">
+			复合属性之font
+		</div>
+		<i>倾斜</i>
+	</body>
+</html>

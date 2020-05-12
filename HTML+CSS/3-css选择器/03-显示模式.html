@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 5000px;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				background: yellow;
+			}
+			h1{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+			span{
+				width: 500px;
+				height: 500px;
+				background: green;
+				font-size: 40px;
+			}
+			img{
+				width: 50px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			标签语义化: 在需要的位置,用合理标签,在没有任何样式情况下,结构依然清晰
+			
+			显示模式:
+			1.块级显示模式: 设置宽高起作用,自己单独占一行,在不设置宽度的情况下,和父级的宽度一样
+			    块级元素:div h1-h6 p ul ol li dl dt dd hr form
+			2.行内显示模式: 设置宽高不起作用,宽高被内容撑开,一行可以有多个
+			    行内元素:span a b strong i em u ins s del 
+			3.行内块显示模式: 设置宽高起作用,一行可以有多个
+			    行内块元素: img 表单标签
+		-->
+		<div></div><div></div><h1></h1>
+		<span>我是span</span>
+		<span>我是span</span>
+		<span>我是span</span>
+		<a href="##">超链接</a>
+		<b>加粗</b>
+		<i>倾斜</i>
+		<strong>jiacu</strong>
+		<img src="liuzhiyuan.jpg"/>
+		<img src="linzhiling.jpg"/>
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//编写求1到n的和函数
+			//			function getSum(n){
+			//				var sum = 0;
+			//				for(var i = 1; i <= n; i++){
+			//					sum += i;
+			//				}
+			//				return sum;
+			//			}
+			//			
+			//			var result = getSum(100);
+			//			
+			//			console.log(result);
+
+			//编写函数实现求一个数的阶乘
+			function getFactorial(n) {
+				var product = 1;
+				for(var i = 1; i <= n; i++) {
+					product *= i;
+				}
+				return product;
+			}
+			//			console.log(getFactorial(6))
+
+			//编写函数求数组的最大值，最小值
+			function getMaxAndMin(arr) {
+				var max = arr[0];
+				var min = arr[0];
+
+				for(var i = 0; i < arr.length; i++) {
+					if(max <= arr[i]) {
+						max = arr[i];
+					}
+
+					if(min >= arr[i]) {
+						min = arr[i];
+					}
+				}
+
+				return [max, min]; //return后面只能返回一个东西，不能返回两个东西  没有max,min这样的写法；封装为数组整体返回；
+
+			}
+
+			//			var arr = [12,3,4,2,325];
+			//			var result = getMaxAndMin(arr);
+			//			console.log(result[0],result[1]);
+
+			//封装函数加工数组，每一项加10输出
+
+			function addTen(arr) {
+				for(var i = 0; i < arr.length; i++) {
+					console.log(arr[i] + 10);
+				}
+
+			}
+			//			var arr = [1,2,3,4,5];
+			//			addTen(arr);
+
+			//封装函数实现打印1到N的质数;
+
+			function printPrimeNumber(n) {
+				var flag = true;
+				for(var i = 1; i <= n; i++) {
+					for(var j = 2; j < i; j++) {
+						if(i % j == 0) {
+							flag = false;
+							break;
+						}
+					}
+					//
+					if(flag && i != 1) {
+						console.log(i);
+					}
+
+					flag = true; //重置标志位；
+				}
+			}
+
+			printPrimeNumber(5);
+
+			//封装函数实现冒泡排序
+			function bubbleSort(arr) {
+
+				for(var i = 0; i < arr.length - 1; i++) {
+					for(var j = 0; j < arr.length - 1 - i; j++) {
+						if(arr[j] > arr[j + 1]) {
+							var temp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = temp;
+						}
+					}
+				}
+
+				return arr;
+			}
+
+			//			var arr = [12,23,2,45,6];
+			//			
+			//			console.log(bubbleSort(arr));
+
+			//封装函数实现对数组的翻转
+
+			function reverseArr(arr) {
+
+				for(var i = 0; i < arr.length / 2; i++) {
+					var temp = arr[i];
+					arr[i] = arr[arr.length - 1 - i];
+					arr[arr.length - 1 - i] = temp;
+				}
+
+				return arr;
+			}
+			//			var arr = [12,23,2,45,6];
+			//			
+			//			console.log(reverseArr(arr));
+
+			function deleteRepeat(arr) {
+				var newArr = [];
+				var flag = true;
+				for(var i = 0; i < arr.length; i++) {
+					//外层循环是从arr当中拿数
+					//内层循环是用外层拿到的数去和newArr当中的数一个一个对比
+					for(var j = 0; j < newArr.length; j++) {
+						if(arr[i] == newArr[j]) {
+							flag = false;
+							break;
+						}
+					}
+					//
+					if(flag) {
+						newArr[newArr.length] = arr[i];
+					}
+					flag = true;
+				}
+				return newArr;
+			}
+			
+			var arr = [1, 2, 3, 4, 1, 2, 3, 1, 1, 2, 3, 4, 7, 8, 2];
+			console.log(deleteRepeat(arr));
+			
+		</script>
+	</body>
+
+</html>

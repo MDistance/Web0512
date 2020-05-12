@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [6,3,5,7,520,1314,0,20,18,37,1];
+			//外层循环控制的是轮数，冒泡的多少轮
+			for(var i = 0; i < arr.length - 1; i++){
+				//内层循环控制的每一轮比较了多少次（它也可以认为是拿的数的下标）
+				for(var j = 0; j < arr.length - 1 - i; j++){
+					if(arr[j] < arr[j+1]){
+						//从小到大和从大到小 就是这个比较运算符决定的  >就是升序  <就是降序；
+						var temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+					}
+				}
+				
+			}
+			
+			console.log(arr);
+		</script>
+	</body>
+</html>

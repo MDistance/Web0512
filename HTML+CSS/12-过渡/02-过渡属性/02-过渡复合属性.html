@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 1200px;
+				height: 400px;
+				border:1px solid #000;
+			}
+			.box p{
+				width: 300px;
+				height: 100px;
+				margin-bottom:10px;
+				/*
+					过渡复合属性:
+					过渡属性   过渡时间  过渡方式  过渡延时
+				 */
+				transition: all 2s ease .5s  ;
+			}
+			.box p:first-of-type{
+				background: green;
+			}
+			.box p:last-of-type{
+				background: blue;
+			}
+			.box:hover p{
+				width: 1000px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<p></p>
+			<p></p>
+		</div>
+	</body>
+</html>

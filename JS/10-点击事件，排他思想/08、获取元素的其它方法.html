@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--p[class="p1"]{我是段落$}*4-->
+		<p id="pp">我是段落1</p>
+		<p class="p1">我是段落2</p>
+		<p class="p1">我是段落3</p>
+		<p class="p1">我是段落4</p>
+		<script type="text/javascript">
+			window.onload = function(){
+				//id获取到的是一个  而通过标签名和类名获取到的是一组，通过伪数组来表示
+//				var pp = document.getElementById('pp');
+//				console.log(pp);
+//				
+//				var pNodes = document.getElementsByTagName('p');
+//				console.log(pNodes);
+//				
+//				var pList = document.getElementsByClassName('p1');
+//				console.log(pList);
+				
+				
+				//querySelector 和 querySelectorAll  //后面的参数是选择器，只要选择器写对就可以
+				//获取到对应的元素
+				var pp = document.querySelector('p:nth-child(2)');
+				console.log(pp);
+				
+				var pNodes = document.querySelectorAll('.p1');
+				console.log(pNodes);
+				
+				
+			}
+		</script>
+	</body>
+</html>

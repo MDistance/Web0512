@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+				return 100;
+			}
+			Function.prototype.a = 100;
+			
+			Object.prototype.b = 200; 
+			
+			Object.prototype.eat = function(){
+				console.log('吃饭');
+			}
+			
+			Person.prototype.c = 300;
+			
+			
+			var p1 = new Person('zhaoliying',32);
+			p1.eat();
+			
+			console.log(Person.a,Person.b);
+			console.log(Person.c);
+		</script>
+	</body>
+</html>

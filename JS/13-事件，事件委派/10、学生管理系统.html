@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<table>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td>张双义</td>
+				<td>18</td>
+				<td>
+					<a href="javascript:;">删除</a>
+				</td>
+			</tr>
+			<tr>
+				<td>高小乐</td>
+				<td>18</td>
+				<td>
+					<a href="javascript:;">删除</a>
+				</td>
+			</tr>
+		</table>
+
+		<input type="text" placeholder="请输入姓名" /><br />
+		<input type="text" placeholder="请输入年龄" /><br />
+		<input type="button" value="确定提交" />
+
+		<script type="text/javascript">
+			//添加新学生
+			var inputNodes = document.querySelectorAll('input');
+			var tbodyNode = document.querySelector('tbody');
+			inputNodes[2].onclick = function() {
+
+				//拿到用户输入的姓名和年龄保存
+				//以后从表单元素当中获取到的value值，一切都是字符串；
+				var username = inputNodes[0].value;
+				var age = inputNodes[1].value;
+
+				if(username.trim() && age.trim()) {
+					//创建一个新的tr对象
+					var trNode = document.createElement('tr');
+
+					//创建新的td对象并且把姓名放入td，最后把td追加到tr当中
+					var tdName = document.createElement('td');
+					tdName.innerHTML = username;
+					trNode.appendChild(tdName);
+
+					////创建新的td对象并且把年龄放入td，最后把td追加到tr当中
+					var tdAge = document.createElement('td');
+					tdAge.innerHTML = age;
+					trNode.appendChild(tdAge);
+
+					//创建新的td对象并且把删除放入td，最后把td追加到tr当中
+					var tdDelete = document.createElement('td');
+					tdDelete.innerHTML = '<a href="javascript:;">删除</a>';
+					trNode.appendChild(tdDelete);
+
+					//把追加好的tr追加给tbody；
+					tbodyNode.appendChild(trNode);
+				}else{
+					alert('请输入合法的姓名或者年龄');
+				}
+				
+				inputNodes[0].value = '';
+				inputNodes[1].value = '';
+
+			}
+			
+			
+			
+			
+			//删除的逻辑；使用事件委派，因为新添加的和原本有的都有同样的事件行为
+			
+			tbodyNode.onclick = function(event){
+				event = event || window.event;
+				
+				if(event.target.nodeName == 'A'){
+					//删除点击的这个a的整个tr
+					tbodyNode.removeChild(event.target.parentElement.parentNode); 
+				}
+				
+			}
+			
+			
+			
+			
+			
+			
+			
+		</script>
+
+	</body>
+
+</html>

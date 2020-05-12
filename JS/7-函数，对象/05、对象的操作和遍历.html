@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			var arr = [1,2,3,4];
+//			arr[1] = 22;
+			
+			
+			var phone = {
+				name:'mate30',
+				brand:'华为',
+				color:'blcak',
+				price:3000,
+				size:5.5,
+				takePhotos:function(){
+					console.log('我可以拍照');
+				}
+			}
+			
+			
+			//对象的增删改查（全是两种方法）
+			//1、增和改：两种方法分别是.语法和[]语法
+			var a = true;
+			phone.timeLength = 1000;  //有则更改，无则添加
+			phone.name = '荣耀6'
+//			
+			phone["memory"] = 128;  //这样也是可以进行操作属性添加或者更改
+			phone["color"] = 'blue'
+			
+			
+			
+			
+			//假设我们想给对象加一个特殊的名字的属性和属性值；
+			//contnet-type  不能使用.语法去操作,要想操作只能用[]语法
+			//如果你想用一个变量的值，作为对象的属性名，也是只能用[]语法，并且不能添加引号；
+			//对象的属性最终都要是字符串，如果变量的值不是字符串，那么就会被隐式转为字符串
+		
+//			phone.content-type = 'heihei'; 语法错误,只能用[]
+			phone["content-type"] = 'haha';
+			phone["[]"] = 'heihei';
+			phone[a] = '呵呵';//
+			
+			
+			console.log(phone);
+			
+			//删除一个属性
+			
+			delete phone.name;
+			
+			console.log(phone);
+			
+			
+			//查找一个属性，查找这个属性的属性值
+			console.log(phone.color);
+			console.log(phone["color"]);
+			//查找一个对象当中不存在的属性,那么这个属性值是undefined 而不是报错;
+			console.log(phone.gaga);
+			
+			
+			
+			
+			//方法的调用
+			console.log(phone.takePhotos);
+			phone.takePhotos();
+//			var fn = function(){
+//				
+//			}
+//			
+//			console.log(fn);
+			
+			//对象的遍历：
+			
+			//遍历数组用for循环  遍历对象用for in循环
+			//for .. in循环遍历的是对象的所有属性（键）
+			
+			for(var key in phone){
+				console.log(key,phone[key])
+			}
+			
+			
+			
+			
+			//拓展：
+			//数组是数组数组也是对象
+			//for循环只能拿到数组数字属性（下标）的属性和属性值；
+			//for in循环可以拿到数组所有的属性和属性值；
+			
+			
+			var arr = [1,2,3,4];
+			arr.a = 'heihei';
+			console.log(arr);
+			
+			for(var i = 0; i < arr.length; i++){
+				console.log(i,arr[i]);
+			}
+			
+			for(var key in arr){
+				console.log(key,arr[key]);
+			}
+			
+			//函数是函数函数也是对象
+			
+			function add(a,b,c){
+				return a + b;
+			}
+			
+			add.a = 'haha';
+			console.dir(add);
+			
+			
+			for(var key in add){
+				console.log(key,add[key]);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

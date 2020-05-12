@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<style type="text/css">
+			
+			html{
+				/* 因为字号不识别12px以下的字号,所以人为的将vw值扩大到40倍
+				   相应的,在下面设置rem时,要人为的除以40倍
+				 */
+				/*  0.13333333vw = 0.5px   */
+				/*  1.3333333vw = 5px   */
+				/*  2.6666666vw = 10px   */
+				/*  3.9999999vw = 15px   */
+				/*  5.3333333vw = 20px   */
+				font-size: 5.3333333vw;
+			}
+			
+			/*
+			   1vw = 屏幕宽度的1%
+			   100vw = 屏幕的100%
+			   
+			   在750屏幕下
+			   1vw = 7.5px
+			   100vw = 750px
+			   0.13333333vw = 1px  
+			   8vw = 60px
+			   在375屏幕下
+			   1vw = 3.75px
+			   100vw = 375px
+			   0.26666666vw = 1px
+			    0.13333333vw =0.5px
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				/*
+				 width:(60*0.133333)vw
+				 width:(60*0.133333)vw
+				 */
+				
+				width: 60/40rem;
+				height: 30px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>
+

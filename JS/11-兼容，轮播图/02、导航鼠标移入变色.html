@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				list-style: none;
+			}
+			input{
+				outline: none;
+			}
+			img{
+				display: block;
+			}
+			.clearFix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			.list{
+				width: 300px;
+				height: 200px;
+			}
+			.list li{
+				width: 300px;
+				height: 50px;
+				background-color: hotpink;
+				border: 1px solid skyblue;
+				border-bottom: none;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 50px;
+				
+			}
+			.list li:last-child{
+				border-bottom: 1px solid skyblue;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li>衣服</li>
+			<li>裤子</li>
+			<li>帽子</li>
+			<li>鞋子</li>
+		</ul>
+		
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var liNodes = document.querySelectorAll('.list li');
+				
+				for(var i = 0; i < liNodes.length; i++){
+					liNodes[i].onmouseover = function(){
+						this.style.backgroundColor = 'yellowgreen';
+					}
+					liNodes[i].onmouseout = function(){
+						this.style.backgroundColor = 'hotpink';
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

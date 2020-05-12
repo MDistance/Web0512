@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//使用第二种方式动态创建一个列表；
+//			var arr = ['赵丽颖','杨幂','迪丽热巴','唐嫣','古力娜扎'];
+//			
+//			var str = '<ul id="list">';
+//			
+//			for(var i = 0; i < arr.length; i++){
+//				//将数组每一项内容和li进行拼接好之后，然后再拼到str后面；
+//				str += '<li>'+ arr[i] +'</li>';
+//			}
+//			str += '</ul>'
+//			
+//			document.body.innerHTML = str;
+//			
+
+
+			//第三种方式去创建
+			var arr = ['吻别','勇气','奔跑','夜上海','你的酒馆对我打了烊'];
+			
+			var ulNode = document.createElement('ul');
+			
+			for(var i = 0; i < arr.length; i++){
+				//for循环只是把5个li创建好并且追到UL当中
+				var liNode = document.createElement('li');
+				liNode.innerHTML = arr[i];
+				ulNode.appendChild(liNode);
+				
+				//动态创建li绑定事件的第二种方式；
+				//创建好一个li,就立马给这个li绑定事件；
+				
+				liNode.onmouseover = function(){
+					this.style.backgroundColor = 'red';
+				}
+				
+				liNode.onmouseout = function(){
+					this.style.backgroundColor = '';
+				}
+				
+			}
+			
+			//最后我们的Ul也得追加到body当中才能生效；
+			
+			document.body.appendChild(ulNode);
+			
+			//第一种给元素添加事件方式，先把li全不添加到dom树以后，再去重新找到所有的li进行添加
+			//找到所有的li进行添加移入和移出事件
+//			var liNodes = document.querySelectorAll('ul li');
+//			
+//			for(var i = 0; i < liNodes.length; i++){
+//				liNodes[i].onmouseenter = function(){
+//					this.style.backgroundColor = 'red';
+//				}
+//				liNodes[i].onmouseleave = function(){
+//					this.style.backgroundColor = '';
+//				}
+//				
+//			}
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

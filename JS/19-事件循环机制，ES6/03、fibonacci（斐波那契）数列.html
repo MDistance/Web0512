@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			
+			
+			
+			
+			//js web Workers 分线程： 只能用来计算耗时的操作，但是在分线程当中无法操作DOM;
+			
+			//创建分线程去处理耗时任务（用来解决主线程阻塞问题）；
+			
+			//创建分线程对象
+			
+			var myWorker = new Worker('myThread.js');
+			
+			myWorker.postMessage(50);//让分线程帮我求第100个月的兔子数
+			
+			myWorker.onmessage = function(event){
+				console.log(event.data);
+			};
+			console.log('我爱你赵丽颖~');	
+			
+		</script>
+	</body>
+</html>

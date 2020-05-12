@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			'use strict'
+			var a = 10;//严格模式必须带var定义变量
+			console.log(a);
+			
+			
+//			function add(){
+//				console.log(this)//严格模式下普通函数this将不再指向window，防止window被篡改
+//				this.age = 30;
+//			}
+//			add();
+			
+			var b = 20;
+			console.log(eval('var c = 30'));//魔鬼方法是把传进去的字符串当作js语句进行执行
+//			console.log(c);
+			
+			
+			var obj = {
+				a:100,
+				a:200,
+				a:300
+			}
+			console.log(obj);
+			
+			
+			
+			function fn(a,b,a){
+				return a + b;
+			}
+			console.log(fn(a,b,100));
+			
+		</script>
+	</body>
+</html>

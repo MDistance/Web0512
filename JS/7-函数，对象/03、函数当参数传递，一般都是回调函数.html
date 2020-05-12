@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//函数是可以当参数去传给另外一个函数的，
+			//只不过，函数当参数去传的时候，一般都是一个回调函数
+			//下面的写法是把函数当参数传递，但是函数不是回调函数，因为自己调用了；
+			
+			
+			function fn(n){
+				console.log('heihei');
+				n();
+			}
+			
+			function fn1(){
+				console.log('haha');
+			}
+			
+			fn(fn1);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 内边距:padding
+			 * 当元素设置内边距后,尺寸会变大,如果希望盒子尺寸不变,要相应从宽高减去padding撑
+			 * 出的数值
+			 * 
+			 * 盒子在网页中的尺寸=自身的宽高+内边距+边框
+			 */
+			.box{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				/*左内边距*/
+				/*padding-left:10px;*/
+				/*上内边距*/
+				/*padding-top:10px;*/
+				/*右内边距*/
+				/*padding-right:10px;*/
+				/*下内边距*/
+				/*padding-bottom:10px;*/
+				/*border-left:10px solid blue;*/
+				/*border-top:10px solid blue;*/
+				
+				/*
+				 * 一个值: 上下左右
+				 */
+				padding:10px;
+				/*
+				 * 两个值: 上下   左右
+				 */
+				padding:10px 20px;
+				/*
+				 * 三个值: 上   左右   下
+				 */
+				padding:10px 20px 30px;
+				/*
+				 * 四个值: 上   右   下   左
+				 */
+				padding:10px 20px 30px 40px;
+			}
+			.phone{
+				width: 50px;
+				height:100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="phone">手机</div>
+		</div>
+	</body>
+</html>

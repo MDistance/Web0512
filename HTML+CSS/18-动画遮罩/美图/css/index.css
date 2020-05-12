@@ -1,0 +1,130 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.nav-wrap{
+	height: 48px;
+	background: #000;
+	
+}
+nav{
+	max-width: 1000px;
+	height: 48px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 15px;
+	margin: 0 auto;
+	
+}
+.menu-btn{
+	width: 18px;
+	height:15px;
+	/* background: pink; */
+	
+}
+.menu-btn ul{
+	position: absolute;
+	left:0;
+	right:0;
+	top:48px;
+	bottom:0;
+	background: #000000;
+	padding: 50px;
+	color:#fff;
+	display: none;
+}
+.menu-btn ul li{
+	height: 40px;
+	line-height: 40px;
+	border-bottom: 1px solid rgba(255,255,255,.5);
+}
+.menu-btn ul li b{
+	font-weight: 400;
+}
+.menu-btn ul li a{
+	text-decoration: none;
+	color:#fff;
+}
+.logo a{
+	display: block;
+	width: 111px;
+	height: 19px;
+	background: url(../img/sprites@2x.png) no-repeat -5px -5px;
+	background-size: 400px 400px;
+}
+.user-btn{
+	color:#fff;
+	transition: all 1s;
+	
+}
+.user-btn:hover{
+	opacity: 0.5;
+}
+.menu-btn span{
+	width:18px;
+	height: 1px;
+	background: #fff;
+	display: block;
+	margin-bottom: 6px;
+	transition: all 1s;
+	transform-origin: left center;
+}
+
+.menu-btn:hover span:nth-of-type(1){
+	transform:translate(0px, 0px) rotate(45deg);
+	
+}
+.menu-btn:hover span:nth-of-type(2){
+	opacity: 0;
+}
+.menu-btn:hover span:nth-of-type(3){
+	transform:translate(0px ,-1px) rotate(-45deg);
+}
+.menu-btn:hover ul{
+	/* display: block; */
+}
+
+/* 在pc端 大于等于768px*/
+@media (min-width:768px) {
+	.logo{
+		order: 1
+	}
+	.menu-btn{
+		
+		order: 2;
+	}
+	
+	.user-btn{
+		
+		order: 3;
+	}
+	.menu-btn span{
+		display: none;
+	}
+	.menu-btn ul{
+		display: flex;
+		/* 标准流(默认值) */
+		position: static;
+	}
+	.menu-btn{
+		width: 100%;
+		height: auto;
+	}
+	.menu-btn ul{
+		padding: 0;
+		/* width: 100%; */
+		display: flex;
+		/* 空间包含元素(两头间距相等) */
+		justify-content: space-evenly;
+	}
+	.menu-btn ul li{
+		height: auto;
+		line-height: auto;
+		border:0;
+	}
+	.menu-btn b{
+		display: none;
+	}
+}

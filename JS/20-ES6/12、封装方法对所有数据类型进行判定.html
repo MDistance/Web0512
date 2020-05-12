@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let a = 10;//[object Number]
+			a = 'gd';
+			a = true;
+			a = [1,23];
+			a = {};
+			a = function(){};
+			a = undefined;
+			a = null;
+			
+			let result = Object.prototype.toString.call(a);
+			console.log(result);
+			
+			
+			
+			//封装函数实现自定义检测数据类型
+			
+			function checkType(data){
+				return Object.prototype.toString.call(data).slice(8,-1);//[object Object]
+			}
+			
+			console.log(checkType(100));
+			
+			
+		</script>
+	</body>
+</html>

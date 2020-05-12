@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//求数组的和
+			 var arr = [66,88,77,33,1314,520,22];
+//			 var sum = 0;
+//			 for(var i = 0; i < arr.length; i++){
+//			 	//遍历数组，循环变量和数组的下标进行练习挂钩；
+//			 	sum += arr[i];
+//			 }
+//			 console.log(sum);
+			 
+			 
+			//求数组的最大值，最小值，平均值
+			
+//			var max = arr[0];
+//			var min = arr[0];
+//			var sum = 0;
+//			for(var i = 0; i < arr.length; i++){
+//				//求最大值
+//				if(max <= arr[i]){
+//					max = arr[i];
+//				}
+//				//求最小值
+//				if(min >= arr[i]){
+//					min = arr[i];
+//				}
+//				//求和
+//				sum += arr[i];
+//			}
+//			
+//			//平均值是       和/数组长度
+//			console.log(max,min,sum/arr.length);
+			
+			
+			 
+//			 根据班级人数输入每个人的分数，求平均值
+
+//			var arr = [];
+//			var num = 10;
+//			var sum = 0;
+//			//往数组当中从键盘输入值
+//			for(var i = 0; i < num; i++){
+//				arr[arr.length] = parseFloat(prompt('请输入第'+(i+1)+'位同学的分数'));
+//				sum += arr[i];
+//			}
+//			
+////			//求数组的和
+////			for(var i = 0; i < arr.length; i++){
+////				sum += arr[i];
+////			}
+////			
+//			
+//			console.log(sum/arr.length);
+			
+			
+			//翻转数组
+			//1、不影响原数组，重新创建数组进行翻转
+			//在原数组上进行翻转
+			
+			
+			var arr = [1,2,3,4,5];
+			
+//			var newArr = [];
+//			for(var i = arr.length - 1; i >= 0; i--){
+//				//从原数组当中从后往前取数，然后添加给新数组，添加的时候从末尾添加；
+//				newArr[newArr.length] = arr[i];
+//			}
+//			
+//			console.log(newArr);
+			
+			
+			
+			//2、在原数组上进行翻转
+			
+			for(var i = 0; i < arr.length/2; i++){
+				var temp = arr[i];
+				arr[i] = arr[arr.length - 1 - i];
+				arr[arr.length - 1 - i] = temp;
+			}
+			console.log(arr);
+			
+			
+			
+			 
+			
+		</script>
+	</body>
+</html>

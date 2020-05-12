@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function myIterator(arr){
+//				let length = arr.length;
+//				let index = 0;//代表刚开始指向数组的起始位置
+//				return {
+//					next:function(){
+//						if(index < length){
+//							return {value:arr[index++],done:false};//如果位置没有超出，就返回包含值得对象
+//						}else{
+//							return {value:undefined,done:true};//如果位置超出，就返回包含undefined得对象
+//						}
+//					}
+//				}
+//			}
+
+
+
+
+			
+			//数组的迭代器改成我们自己的
+			let arr = [1,2,3,4];
+			
+//			var obj = myIterator(arr);
+//			console.log(obj.next());
+//			console.log(obj.next());
+//			console.log(obj.next());
+//			console.log(obj.next());
+//			console.log(obj.next());
+			//证明接口时可以使用
+			
+			
+			
+			
+//			function myIterator(){
+//				//这个接口只能让数组使用for of
+//				let that = this;
+//				let length = this.length;
+//				let index = 0;//代表刚开始指向数组的起始位置
+//				return {
+//					next:function(){
+//						if(index < length){
+//							return {value:that[index++],done:false};//如果位置没有超出，就返回包含值得对象
+//						}else{
+//							return {value:undefined,done:true};//如果位置超出，就返回包含undefined得对象
+//						}
+//					}
+//				}
+//			}
+
+			function myIterator(){
+//				//这个接口让数组使用for of  也可以让对象使用
+				let that = this;
+				let index = 0;//代表刚开始指向数组的起始位置
+				if(this instanceof Array){
+					let length = this.length;
+					return {
+						next:function(){
+//							if(index < length){
+//								return {value:that[index++],done:false};//如果位置没有超出，就返回包含值得对象
+//							}else{
+//								return {value:undefined,done:true};//如果位置超出，就返回包含undefined得对象
+//							}
+							
+							return index < length? {value:that[index++],done:false}:{value:undefined,done:true}
+						}
+					}
+				}else{
+					let keysArr = Object.keys(this);//把对象得所有属性组成一个数组返回；
+					let length = keysArr.length;
+					return {
+						next:function(){
+//							if(index < length){
+//								return {value:that[keysArr[index++]],done:false};//如果位置没有超出，就返回包含值得对象
+//							}else{
+//								return {value:undefined,done:true};//如果位置超出，就返回包含undefined得对象
+//							}
+							return index < length? {value:that[keysArr[index++]],done:false}:{value:undefined,done:true};
+						}
+					}
+				}
+			}
+			
+			Array.prototype[Symbol.iterator]= myIterator;
+			Object.prototype[Symbol.iterator] = myIterator;
+			console.log(arr);
+			for(let value of arr){
+				console.log(value);
+			}
+			
+			let obj = {
+				name:'赵丽颖',
+				age:32
+			}
+			for(let value of obj){
+				console.log(value);
+			}
+			
+			
+
+
+			
+		</script>
+	</body>
+</html>

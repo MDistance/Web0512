@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			for(var i = 1; i <= 100; i++){
+//				if(i % 3 == 0 || i % 7 == 0){
+//					console.log(i);
+//				}
+//			}
+			
+			
+			//能被3整除
+			for(var i = 1; i <= 100; i++){
+				if(i % 3 != 0){
+//					continue;//立即结束本次循环，从下一次开始执行
+					break; //如果在循环当中，跳出整个循环，而且break只能跳出一层循环,跳出离它最近的那一层循环；
+				}
+				console.log(i);
+			}
+			
+			
+			
+//			for(){
+//				for(){
+//					break;//只能跳出最内层循环；
+//				}
+//			}
+			
+		</script>
+	</body>
+</html>

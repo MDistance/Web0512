@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<button>清除</button>
+		
+		<script type="text/javascript">
+			var a = 10;
+			var b = 20;
+			var result = a + b;
+			var timer = null;
+			var btn = document.querySelector('button');
+			
+			
+			//求出结果延迟5秒打印
+			timer = setTimeout(function(){
+				console.log(result);
+			},5000);//毫秒为单位
+
+			
+			//清除延迟定时器
+			btn.onclick = function(){
+				clearTimeout(timer);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

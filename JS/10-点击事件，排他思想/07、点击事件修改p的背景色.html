@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.p1{
+				background-color: hotpink;
+			}
+			
+			.p2{
+				background-color: yellowgreen;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<p id="pp" class="p1" aa='bb'>我是一个段落</p>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var pp = document.getElementById('pp');
+				btn.onclick = function(){
+					//以后操作属性碰见操作是class属性，那么得把class写成className
+//					pp.className = 'p2';
+//					pp['className'] = 'p2';
+					
+					
+					//操作自定义属性必须使用下面两种方法去操作，.语法会失效；
+					//setAttribute和getAttribute的用法
+//					pp.aa = 'cc';//这样的语法操作天生属性是可以的，但是没办法操作自定义属性
+					//读取自定义属性值
+//					console.log(pp.getAttribute('aa'));//获取pp这个对象身上aa的属性值；
+					//设置定义属性值
+//					pp.setAttribute('aa','cc');//设置pp这个对象身上aa的属性值为cc；
+					
+					//setAttribute和getAttribute无论是天生的属性还是自定义的属性都可以使用；
+					pp.setAttribute('class','p2');//而且操作class不需要改为className;
+					
+				}
+			}
+		</script>
+	</body>
+</html>

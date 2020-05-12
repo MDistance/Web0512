@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--p[class="p1"]{我是段落$}*4-->
+		<p id="pp"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<p class="p1"><span>我是段落1</span></p>
+		<script type="text/javascript">
+			window.onload = function(){
+				//获取所有的P
+				var pNodes = document.querySelectorAll('p');
+				for(var i = 0; i < pNodes.length; i++){
+					pNodes[i].onclick = function(){
+						//排它，先让所有的成为一种状态，再让事件源自己独自成为一种状态
+						for(var j = 0; j < pNodes.length; j++){
+							pNodes[j].innerText = '哈哈';
+						}
+//						console.log(i);
+						//i是不可以使用的，因为点击的时候外层for循环早都执行结束了,i的值早变成4了
+//						pNodes[i].innerText = '呵呵';
+
+						this.innerText = '呵呵';
+
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

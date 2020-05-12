@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Object.create(prototype, [descriptors])
+//		* 作用: 以指定对象为原型创建新的对象
+//		* 为新的对象指定新的属性, 并对属性进行描述，新的属性必须是在对象当中，而属性的值也是一个对象
+
+		var obj = {
+			name:'zhaoliying',
+			age:32,
+			eat:function(){
+				console.log('吃');
+			}
+		}
+		
+		var newObj = Object.create(obj);//{}
+		
+		console.log(newObj);
+		
+		newObj.eat();
+		//创建对象的时候也同时给对象添加属性
+		var newObj1 = Object.create(obj,{
+			name:{
+				value:'戚薇',
+				writable:true
+			},
+			gender:{
+				value:'famale'
+			}
+		});
+		
+		console.log(newObj1);
+		newObj1.eat();
+		
+		newObj1.name = '杨幂';
+		console.log(newObj1);
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementById('box');
+				var flag = true;
+				box.onclick = function(){
+					if(flag){
+						box.style.backgroundColor = 'green';
+//						flag = false;
+					}else{
+						box.style.backgroundColor = 'red';
+//						flag = true;
+					}
+					
+					flag = !flag;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input[type="checkbox"]{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				
+				/*
+					appearance: 清除input默认样式    快捷键: app + tab键
+					前缀: 有一些css属性还是在测试阶段,所以不同内核的浏览器对于属性的实现不同,
+					我们需要将这些测试的属性加上前缀
+					
+					浏览器      内核         前缀
+					chrome     webkit       -webkit-
+					firefox     gecko       -moz-
+					safari     webkit       -webkit-
+					ie         trident      -ms-
+					opera      webkit       -webkit-
+				 */
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+			}
+			input[type="checkbox"]:checked{
+				background: #00FF7F;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox"/>
+	</body>
+</html>

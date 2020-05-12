@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+				站在父元素的角度,第一个儿子元素,元素类型必须li且排在第一个
+			 */
+			/* ul li:first-child{
+				color:red;
+			} */
+			/* 站在父元素的角度,最后一个儿子元素,元素类型必须li且排在最后一个 */
+			/* li:last-child{
+				color:red;
+			} */
+			/* 站在父元素的角度,元素类型必须li且是当前的排位编号 */
+/* 			li:nth-child(2){
+				color:red;
+			}
+			/* 奇数行 */
+			/* li:nth-child(odd){
+				color:red;
+			} */
+			/* 偶数行 */
+			/* li:nth-child(even){
+				color:red;
+			} */
+			/* 表达式,如果使用表达式,必须用n字母*/
+			/* li:nth-child(2n+1){
+				color:red;
+			} */
+			/* 站在父元素的角度,元素类型必须li且是当前的排位编号(倒序) */
+			/* li:nth-last-child(1){
+				color:red;
+			} */
+			
+			/* 以下站在父元素的角度, 元素类型必须li,只看li标签的排位*/
+			/*
+				站在父元素的角度,第一个li儿子元素
+			 */
+		/* 	li:first-of-type{
+				color:red;
+			} */
+			/* 站在父元素的角度,最后一个li儿子元素 */
+			/* li:last-of-type{
+				color:red;
+			} */
+			/* 站在父元素的角度,获取该编号的li儿子元素*/
+			/* 小括号还可以是odd,even,表达式,只能字母n */
+			/* li:nth-of-type(3){
+				color:red;
+			} */
+			/* 站在父元素的角度,获取该编号(倒序)的li儿子元素*/
+			/* 小括号还可以是odd,even,表达式,只能字母n */
+			/* li:nth-last-of-type(1){
+				color:red;
+			} */
+			/* 获取p标签,没有内容(包括文本,其它标签,空格) */
+		/* 	p:empty{
+				width: 200px;
+				height: 50px;
+				background: yellow;
+			} */
+			/* 选中当前子元素，且该子元素是它父元素下的唯一一个子元素
+ */
+			/* .one p:only-child{
+				color:red;
+			} */
+			/*  选中当前子元素，且该子元素是它父元素下唯一类型的这个元素 */
+			/* .one p:only-of-type{
+				color:red;
+			} */
+			/* 选中某些元素，且排出符合某个条件的元素
+ */
+			ul li:not(.douzhi){
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<span>奶茶</span>
+			<li>炒肝</li>
+			<li>卤煮</li>
+			<li class="douzhi">豆汁</li>
+			<li>胶圈</li>
+			<li>茶汤</li>
+			<li>咖啡</li>
+			<span>拿铁</span>
+		</ul>
+		<div>
+			<p>段落1</p>
+			<p>段落2</p>
+			<p> </p>
+			<span>我是span</span>
+		</div>
+		<div class="one">
+			<p>段落11111</p>
+			<span>span</span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			ul,li{
+				list-style: none;
+			}
+			input{
+				outline: none;
+			}
+			img{
+				display: block;
+			}
+			.clearFix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			
+			#box{
+				position: relative;
+				width: 600px;
+				height: 300px;
+				margin: 50px auto;
+				overflow: hidden;
+			}
+			
+			#box .list{
+				width: 3000px;
+				height: 300px;
+			}
+			
+			#box .list li{
+				float: left;
+				width: 600px;
+				height: 300px;
+			}
+			
+			#box .list li img{
+				width: 600px;
+				height: 300px;
+				
+			}
+			
+			
+			#box span{
+				position: absolute;
+				top: 50%;
+				/*transform: translateY(-50%);*/
+				margin-top: -50px;
+				font-size: 40px;
+				/*display: block;*/
+				width: 50px;
+				height: 100px;
+				background-color: rgba(50,100,150,.8);
+				text-align: center;
+				line-height: 100px;
+				opacity: 0;
+				transition: opacity 3s;
+			}
+			
+			#box .left{
+				left: 0;
+			}
+			#box .right{
+				right: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul class="list">
+				<li><img src="img/4.jpg"/></li>
+				<li><img src="img/5.jpg"/></li>
+				<li><img src="img/6.jpg"/></li>
+				<li><img src="img/7.jpg"/></li>
+				<li><img src="img/8.jpg"/></li>
+			</ul>
+			
+			<span class="left"> < </span>
+			<span class="right"> > </span>
+		</div>
+		
+		<script type="text/javascript">
+			var box = document.querySelector('#box');
+			var spanNodes = document.querySelectorAll('#box span');
+			
+			box.onmouseover = function(){
+				spanNodes[0].style.opacity = 1;
+				spanNodes[1].style.opacity = 1;
+			}
+			box.onmouseout = function(){
+				spanNodes[0].style.opacity = 0;
+				spanNodes[1].style.opacity = 0;
+			}
+		</script>
+	</body>
+</html>

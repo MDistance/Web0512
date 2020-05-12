@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//解构赋值专门是用来解构数组或者对象的
+			var obj = {
+				name:'赵丽颖',
+				age:32,
+				height:168
+			}
+			
+//			var name = obj.name;
+//			var age = obj.age;
+//			var height = obj.height;
+//			
+//			console.log(name,age,height);
+			
+			
+			//对象的解构赋值
+			
+			let {name,age,height} = obj;//解构对象  前面{}里面是定义的变量，这些变量必须和解构的对象属性名一致；
+//			let {a,b,c} = obj;
+			console.log(name,age,height);
+//			console.log(a,b,c);
+			
+			
+			//数组的解构赋值
+			
+			let [a,bb,c] = [1,2,3];//解构数组  前面[]里面是定义的变量，这些变量可以是任意的合法变量名，没有对应关系；
+			
+			console.log(a,bb,c);
+			
+			
+			
+			//数组的解构赋值通常用来函数传递多个参数
+			
+			function fn([a,b,c]){
+				//这里的形参其实相当于是a,b,c，函数调用相当于是堆传递的数组解构赋值；
+				return a + b + c;
+			}
+			
+			console.log(fn([1,2,3]));
+			
+			
+		</script>
+	</body>
+</html>

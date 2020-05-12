@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.laoda{
+				position: relative;
+				width: 500px;
+				height: 500px;
+				background-color: red;
+			}
+			.laoda .laoer{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				/*transform: translate(-50%,-50%);*/
+				margin-left: -150px;
+				margin-top: -150px;
+				width: 300px;
+				height: 300px;
+				background-color: green;
+			}
+			.laoda .laoer .laosan{
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="laoda">
+			<div class="laoer">
+				<div class="laosan">
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var laoda = document.querySelector('.laoda');
+				var laoer = document.querySelector('.laoda .laoer');
+				var laosan = document.querySelector('.laoda .laoer .laosan');
+				//dom0事件
+//				laoda.onclick = function(){
+//					console.log('我是老大');
+//				}
+//				laoer.onclick = function(){
+//					console.log('我是老二');
+//				}
+//				laosan.onclick = function(){
+//					console.log('我是老三');
+//				}
+				//捕获
+//				laoda.addEventListener('click',function(){
+//					console.log('老大');
+//				},true)
+//				laoer.addEventListener('click',function(){
+//					console.log('老二');
+//				},true)
+//				laosan.addEventListener('click',function(){
+//					console.log('老三');
+//				},true)
+//				
+				//冒泡
+				laoda.addEventListener('click',function(){
+					console.log('老大');
+					event.stopPropagation();
+				})
+				laoer.addEventListener('click',function(){
+					console.log('老二');
+					event.stopPropagation();
+				})
+				laosan.addEventListener('click',function(event){
+					console.log('老三');
+					event.stopPropagation();//阻止冒泡
+				})
+				
+				
+				document.addEventListener('click',function(){
+					console.log('我是祖宗');
+				})
+			}
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>哈哈</div>
+		
+		<script type="text/javascript">
+			function getOrSetElementContent(obj,content){
+				if(arguments.length == 1){
+					//获取内容
+					//看看你是什么浏览器//
+					if(obj.textContent){
+						//高级浏览器  obj.textContent是可以获取到内容的，最次也是一个空白或者换行
+						return obj.textContent;
+					}else{ 
+						//低级浏览器  obj.textContent是获取不到内容的，拿到的一定是undefined
+						return obj.innerText;
+					}
+			
+				}else if(arguments.length == 2){
+					//设置内容
+					if(obj.textContent){
+						//高级浏览器  obj.textContent是可以获取到内容的，最次也是一个空白或者换行
+						obj.textContent = content;
+					}else{ 
+						//低级浏览器  obj.textContent是获取不到内容的，拿到的一定是undefined
+						 obj.innerText = content;
+					}
+				}
+			}
+			
+		
+			var box = document.querySelector('div');
+			
+			var content = getOrSetElementContent(box,'嘿嘿');
+			console.log(content);
+		</script>
+	</body>
+</html>

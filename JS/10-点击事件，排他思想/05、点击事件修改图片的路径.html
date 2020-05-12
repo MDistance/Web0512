@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			img{
+				display: block;
+				width: 300px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<img src="img/3.jpg" id="imgSrc"/>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById('btn');
+				var imgS = document.getElementById('imgSrc');
+				
+				btn.onclick = function(){
+//					imgS.src = 'img/16.jpg';
+					imgS['src'] = 'img/16.jpg';
+				}
+			}
+		</script>
+	</body>
+</html>

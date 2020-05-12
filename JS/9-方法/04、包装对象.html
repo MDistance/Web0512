@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = 10;
+			var b = {}; 
+			var c = [1,2,3]; 
+			var d = function(){};
+//			var e = 'zly';
+			
+			
+			//toString    每个数据对象都会有自己的toString方法
+			
+			console.log(c.toString());
+			console.log(c.valueOf()); //用来把对象转数值，如果转不了，还是自身。所有对象valueOf都是自身
+			
+			
+			console.log(d.toString());
+			console.log(d.valueOf()); //用来把对象转数值，如果转不了，还是自身。所有对象valueOf都是自身
+			
+			
+			console.log(b.toString());
+			console.log(b.valueOf()); //用来把对象转数值，如果转不了，还是自身。所有对象valueOf都是自身
+			
+			
+			console.log(a.toString());//
+			//a本来是没法调用toString()，因为a是一个基本数据类型，不是对象
+			//但是a确实可以调用，因为包装对象的存在
+			// a = new Number(a); 接下来就可以使用toString()
+			//使用完成后，包装对象会自动消失    相当于又写了  a = 10;
+			console.log(a.valueOf()); //用来把对象转数值，如果转不了，还是自身。所有对象valueOf都是自身
+			
+			console.log(a);
+			
+			//包装对象
+			
+			var num = 10;
+			Number(num);//当普通函数用就是做强制类型转换
+			
+			var num1 = new Number(10);
+			console.log(num1,num);
+			
+		</script>
+	</body>
+</html>

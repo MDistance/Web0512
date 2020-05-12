@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			body{
+				background: #333;
+			}
+			.box{
+				width: 240px;
+				/* height: 307px; */
+				border:1px solid #090;
+				margin: 50px auto 0;
+				background: url(images/bg.gif);
+				padding: 10px;
+			}
+			.box h2{
+				/* margin: 10px 0 0 10px; */
+				border-left:4px solid #c9e143;
+				color:#fff;
+				height: 23px;
+				/* line-height: 23px;
+				font-family: "黑体"; */
+				font:700 20px/23px "黑体";
+			/* 	padding-left: 5px; */
+				text-indent: 5px;
+			}
+			.box .list{
+				/* width: 220px; 不设置固定宽度,和box加了padding后的宽度一样*/
+				/* height: 280px; */
+				background: #fff;
+				padding: 0 10px;
+				margin-top: 5px;
+			}
+			.box .list li{
+				/* 不设置固定宽度,和list加了padding后的宽度一样 */
+				border-bottom: 1px dashed #666;
+				height: 30px;
+				line-height: 30px;
+			/* 	width: 220px;
+				margin-left: 10px; */
+				
+			}
+			.box .list li a{
+				/* 
+					a是行内元素,设置宽高不起作用,被文本撑开
+				 */
+				/* width:220px; */
+				font-size: 12px;
+				color:#06c;
+				text-decoration: none;
+				/* 
+					将a转成块元素,宽度和li一样,设置宽高起作用了,由于li的行高是30px,a可以继承li的行高30px
+					当元素不设置固定高度时,高度就是行高的值.
+				 */
+				display: block;
+				/* 
+				 */
+				background: url(images/tb.gif) no-repeat 7px center;
+				padding-left: 19px;
+			}
+			.box .list li a:hover{
+				text-decoration: underline;
+				color:yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<h2>爱宠知识</h2>
+			<ul class="list">
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+				<li>
+					<a href="##">养狗比养猫对健康更有利</a>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

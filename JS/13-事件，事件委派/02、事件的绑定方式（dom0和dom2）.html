@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			#box{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			//dom0事件
+//			box.onclick = function(){
+//				console.log('i love you~');
+//			}
+			
+			
+			//dom2事件IE10以上的高级浏览器
+//			box.addEventListener('click',function(){
+//				//事件处理回调函数被当作参数传递在DOM2里面
+//				console.log('i hate you!');
+//			})
+//			addEventListener这个方法是有三个参数的：第一个代表事件类型；第二个代表事件回调函数，第三个
+//			是一个布尔值,这个布尔值决定事件流是冒泡还是捕获,默认不写相当于写了个false,代表冒泡；
+			//一般我们都不会使用第三个参数，也就是说默认都是让事件流是冒泡；
+			
+			
+			
+			//dom2事件IE10以下的浏览器
+			
+//			box.attachEvent('onclick',function(){
+//				console.log('i miss you!');
+//			});
+			
+			
+			//dom2事件绑定兼容处理
+			
+			function addEvent(node,eventType,callback,isBubble){
+				if(node.addEventListener){
+					//高级浏览器和ie10以上的IE
+					node.addEventListener(eventType,callback,isBubble);
+				}else{
+					//ie10以下的IE
+					node.attachEvent('on'+eventType,callback);
+				}
+			}
+			
+			addEvent(box,'click',function(){
+				console.log('i miss you!');
+			})
+			
+			
+			var fn = function
+			
+		</script>
+	</body>
+</html>

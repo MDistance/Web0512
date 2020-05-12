@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" placeholder="请输入你喜欢的游戏名字" />
+		<ul></ul>
+		
+		<script type="text/javascript">
+			var inputNode = document.querySelector('input');
+			var ulNode = document.querySelector('ul');
+			inputNode.onkeyup = function(event){
+				if(event.keyCode == 13){
+					//回车事件的逻辑
+					var content = inputNode.value;//input拿里面的内容是从value属性去拿的，不是innerText和innerHtml
+					if(content.trim()){
+						//trim是字符串方法，去除字符串两边空格；
+						var liNode = document.createElement('li');
+						liNode.innerHTML = content;
+						ulNode.appendChild(liNode);
+//						this.value = '';
+					}else{
+						alert('游戏名不能为空或者空白');
+//						this.value = '';
+					}
+					this.value = '';
+				}
+			}
+			
+			
+//			
+//			var str = '              sjhfdgskdfhshf                 ';
+//			console.log(str.trim());
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

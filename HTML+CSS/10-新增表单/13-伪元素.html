@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+				伪元素: 在标签内部有两个一前一后盒子分别是before和after,默认是行内显示模式,
+				可以进行模式的转换,用法和嵌套的子元素一样
+			 */
+			.box{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+				margin: 100px auto;
+				position: relative;
+			}
+			.box::before{
+				/* 必写项 */
+				content:"before";
+				background: red;
+				width: 50px;
+				height: 50px;
+				/* display: block; */
+				/* float:left; */
+				/* position: absolute;
+				left:0;
+				top:0; */
+			}
+			.box::after{
+				/* 必写项 */
+				content:"after";
+				background: blue;
+				width: 50px;
+				height: 50px;
+				/* display: block; */
+				/* float:left; */
+				/* position: absolute;
+				left:0;
+				top:0; */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			我是一个盒子
+		</div>
+	</body>
+</html>

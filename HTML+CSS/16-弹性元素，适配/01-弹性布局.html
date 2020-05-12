@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/*
+				弹性布局: 伸缩布局  弹性盒子  flex布局
+				弹性布局指的是父级与子级之间的关系
+				父级: 弹性容器
+				子级: 弹性元素(弹性项  弹性项目)
+				主轴: 水平方向(默认) 从左向右
+				交叉轴(侧轴,垂轴): 垂直方向(默认) 从上向下
+			 */
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box01{
+				border:1px solid #000;
+				/* 弹性容器 (给父级设置)*/
+				display: flex;
+				/*
+					弹性元素排列方向:
+					flex-direction
+					row 水平排列(默认值) (相当于左浮动) 主轴由左至右,交叉轴由上至下
+					column 垂直排列   主轴和交叉轴发生对调,主轴由上至下,交叉轴由左至右 
+					row-reverse 水平逆序排列 (相当于右浮动) 主轴由右至左,交叉轴由上至下
+					column-reverse 垂直逆序排列  主轴和交叉轴发生对调,主轴由下至上,交叉轴由左至右 
+				 */
+				flex-direction:column-reverse;
+			}
+			.box01 div{
+				width: 100px;
+				height: 100px;
+			}
+			.box01 div:nth-of-type(1){
+				background: red;
+			}
+			.box01 div:nth-of-type(2){
+				background: green;
+			}
+			.box01 div:nth-of-type(3){
+				background: blue;
+			}
+			.box01 div:nth-of-type(4){
+				background: blueviolet;
+			}
+			.box01 div:nth-of-type(5){
+				background: yellowgreen;
+			}
+			.box01 div:nth-of-type(6){
+				background: darkred;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box01">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+	</body>
+</html>

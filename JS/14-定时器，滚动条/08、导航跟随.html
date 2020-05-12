@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			body{
+				height: 3000px;
+			}
+			
+			.nav{
+				width: 100%;
+				height: 60px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav"></div>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				window.onscroll = function(){
+//					console.log(document.documentElement.scrollTop);
+					var navNode = document.querySelector('.nav');
+					//拿body内容的滚动距离，有些浏览器认为是body的内容滚动，有些浏览器认为是html的内容在滚动，因此要兼容写法
+					var scrollDis = document.body.scrollTop || document.documentElement.scrollTop;
+					//拿到视口的高度，也就是第一屏的高度用来做比较；
+					var targetDis = document.documentElement.clientHeight;
+					
+					if(scrollDis >= targetDis){
+						navNode.style.position = 'fixed';
+						navNode.style.left = 0;
+						navNode.style.top = 0;
+					}else{
+						navNode.style.position = 'static';
+						navNode.style.left = 0;
+						navNode.style.top = 0;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

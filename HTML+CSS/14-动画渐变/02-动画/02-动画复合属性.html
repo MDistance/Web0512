@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				/* 
+					动画复合属性
+					动画名称  动画时间 动画延时 动画形式  动画方向  动画次数
+				 */
+				animation: donghua 5s 0.5s ease-out alternate 2;
+			}
+			/* 关键帧定义 */
+			@keyframes donghua{
+				0%{
+					background: yellow;
+				}
+				25%{
+					transform: rotateZ(3600deg);
+					background: #0000FF;
+				}
+				50%{
+					transform: translate(300px,200px) rotateZ(-3600deg);
+					background: red;
+				}
+				75%{
+					width: 500px;
+					height: 500px;
+					opacity: 0;
+					transform: translate(-300px,-200px) rotateZ(-7600deg);
+					background: green;
+				}
+				100%{
+					opacity: 1;
+					transform: translate(900px,-700px) rotateZ(-7600deg);
+					background: #000;
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

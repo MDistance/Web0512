@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			console.log(Object.is(1,'1'));//判断两个数据是否全等
+			
+			
+			var obj = {
+				name:'赵丽颖',
+				age:32,
+				height:160
+			}
+			var obj1 = {
+				color:'yellow',
+				eat:function(){
+					console.log('吃');
+				}
+			}
+			
+			var newObj = {};
+			
+			
+			Object.assign(newObj,obj,obj1);//把源对象里面的属性和属性值，复制到目标对象当中；第一个参数是目标对象，后面是一个或者多个源对象；
+			console.log(newObj);
+			
+			
+			//复制数据
+			var obj2 = obj1;//对于对象类型来说不叫复制，只叫赋值；
+			
+			var b = 100;
+			var a = b;//对于基本类型来说就叫复制也叫赋值
+			
+			
+			
+			
+			
+			//__proto__隐式原型对象ES6是可以操作的
+			
+			let obj3 = {};
+//			Object.prototype.eat = function(){
+//				console.log('吃')
+//			}
+			//在es5当中，如果要操作对象的原型对象，得通过显式原型对象去操作；
+			
+			obj3.__proto__.eat = function(){
+				console.log('吃');
+			}
+			
+			obj3.eat();
+			
+		</script>
+	</body>
+</html>

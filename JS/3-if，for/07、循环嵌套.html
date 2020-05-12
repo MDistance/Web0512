@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//循环嵌套，外层循环执行一次，内层循环执行一轮；
+//			for(var i = 0; i < 100; i++){
+//				for(var j = 0; j < 100; j++){
+//					console.log('i love you~');
+//				}
+//			}
+			
+			//打印矩形
+			
+//			for(var i = 0; i < 5; i++){
+//				//外层循环走一次 内层循环走一轮 ，外层循环每走一次代表准备打印这一行
+//				//内存循环才是真正的打印我的列（*）
+//				for(var j = 0; j < 5; j++){
+//					document.write('*');
+//				}
+//				document.write('<br>');
+//			}
+			
+			//打印直角三角形
+//			for(var i = 0; i < 5; i++){
+//				
+//				//当i= 0  代表打印第一行  j < 1的时候打印1个
+//				//当i = 1 代表打印第二行  j < 2时候打印2个
+//				
+//				for(var j = 0; j < i + 1;j++){
+//					document.write('*');
+//				}
+//				document.write('<br>');
+//			}
+			
+			
+			
+			//打印乘法口诀表
+			
+			for(var i = 1; i <= 9; i++){
+				for(var j = 1; j <= i; j++){
+					document.write(j+'*'+i+'='+i*j + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;');
+//					document.write(i*j)&gt;&lt&copy;
+				}
+				document.write('<br>');
+			}
+			
+		</script>
+	</body>
+</html>

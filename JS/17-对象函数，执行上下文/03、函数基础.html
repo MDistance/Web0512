@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//使用构造函数定义一个函数
+			function add(a,b){
+				console.log(this);
+				return a + b;
+			};
+//			console.log(add);
+//			
+//			var add = function(){}
+//			
+			
+//			var add = new Function('a','b','return a + b');
+//			console.log(add)
+			
+			
+			
+			//数组是数组，数组也是对象，函数是函数，函数也是对象
+			//对象角色
+			add.age = 33;
+			console.dir(add);
+			
+			//函数角色
+			console.log(add(10,8));
+			console.log(new add(1,2));
+			
+			
+			
+			
+			//call和apply
+			var obj = {
+				name:'赵丽颖',
+				age:33,
+				eat:function(){
+					
+					console.log('吃');
+				}
+			}
+			
+			obj.eat();
+			
+//			add();
+			window.add(1,2);
+			
+			
+			window.add.call(obj,1,2)
+//			window.add.apply(obj,[1,2])
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+			</tr>
+			
+			<tr>
+				<td>张双翼</td>
+				<td>18</td>
+				<td>男</td>
+			</tr>
+			
+			<tr>
+				<td>李姝婷</td>
+				<td>18</td>
+				<td>女</td>
+			</tr>
+			
+			<tr>
+				<td>高小乐</td>
+				<td>18</td>
+				<td>男</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			window.onload = function(){
+				var trNodes = document.querySelectorAll('table tr');
+				for(var i = 0; i < trNodes.length; i++){
+					if(i % 2 == 0){
+						trNodes[i].style.backgroundColor = 'hotpink';
+					}else{
+						trNodes[i].style.backgroundColor = 'skyblue';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

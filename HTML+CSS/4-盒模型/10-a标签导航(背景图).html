@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 1.默认状态:
+			 *   a标签的宽度是100,高度是30,背景色是yellow,字体颜色是green,文本水平垂直居中,
+			 *   没有下划线
+			 * 2.鼠标移入
+			 *   背景色变成yellowgreen,字体颜色变成orange,加下划线
+			 */
+			.nav{
+				/*
+				 * 居中也是关于设置文本的属性,所以a是可以继承的
+				 * 行高也是关于设置文本的属性,所以a是可以继承的
+				 */
+				text-align: center;
+				line-height: 30px;
+				/*height: 30px;*/
+				background: pink;
+			}
+			.nav a{
+				width: 100px;
+				height: 30px;
+				/*line-height: 30px;*/
+				background:url(mm_03.png) no-repeat 0 0;
+				color:#fff;
+				text-decoration: none;
+				/*
+				 * 由于a是行内元素,导航需要横向排一排,转换成inline-block
+				 */
+				display: inline-block;
+				/*text-align: center;*/
+			}
+			.nav a:hover{
+				background-image: url(cangjingkong_03.png);
+				color:orangered;
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav">
+			<a href="##">导航</a>
+			<a href="##">导航</a>
+			<a href="##">导航</a>
+			<a href="##">导航</a>
+			<a href="##">导航</a>	
+		</div>
+	
+	</body>
+</html>

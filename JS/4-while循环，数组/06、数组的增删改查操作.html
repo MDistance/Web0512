@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [100,200,300,400,500];
+			
+//			一、数组的增
+			//数组的增，增10000：
+			//在数组的末尾添加10000
+//			arr[arr.length] = 10000;
+//			console.log(arr);
+			
+			//先从后往前让每个数向后移一位
+			//在数组的头部添加10000
+			//最后再把数组的第一个数改为10000
+//			for(var i = arr.length - 1; i >= 0; i--){
+//				arr[i+1] = arr[i];
+//			}
+//			arr[0] = 10000;
+//			console.log(arr);
+			
+			
+			//在数组的中间200后添加一个10000
+			//先从后往前让200后的所有数全部向后移一位，
+			//然后再把200后的那一位改为10000
+//			for(var i = arr.length - 1; i >= 2; i--){
+//				arr[i+1] = arr[i];
+//			}
+//			arr[2] = 10000;
+//			console.log(arr);
+			
+			//二、数组的删
+			//从数组的末尾删除一个
+//			arr.length -= 1;
+//			console.log(arr);
+			
+			
+			//从数组的头部删除一个
+//			for(var i = 1; i < arr.length; i++){
+//				arr[i - 1] = arr[i];
+//			}
+//			
+//			arr.length -= 1;
+//			console.log(arr);
+
+			//从数组的中间删除300
+//			for(var i = 2; i < arr.length - 1; i++){
+//				arr[i] = arr[i+1];
+//				
+//			}
+//			arr.length--;
+//			
+//			console.log(arr);
+			
+			
+			//三 、改和查 关键看你知不知道下标，知道了下标就很容易，如果不知道下标，得遍历拿到这个值的下标；
+			//知道了下标，就如下操作；很简单
+//			arr[1] = 20000;
+//			console.log(arr[1]);
+			
+			//不知道下标，就得遍历查找要改的数的下标
+			
+			for(var i = 0; i < arr.length; i++){
+				if(arr[i] == 400){
+					arr[i] = 40000;
+				}
+			}
+			console.log(arr);
+			
+			
+			//我想访问数组当中的每一个值；  遍历数组用for循环，循环变量就是数组的下标（索引）；
+//			for(var i = 0; i < arr.length; i++){
+//				console.log(arr[i]);
+//			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

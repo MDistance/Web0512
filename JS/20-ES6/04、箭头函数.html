@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			//箭头函数是专门用来简化定义函数表达式（匿名函数）的方式；
+//			let fn = function(){}
+//			//下面以前用的字面量定义函数没办法转化为箭头函数；
+//			function fn(){
+//				
+//			}
+
+//			let fn = function(){
+//				console.log(111);
+//			}
+			
+			
+			
+			
+			
+			
+			//以箭头分割：前面是形参，后面是函数体
+			//如果前面不是一个形参，小括号必须有,如果是一个形参，小括号可有可无
+			
+			//没有形参
+			let fn = () => {console.log(222)};
+			fn();//调用的时候和以前一样
+			
+			let fn1 = n =>{console.log(333)};
+			fn1(0);
+			
+			//后面函数体，如果只有一句，花括号可有可无，如果不是一句，花括号不能省；
+			//如果没有花括号，函数的返回值是这一句代码执行的结果
+			//如果有花括号，看return
+			let num1 = 2;
+			let num2 = 3
+			let fn2 = () => {num1 < num2};//有花括号和没有花括号返回值是不一样的；
+			
+			console.log(fn2());
+			
+			
+			
+			
+			
+			
+			//箭头函数没有自己的this
+//			function fn3(){
+//				console.log(this);
+//			}
+			
+			
+			
+//			var fn3 = function(){
+//				console.log(this);
+//			}
+
+
+//			var fn3 = () => console.log(this);
+			
+			//上面三种this都是window
+//			fn3();
+			
+			
+			let obj = {
+				fn1:function(){
+					let fn = ()=>console.log(this);
+					fn();
+				}
+			}
+			
+			
+			obj.fn1();
+			
+			//扩展理解： 箭头函数的this看外层的是否有函数，
+//      		如果有，外层函数的this就是内部箭头函数的this，
+//      		如果没有，则this是window。
+			
+			
+			
+		</script>
+	</body>
+</html>

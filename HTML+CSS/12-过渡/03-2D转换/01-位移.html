@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				position: absolute;
+				left:50%;
+				top:50%;
+				/* margin-left: -100px; */
+				transform: translate(-50%,-50%);
+				/* 
+					2D转换: 是一个复合属性transform
+					位移:translate属性,当元素设置位移后,相当是一个定位的状态,在移动时不会影响周围元素,
+					移动是参照当前自身的位置,水平正值向右,负值向左,垂直正值向下,负值向上.
+					水平移动的百分比,是参照自身的宽度,垂直移动的百分比,是参照自身的高度
+					
+				 */
+				/* transform: translate(-100px,100px); */
+				/*  */
+				/* transform:translate(-50%,0px); */
+				/* 水平方向 */
+				/* transform: translateX(100px); */
+				/* 垂直方向 */
+				/* transform: translateY(100px); */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>我是列表项1</li>
+			<li>我是列表项2</li>
+			<li>我是列表项3</li>
+			<li>我是列表项4</li>
+			<li>我是列表项5</li>
+			<li id="single">我是列表项6</li>
+			<li>我是列表项7</li>
+			<li>我是列表项8</li>
+		</ul>
+		<script type="text/javascript">
+			var ulNode = document.getElementById('list');
+			var single = document.getElementById('single');
+			
+			
+			console.log(ulNode.childNodes);
+			console.log(ulNode.children);
+			console.log(ulNode.firstChild);//第一个子节点
+			console.log(ulNode.firstElementChild);//第一个子元素节点，高级浏览器才能用
+			console.log(ulNode.lastChild);
+			console.log(ulNode.lastElementChild);
+			
+			
+			console.log(single.previousSibling);
+			console.log(single.previousElementSibling);
+			console.log(single.nextSibling);
+			console.log(single.nextElementSibling);
+			
+			
+			
+			//兼容封装获取第一个元素节点
+			
+			function getFirstElementNode(node){
+				if(node.firstElementChild){
+					//高级
+					return node.firstElementChild;
+				}else{
+					//低级
+					var result = node.firstChild;
+					while(result.nodeType != 1){
+						result = result.nextSibling;
+					}
+					return result;
+				}
+			}
+			//兼容封装获取最后一个元素节点
+			function getLastElementNode(node){
+				if(node.lastElementChild){
+					//高级
+					return node.lastElementChild;
+				}else{
+					var result = node.lastChild;
+					while(result.nodeType != 1){
+						result = result.previousSibling;
+					}
+					return result;
+				}
+			}
+			
+		</script>
+	</body>
+</html>

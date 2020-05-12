@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 
+				渐变属性:设置background-image,渐变最少是两个颜色及以上
+			 */
+			.box{
+				width: 300px;
+				height: 300px;
+				/* background: pink; */
+				margin: 100px auto;
+				/* 
+					渐变的方向:
+					to bottom: 右上至下
+					to right:由左至右
+					to left: 由右至做
+					to top: 由下至上
+					to right top 右上
+					.
+					.
+					.
+					.
+					to right bottom 右下
+					角度,单位deg,正值是顺时针,负值是逆时针
+				 */
+				/*                        方向(默认由上至下),颜色1,颜色2,....... */
+			/* 	background: linear-gradient(-45deg,red,blue,yellow); */
+				/* background: linear-gradient(to right top,red,blue,yellow); */
+				/*
+					0px-50px是红色,从50px-100px是红色到蓝色之间的渐变,从100px-200px是蓝色到黄色之间的渐变,从200px到结束是黄色
+				 */
+			/* 	background: linear-gradient(to right,red 50px,blue 150px,yellow 200px); */
+				/* 从0%-20%是green到red之间的渐变,从20%-50%是red-blue之前的渐变..........  */
+				/* background: linear-gradient(to right,green 0%, red 20%,blue 50%,yellow 70%,pink 100%); */
+				
+				/* 模拟左红右蓝 */
+				background: linear-gradient(to right,red 0%, red 50%,blue 50% ,blue 100%);
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

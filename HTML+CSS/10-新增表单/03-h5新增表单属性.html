@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			placeholder: 提示信息
+		 -->
+		<input type="text" placeholder="输入商品....">
+		<!-- 
+			禁用
+		 -->
+		<input type="text" disabled >
+		<input type="button" value="确定"  disabled="disabled">
+		<!-- 自动获取焦点 -->
+		<input type="text" autofocus="autofocus"> <br>
+		<form action="##">
+			<!-- 必填项 -->
+			<input type="text" required="required"><br>
+			<!-- 自动补全
+					autocomplete: 默认值off   开启补全功能on 
+					              要使用name属性,补全的组名和radio分组是一个意思
+								  补全信息存储在浏览器的缓存中
+			 -->
+			<input type="text" autocomplete="on" name="laowang"><br>
+			<input type="submit" value="提交">
+			
+		</form>
+		
+		
+	</body>
+</html>

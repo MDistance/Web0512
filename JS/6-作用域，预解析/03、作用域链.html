@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//作用域链描述的是变量查找的过程；
+//			var a = 0;
+			function fn1(){
+//				var a = 1;
+				function fn2(){
+//					var a = 2;
+					function fn3(){
+//						var a = 3;
+						function fn4(){
+							console.log(a);
+						}
+						fn4();
+					}
+					fn3();
+				}
+				fn2();
+			}
+			fn1();
+			
+		</script>
+	</body>
+</html>

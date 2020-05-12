@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				
+			}
+			
+			
+			function Dog(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			
+			Dog.prototype.eat = function(food){
+				console.log(this);
+				console.log('吃'+food);
+			}
+			
+			Person.prototype.speak = function(){
+				
+				console.log('说话');
+			}
+			
+			var p1 = new Person('赵丽颖',32,'famale');
+			var d1 = new Dog('大黄',3);
+//			p1.eat();
+			d1.eat('面条');
+			
+			d1.eat.call(p1,'米饭');
+			d1.eat.apply(p1,['馒头']);
+			
+			
+			
+			//用call或者apply去改变一个方法的执行者
+			function add(a,b){
+				console.log('haha');
+				console.log(this);
+				return a + b;
+			}
+			
+			
+			console.log(window.add.call(p1,10,8)); 
+			console.log(window.add.apply(p1,[10,8]));
+			//call干了两件事，1、调用的时候先把this指向改为p1
+						 //2、然后再去执行add函数
+			
+			
+			//apply
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
