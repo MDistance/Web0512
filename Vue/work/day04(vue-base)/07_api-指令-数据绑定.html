@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            v-text
+            v-html
+            v-model
+            v-on
+            v-bind
+            v-show
+            v-if
+            v-else
+            v-else-if
+            v-for
+
+            v-pre
+            v-cloak
+            v-once
+
+            v-slot
+        -->
+        <span v-html="htmlStr">
+        </span>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+
+    var a = "a";
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue",
+            htmlStr : "<i>给我爱情和包就够了 面我自己买</i>"
+        }
+    })
+</script>
+</html>

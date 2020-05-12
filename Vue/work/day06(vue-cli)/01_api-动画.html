@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #test{
+            width: 200px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background: pink;
+            opacity: 1;
+        }
+
+       /*
+            当元素从离开状态 变为 显示状态时; vue会自动加下面三个class;
+            v-enter在第一帧有效;第二帧就失去作用;
+            v-enter-active v-enter-to 会持续作用到最后
+        */
+
+        .damu-enter{
+            background: gray !important;
+            opacity: 0 !important;
+        }
+        .damu-enter-active{transition: 10s all;}
+        .damu-enter-to{
+            background: pink !important;
+            opacity: 1 !important;
+        }
+
+        /*
+            当元素从显示状态 变为 离开状态时; vue会自动加下面三个class;
+            vv-leave就是没有任何作用的!!!  vue的作者认为 为了api的对称性 我们需要保留它
+            v-leave-active v-leave-to 会持续作用到最后
+        */
+        .damu-leave-active{transition: 10s all;}
+        .damu-leave-to{
+            background: gray !important;
+            opacity: 0 !important;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="flag=!flag">click me</button>
+        <transition name="damu">
+            <div id="test" v-show="flag">
+                幸福右边 荒无人烟
+            </div>
+        </transition>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        }
+    })
+</script>
+</html>

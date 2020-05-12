@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>promise_面试题</title>
+</head>
+<body>
+
+<!--
+  浏览器中的队列大致分两种:
+    宏队列(宏任务)
+      每一次js引擎事件轮询的时候 都是挑一个宏任务执行 执行完继续事件轮询
+    微队列(微任务)
+      每一次js引擎事件轮询的时候 遇到微队列 都是要清空微队列的
+
+      在写微任务的时候 一定要注意!!! 因为微任务很有可能阻塞整个事件循环
+
+
+    定时器: 宏任务
+    promise的回调: 都是微任务
+-->
+
+
+<!-- 面试题1 -->
+<script type="text/javascript">
+   //宏: 1
+   //微: 2 4
+
+   // 3 2 4 1
+  setTimeout(()=>{
+    console.log(1)
+  },0)
+
+  // Promise.resolve(): 返回一个确定状态的promise
+  Promise.resolve().then(()=>{
+    console.log(2)
+  })
+  Promise.resolve().then(()=>{
+    console.log(4)
+  })
+  console.log(3)
+</script>
+</body>
+</html>

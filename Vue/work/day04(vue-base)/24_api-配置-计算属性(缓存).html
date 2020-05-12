@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span>firstName:</span> <input type="text" v-model="firstName"> <br>
+        <span>lastName:</span> <input type="text" v-model="lastName"> <br>
+        <span>fullName:</span> <input type="text" v-model="fullName"> <br>
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+        {{fullName}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac"
+        },
+        computed:{
+            /*
+                计算属性什么时候被调用
+                    初始化的时候 调用一次
+                    当计算属性依赖的数据产生改变时 调用一次
+
+                计算属性是可以缓存的
+                    计算属性在界面上被使用的次数再多 一次渲染只会执行一次
+            */
+
+            //语法糖的写法
+            fullName(){
+                console.log("fullName")
+                return `${this.firstName}-${this.lastName}`
+            }
+        }
+    })
+</script>
+</html>

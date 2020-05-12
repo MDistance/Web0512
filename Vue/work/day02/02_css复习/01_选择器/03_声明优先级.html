@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 
+            层叠:
+                1.找出所有相关的规则，这些规则都包含一个选择器
+		        2.计算声明的优先级
+		               先按来源排序
+		               在按选择器的特殊性排序
+		               最终按顺序
+
+            来源
+				css样式的来源大致有三种
+					创作人员
+					读者
+					用户代理   
+			 
+			权重：
+			   读者的重要声明
+			   创作人员的重要声明
+			   创作人员的正常声明
+			   读者的正常声明
+			   用户代理的声明	
+                
+        */
+        
+        
+        /* 0,0,1,1 */
+        div.item{
+            color: yellow;
+        }
+        /* 0,0,1,1 */
+        div[class="item"]{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="item" >
+         你的课上没有酒 我却醉的像条狗
+    </div>
+</body>
+</html>

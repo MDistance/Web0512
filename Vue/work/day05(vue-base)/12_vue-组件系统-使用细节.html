@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .child{
+            width:100px;
+            height:100px;
+            background:pink;
+            line-height:100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="test">
+        <!--非props特性的属性 没有出现在在子组件的props列表中-->
+        <!--props特性的属性  出现在在子组件的props列表中-->
+        <!--
+            class: 非props特性的属性; 当模板挂载组件标签时;非props特性的属性模板会继承
+            damu: props特性的属性;当模板挂载组件标签时;props特性的属性模板不会继承
+        -->
+        <v-child class="child" damu="damu"></v-child>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#test",
+        components:{
+            "v-child":{
+                template:`<div>{{damu}}</div>`,
+                props:["damu"]
+            }
+        }
+    })
+</script>
+</html>

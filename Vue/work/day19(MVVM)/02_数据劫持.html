@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{damu.damuson.sonwife.wifename}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+
+   /* 数据劫持做两件事:
+        为data中的属性分配dep
+            分配dep的顺序:
+                damu damuname  damuage damuson sonname sonage sonwife  wifename wifeage a b
+        重新定义data中的属性
+                damuname damuage sonname  sonage wifename  wifeage sonwife damuson damu a b
+  */
+
+
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            damu:{
+                damuname:"达姆",
+                damuage:18,
+                damuson:{
+                    sonname:"思聪",
+                    sonage:8,
+                    sonwife:{
+                        wifename:"凤姐",
+                        wifeage:8
+                    }
+                }
+            },
+            a:"a",
+            b:"b"
+        }
+    })
+
+    console.log(vm.damu.damuson.sonwife.wifename)
+</script>
+</html>

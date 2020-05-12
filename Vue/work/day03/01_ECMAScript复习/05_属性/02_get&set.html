@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // get & set 方法中的this指向的就是当前属性所在的对象
+
+    //一般在js中 使用_开头的属性 我们会把它作为私有属性来处理
+    var damu ={
+        get age(){
+            return this._age_
+        },
+        set age(val){
+            if(val <0){
+                throw new Error("年龄不能是负值")
+            }
+            this._age_ = val
+        }
+    }
+
+    //对age属性进行获取操作 拿到的是age属性对应的get方法的返回值
+    //对age属性进行设置操作 每一次调用的是age属性对应的set方法  并且设置的新值会做为参数传递给set方法
+
+    damu.age = -10;
+    console.log(damu.age)
+</script>
+</html>

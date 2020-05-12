@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test">
+       <!--在html规范中  table标签下只能放tr td -->
+       <table>
+           <tr is="v-row"></tr>
+       </table>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.component("v-row",{
+        template:"<tr>1</tr>"
+    })
+    var vm = new Vue({
+        el:"#test"
+    })
+</script>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="searchVal">
+        <ul>
+            <li v-for="item in searchList">
+                <span>{{item.name}}</span>
+                <span>{{item.age}}</span>
+                <span style="width: 280px">{{item.assess}}</span>
+            </li>
+        </ul>
+        <button @click="up">按年龄升序</button>
+        <button @click="down">按年龄降序</button>
+        <button @click="old">按原本顺序</button>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            order:0, // -1:降序  0:原本顺序 1:升序
+            searchVal:"",
+            list:[
+                {name:"老刘",age:58,assess:"稳的一比"},
+                {name:"海峰啊",age:39,assess:"200斤的小可爱"},
+                {name:"阿强",age:42,assess:"可爱的不要不要的"},
+                {name:"天禹啊",age:43,assess:"帅的不要不要的"},
+                {name:"晓飞",age:38,assess:"老男人"},
+                {name:"达姆",age:40,assess:"有趣的灵魂 帅气的外表 不要脸的达姆"},
+                {name:"田田啊",age:41,assess:"200斤的大可爱"}
+            ]
+        },
+        computed:{
+            searchList(){
+                //filter方法用来返回一个新的数组; 该数组存放的都是原数组通过一个回调测试的子项
+                //filter方法不会影响老数组
+                var filterList = this.list.filter((item,index)=>{
+                    return item.name.includes(this.searchVal)
+                })
+
+                //排序
+                switch(this.order){
+                    case 0:
+                        break;
+                    case 1:
+                        //sort方法影响老数组
+                        //a,b : 代表的是数组中前后两个元素
+                        filterList.sort((a,b)=>{
+                            return a.age - b.age;
+                        })
+                        break;
+                    case -1:
+                        //sort方法影响老数组
+                        filterList.sort((a,b)=>{
+                            return b.age - a.age;
+                        })
+                        break;
+                }
+
+                return filterList;
+            }
+        },
+        methods:{
+            up(){this.order=1},
+            down(){this.order=-1},
+            old(){this.order=0}
+        }
+    })
+</script>
+</html>

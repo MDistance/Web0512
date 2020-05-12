@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        .test2{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+        .big{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :style="styleObj">test</div>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            styleObj:[{color: 'pink',fontSize: '70px'},{background:"gray"}]
+        }
+    })
+</script>
+</html>

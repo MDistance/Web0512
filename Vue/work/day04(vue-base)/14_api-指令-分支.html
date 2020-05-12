@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-show="flag">范冰冰</li>
+            <li v-show="!flag">周冬雨</li>
+            <li v-show="!flag">田老师</li>
+        </ul>
+
+        <ul>
+            <li v-if="!flag">周冬雨</li>
+            <li v-else-if="!flag">范冰冰</li>
+            <li v-else="flag">田老师</li>
+        </ul>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            flag:true
+        }
+    })
+</script>
+</html>

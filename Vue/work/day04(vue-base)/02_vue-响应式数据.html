@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--语法!!!!-->
+    <div id="app">
+        {{msg}}  <!--插值表达式 在插值表达式内部 我们可以直接使用对应的vm实例对象data中的数据-->
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    // 响应式数据: vm实例对象对应的data数据产生变化 对应的界面会得到更新
+    // 数据代理: data中的属性 会 一个一个转绑到vm实例对象上!!!!
+    // 使用vue编程!!!  基本上所有的代码都应该出现在配置对象中!!!
+
+    //mounted: vue的生命周期中的一个钩子; 它是一个回调函数
+    //mounted不能写成箭头函数;一旦写成箭头函数 this指向会错乱
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue"
+        },
+        mounted() {
+            // 回调函数
+            // 会在vue中数据挂载到界面上之后被调用
+            // 在vue中基本上所有配置函数的this 都会指向对应的vm实例对象
+            setTimeout(()=>{
+                this.msg = "xxx"
+            },2000)
+        }
+    })
+
+
+
+    /*
+        new Vue()
+        function Vue(options) {
+            options.mounted.call(this)
+        }
+
+        es6 对象的简写形式
+            var data = "";
+           {
+                data,
+                fn(){
+
+                }
+           }
+    */
+</script>
+</html>
+
+
+<!--
+    涉及的所有vue的api 暂时不用特意去记忆; 从第二节课开始 我们会展开api的讲解
+    vue的特征:
+        1. 声明式编程 (区别于dom编程)
+        2. 响应式数据
+        3. 数据双向绑定
+
+    vue编程思想
+    数据驱动
+-->

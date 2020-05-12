@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            ++ 表达式不能写在插值表达式内部 以后可以通过计算属性来解决
+
+            每个绑定都只能包含单个表达式
+                a++  :  a = a+1
+        -->
+        {{ msg + num }}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+
+    var a = "a";
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue",
+            num:1,
+            flag:true
+        }
+    })
+</script>
+</html>

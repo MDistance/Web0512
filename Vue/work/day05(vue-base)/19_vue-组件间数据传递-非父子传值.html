@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <v-a></v-a>
+        <v-b></v-b>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/pubsub-js/1.7.0/pubsub.min.js"></script>
+<script src="./js/vue.js"></script>
+<script>
+    /*
+        1. 非父子传值
+            pubsub
+    */
+
+    const a = {
+        template:"<span @click='handleC'>{{msg}}</span>",
+        data(){
+            return {
+                msg:"a-msg"
+            }
+        },
+        methods:{
+            handleC(){
+                // this.$bus.$emit("changeText",this.msg)
+                PubSub.publish('changeText', this.msg);
+            }
+        }
+    }
+
+    const b = {
+        template:"<span>{{msg}}</span>",
+        data(){
+            return {
+                msg:"b-msg"
+            }
+        },
+        mounted(){
+            /*this.$bus.$on("changeText",(msg)=>{
+                this.msg = msg;
+            })*/
+            //name 是废的; 它的值就是前面的事件名!!
+            PubSub.subscribe('changeText', (name, msg) => {
+                this.msg = msg;
+            });
+        }
+    }
+
+
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        components:{
+            "v-a":a,
+            "v-b":b
+        }
+    })
+</script>
+</html>

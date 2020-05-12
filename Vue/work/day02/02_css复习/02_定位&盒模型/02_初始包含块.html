@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*    
+            初始包含块:
+                在大多数浏览器中  初始包含块是一个视窗大小的矩形!!!
+                    1. 初始包含块不等于视窗; 初始包含块和视窗是两个东西
+                    2. 初始包含块的大小与视窗一样;初始包含块的位置默认情况和视窗保持一致
+            
+            当html和body只有一方具有overflow属性 那么这个overflow属性作用于系统
+            当html和body双方都具有overflow属性 那么html的overflow属性作用于系统
+                                                   body的overflow属性作用于自己
+
+            当系统滚动条被滑动时;初始包含块是会跟着一起滑动的!!!!!                                       
+        */
+        html{
+            border: 1px solid red;
+            margin: 20px;
+            height: 300px;
+            overflow: scroll;
+        }
+        body{
+            border: 1px solid deeppink;
+            margin: 20px;
+            height: 200px;
+            overflow: scroll;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        一个绝对定位的元素 如果没有一层开启定位的祖先元素 
+        那么其会参照于初始包含块进行定位 
+    -->
+    <div id="wrap">
+
+    </div>
+
+    <div style="height: 3000px;"></div>
+</body>
+</html>

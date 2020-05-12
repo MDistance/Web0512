@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        [v-cloak] { display: none }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--vue在解析完所有的html标签后 会将所有的指令全部移除掉
+        而v-cloak 是最后一个被移除的指令-->
+        <div v-cloak>
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+            {{msg}} {{msg}} {{msg}} {{msg}} {{msg}} {{msg}}
+        </div>
+    </div>
+</body>
+<script src="./js/vue.min.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"xxx"
+        }
+    })
+</script>
+</html>

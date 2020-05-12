@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //执行上下文本质上是要挂靠给作用域的
+    //一个作用域在一个时间点可能会包含多个执行上下文 (函数可以递归)
+    //一个作用域在一个时间点只会有一个执行上下文处于活动状态(v8是单线程)
+
+
+    //经典闭包
+    function wrap() {
+        var a = "a";
+        return function() {
+            console.log(a)
+        }
+    }
+
+
+    var  inner = wrap();
+    inner()
+
+
+</script>
+</html>

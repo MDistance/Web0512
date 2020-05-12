@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test">
+        <input type="text" placeholder="请输入一些内容" v-model="text">
+        <button @click="handleClick">add</button>
+        <v-todolist :todolist="todoList"></v-todolist>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+
+    /*父组件 怎么 向 子组件传递数据?
+        通过props + 标签属性*/
+
+    var vm = new Vue({
+        el:"#test",
+        data:{
+            text:"",
+            todoList:["吃饭","睡觉","玩天禹"]
+        },
+        methods:{
+            handleClick(){
+                this.todoList.push(this.text);
+                this.text = ""
+            }
+        },
+        components:{
+            //模板上的数据 可以去 data methods computed props
+            //不应该在data computed props配置中定义同名属性
+            //methods定义方法的
+            "v-todolist":{
+                template:`<ul>
+                    <li v-for="todo in todolist">
+                        {{todo}}
+                    </li>
+                </ul>`,
+                props:["todolist"]
+            }
+        }
+    })
+</script>
+</html>

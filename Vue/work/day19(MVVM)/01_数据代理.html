@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+    /*将data配置中的属性名 一个一个拿出来
+    按照拿出来的这个属性名字 给vm绑定一模一样的属性*/
+
+    // 给vm实例对象 绑定新的属性
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            msg:"hello mvvm"
+        }
+    })
+
+    vm.msg = "xxx";
+    console.log(vm.msg,"from vm")
+</script>
+</html>

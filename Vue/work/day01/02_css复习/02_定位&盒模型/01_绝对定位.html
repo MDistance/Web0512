@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*    
+            初始包含块:
+                在大多数浏览器中  初始包含块是一个视窗大小的矩形!!!
+                    1. 初始包含块不等于视窗; 初始包含块和视窗是两个东西
+                    2. 初始包含块的大小与视窗一样;初始包含块的位置默认情况和视窗保持一致
+        */
+        html{
+            border: 1px solid red;
+            margin: 20px;
+            height: 300px;
+        }
+        body{
+            border: 1px solid deeppink;
+            margin: 20px;
+            height: 200px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <!-- 一个绝对定位的元素 如果没有一层开启定位的祖先元素 
+        那么其会参照于初始包含块进行定位 -->
+    <div id="wrap">
+
+    </div>
+</body>
+</html>

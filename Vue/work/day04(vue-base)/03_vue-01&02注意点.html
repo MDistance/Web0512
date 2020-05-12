@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg2}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    //mounted不能写成箭头函数;一旦写成箭头函数 this指向会错乱
+    //在vue编码中  所有的代码都应该出现在配置对象中!!
+    //注意 只有data中定义的数据 是响应式的!!!!!! ; 以后在项目中要使用的数据 一定要在data中注册过才行!!
+    //注意 事件的回调函数 要定义在methods中 不要定义在data中 这么做不规范 出了任何问题 vue是不会负责的
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue"
+        },
+        mounted() {
+            setTimeout(()=>{
+                this.msg = "xxx"
+            },2000)
+        }
+    })
+
+    // vm.msg2 = "msg2"
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        {{ reverseMessage }}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            message:"巴拉巴拉小魔仙"
+        },
+        computed:{
+            reverseMessage(){
+                //对数据做一些复杂的处理 我们应该使用计算属性
+                return this.message.split("").reverse().join("-")
+            }
+        }
+    })
+</script>
+</html>

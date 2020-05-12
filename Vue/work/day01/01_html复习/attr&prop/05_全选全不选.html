@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 
+        1. 搞清楚什么是html的标签属性!!!
+        2. attr & porp的关系 
+    -->
+
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <input type="checkbox" >
+    <button id="btn">全选/全不选</button>
+
+</body>
+<script>
+    //布尔值属性!!! 操作的时候 一定不能根据attr来
+    window.onload=function(){
+        var btnNode = document.querySelector("#btn");  
+        var inputNodes = document.querySelectorAll("input");  
+
+        var flag = true;
+        btnNode.onclick=function(){
+            if(flag){
+                // 全选
+                for(let i=0;i<inputNodes.length;i++){
+                    // inputNodes[i].setAttribute("checked","checked")
+                    inputNodes[i].checked = true;
+                }
+            }else{
+                for(let i=0;i<inputNodes.length;i++){
+                    // inputNodes[i].removeAttribute("checked")
+                    inputNodes[i].checked = false;
+                }
+            }
+            flag = !flag
+        }
+    }
+</script>
+</html>

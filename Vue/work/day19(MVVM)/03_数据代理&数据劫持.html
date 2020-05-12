@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+    //将数据代理 和 数据劫持 串起来
+
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            msg:"hello mvvm"
+        }
+    })
+
+    // vm.msg  相当于  vm._data.msg    data.msg
+    // 又因为data中的msg属性已经做过数据劫持了!!!!  访问data.msg  其实走的是msg属性的get方法
+    console.log(vm.msg)
+</script>
+</html>

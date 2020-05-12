@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <v-damu>
+        <template slot="up">
+            <span>html from app-1</span>
+        </template>
+
+        <template slot="down">
+            <span>html from app-2</span>
+        </template>
+
+        <span>html from app-3</span>
+    </v-damu>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    //在具名插槽中如果一个slot没有定义名字 默认名字就是default
+
+
+    var damu ={
+        template:`
+            <div>
+                <slot name="up"></slot>
+                <slot name="down"></slot>
+                <slot></slot>
+            </div>
+        `
+    }
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello vue"
+        },
+        components:{
+            "v-damu":damu
+        }
+    })
+</script>
+</html>

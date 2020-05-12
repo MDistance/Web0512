@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    /*
+        1.所有配置对象的data属性(对象)所对应的属性都会转绑给Vue实例对象
+        2.一个Vue实例就是一个组件对象
+            el拥有两个功能:
+                1.指定了根组件的模板(组件对应的实际的html标签)
+                2.指定了根组件的挂载位置
+    */
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        template:"<span>塞班</span>",
+        data:{
+            msg:"xxx"
+        }
+    })
+
+    //$mount 和 el 有着一模一样的两个功能
+    //在拥有template选项的情况下;$mount 和 el 只有挂载的功能. 模板的功能会被tempalte替代
+    vm.$mount("#app")
+</script>
+</html>

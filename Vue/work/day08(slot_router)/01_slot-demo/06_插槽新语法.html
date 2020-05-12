@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+        v-bind:     简写成 :
+        v-on:       简写成 @
+        v-slot:     简写成 #
+    -->
+
+
+    <div id="app">
+        <v-damu>
+            <!--<template slot-scope="{a}" slot="a">-->
+            <!--<template v-slot:a="{a}">-->
+            <template #a="{a}">
+                <span>html from app for a:{{a}}</span>
+            </template>
+            <template #b="{b}">
+                <span>html from app for b:{{b}}</span>
+            </template>
+        </v-damu>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var damu ={
+        template:`
+            <div>
+                <slot a="a-text" name="a"></slot>
+                <slot b="b-text" name="b"></slot>
+            </div>
+        `
+    }
+
+    new Vue({
+        el:"#app",
+        components:{
+            "v-damu":damu
+        }
+    })
+</script>
+</html>

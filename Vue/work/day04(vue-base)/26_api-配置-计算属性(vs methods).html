@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span>firstName:</span> <input type="text" v-model="firstName"> <br>
+        <span>lastName:</span> <input type="text" v-model="lastName"> <br>
+        <span>fullName:</span> <input type="text" v-model="fullName()"> <br>
+        {{test}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac",
+            test:"test"
+        },
+        methods:{
+            fullName(){
+                console.log("methods")
+                return `${this.firstName}-${this.lastName}`
+            }
+        }
+        // computed:{
+        //     fullName(){
+        //         return `${this.firstName}-${this.lastName}`
+        //     }
+        // }
+    })
+</script>
+</html>

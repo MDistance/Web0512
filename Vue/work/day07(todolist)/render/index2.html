@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script src="js/vue.runtime.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        render(h){
+            return h("app")
+        },
+        components:{
+            app:{
+                name:"app",
+                render(h){
+                    return h("span","test2")
+                }
+            }
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span>firstName:</span> <input type="text" v-model="firstName"> <br>
+        <span>lastName:</span> <input type="text" v-model="lastName"> <br>
+        <span>fullName:</span> <input type="text" v-model="fullName"> <br>
+        {{test}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac",
+            test:"test"
+        },
+        computed:{
+            // 当vue中的一个数据 需要依赖于其他vue中数据的时候 那一定要想到使用计算属性
+            /*计算属性的特征:
+                当计算属性所依赖的数据产生改变时;计算属性会被重新调用*/
+            /*计算属性什么时候被调用
+                初始化的时候 调用一次
+                当计算属性依赖的数据产生改变时 调用一次*/
+            fullName(){
+                console.log("fullName")
+                return `${this.firstName}-${this.lastName}`
+            }
+
+            /*fullName:{
+                get(){
+                    return `${this.firstName}-${this.lastName}`
+                }
+            }*/
+        }
+    })
+</script>
+</html>

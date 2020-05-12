@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 
+        重点讨论 布尔值属性
+            浏览器在渲染的时候 到底是根据attr? 还是根据prop?
+                prop
+            用户在界面上操作的时候 到底动的是attr? 还是prop?
+                prop
+    -->
+    <input type="checkbox" >
+
+</body>
+<script>
+    window.onload=function(){
+        var inputNode = document.querySelector("input");  
+        inputNode.onclick=function(){
+            // 03_this ---> inputNode
+            debugger
+        }
+    }
+</script>
+</html>

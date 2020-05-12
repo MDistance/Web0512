@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{damu.wife.wifeName}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+
+   /* 模板解析
+        init --> 经过一些列的判断 循环 解析深度解析  --> 工具类 --> bind(很重要) --> 更新器
+        {{}}的解析 在vue1.0中相当于是v-text的解析
+
+
+        模板解析 与 数据代理 和 数据劫持有什么关系?
+            模板解析的过程中 要通过表达式去找表达式在data中对应的数据
+            这个时候其实会走 数据代理 --> 数据劫持 这样一个流程
+            只不过这个时候的数据劫持 没有发挥它真正的作用
+   */
+
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            damu:{
+                name:"达姆",
+                age:18,
+                wife:{
+                    wifeName:"冬雨",
+                    wifeAge:18
+                }
+            }
+        }
+    })
+</script>
+</html>

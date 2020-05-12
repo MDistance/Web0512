@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <v-damu>
+
+    </v-damu>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    //什么是插槽: 插槽是父组件向子组件传递html片段的一种方式
+    //插槽的默认值: slot组件内部的标签就是当前这个slot的默认值
+
+
+    var damu ={
+        template:`
+            <div>
+                <slot>
+                    <span>默认值</span>
+                </slot>
+            </div>
+        `
+    }
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello vue"
+        },
+        components:{
+            "v-damu":damu
+        }
+    })
+</script>
+</html>

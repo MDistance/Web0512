@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <v-damu>
+            <template slot-scope="{msg}">
+                <span>html from app {{msg}}</span>
+            </template>
+        </v-damu>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    //什么是插槽: 插槽是父组件向子组件传递html片段的一种方式
+    //slot 本质上是vue提供的一个内置组件
+    //普通插槽 & 具名插槽都是父组件向子组件传递html片段
+    //作用域插槽是子组件向父组件传递数据
+
+
+    var damu ={
+        template:`
+            <div>
+                <slot a="a" b="b" :msg="msg"></slot>
+            </div>
+        `,
+        data(){
+            return {
+                msg:"msg from damu"
+            }
+        }
+    }
+
+    new Vue({
+        el:"#app",
+        data:{
+            msg:"hello vue"
+        },
+        components:{
+            "v-damu":damu
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // async 函数返回的是一个promise
+    // async函数返回的promise的状态 与async函数的返回值有关
+
+    //await 要等一个promise的状态确定之后 才能继续往下执行
+   /* (async ()=>{
+        async function test() {
+            await 123;
+            console.log(1)
+        }
+
+        await test()
+        console.log(2)
+    })()*/
+
+
+    /*
+        async function test() {
+            await 123;
+            console.log(1)
+        }
+        console.log(2)
+
+
+
+        Promise.resolve(123).then(()=>{
+            console.log(1)
+        })
+        console.log(2)
+    */
+
+    /*
+       async function test() {
+           await promise;
+           console.log(1)
+       }
+       console.log(2)
+
+
+       promise.then(()=>{
+           console.log(1)
+       })
+       console.log(2)
+   */
+
+    async function test() {
+       return 2;
+    }
+    console.log(test())
+</script>
+</html>

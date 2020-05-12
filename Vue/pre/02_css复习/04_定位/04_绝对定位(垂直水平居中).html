@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*css 重置*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+            border: 1px solid;
+        }
+        #app{
+            width: 100px;
+            height: 100px;
+            background: green;
+
+           /* 已知高宽
+            绝对定位元素的特性:
+                m + b + p + w + left + right = 包含块的(w+p)
+                   auto + 0  + 0 + 100 + 0 + 0 = 视口的宽度
+                   auto + 0 + 0 + 100 + 0 + 0  = 400 + 50*2
+                m + b + p + h + top + bottom  = 包含块的(h+p)
+            */
+            position: absolute;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom:0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="app">
+            App
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    (async ()=>{
+        async function test() {
+            //await 一定是等一个promise状态确定了之后 才会放行
+            await new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    console.log(1);
+                    resolve()
+                },2000)
+            })
+            console.log(2)
+        }
+
+        //必须等promise的状态确定了才能放行
+        await test()
+        console.log(3)
+    })()
+
+
+
+</script>
+</html>

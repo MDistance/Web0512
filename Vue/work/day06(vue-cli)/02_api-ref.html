@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <p ref="pNode">test ref</p>
+        <damu ref="damuCom"></damu>
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component("damu",{
+        template:"<span>塞班</span>"
+    })
+
+    var vm = new Vue({
+        el:"#app",
+        mounted(){
+            console.log(this.$refs)
+        }
+    })
+</script>
+</html>

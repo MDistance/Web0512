@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>09_自定义Promise</title>
+</head>
+<body>
+	<script type="text/javascript" src="./js/Promise.js"></script>
+<script type="text/javascript" >
+
+const p1 = new Promise((resolve, reject) => { 
+  setTimeout(() => {
+    resolve('atguigu');
+  },2000);
+});
+
+p1.then(
+	value => console.log(value),
+	reason => console.log(reason),
+)
+
+</script>
+</body>
+</html>

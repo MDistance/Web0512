@@ -1,0 +1,16 @@
+@import "extend";
+#wrap{
+  &:extend(.clearfix all);
+  border: 5px solid;
+  background: pink;
+  #inner{
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: gray;
+  }
+}
+
+#wrap2{
+  &:extend(.clearfix all);
+}

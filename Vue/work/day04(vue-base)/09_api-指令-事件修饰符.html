@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap{
+            width: 300px;
+            height: 300px;
+            background: pink;
+        }
+        .inner{
+            width: 200px;
+            height: 200px;
+            background: gray;
+        }
+        .test{
+            width: 100px;
+            height: 100px;
+            background: #1b6d85;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="wrap" @click.self="handleWrap">
+            wrap
+            <div class="inner" @click.self ="handleInner">
+                inner
+                <div class="test" @click.self="handleTest">
+                    test
+                </div>
+            </div>
+        </div>
+
+        <a href="http://www.atguigu.com/" @click.prevent="handleA">回娘家</a>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    //注意 事件的回调函数 要定义在methods中 不要定义在data中 这么做不规范 出了任何问题 vue是不会负责的
+    Vue.config.productionTip=false; // 去除提示
+    new Vue({
+        el:"#app",
+        methods:{
+            handleWrap(){
+                console.log("handleWrap")
+            },
+            handleInner(){
+                console.log("handleInner")
+            },
+            handleTest(){
+                console.log("handleTest")
+            },
+            handleA(){
+                console.log("handleA")
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 
+        type checked: HTMl的标签属性  这边跟js没有半毛钱关系 
+
+        数据类型是js中的概念!!! 千万不要带入到HTML中
+        在HTML中 是没有数据类型的!!!!
+    -->
+    <input type="checkbox" checked=false >
+    <input type="checkbox" checked="" >
+    <input type="checkbox" checked=undefined >
+    <input type="checkbox" checked >
+    <input type="checkbox" checked=null >
+
+
+    <!-- 
+        html中对于类似于checked这种标签属性 我们建议的写法:
+        checked="checked" 
+    -->
+    <input type="checkbox" checked="checked" >
+
+</body>
+</html>

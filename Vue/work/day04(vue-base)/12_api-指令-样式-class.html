@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .test{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+        .test2{
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+        }
+        .big{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!--我们希望class的值 由vue的data来提供!-->
+
+    <div id="app">
+        <!--因为v-text是一个指令 所以我们可以自动拿到指令值(data中的key)在data数据中对应的value-->
+        <!--class 是html标签的一个预定义属性 vue不会去管理这种预定义属性-->
+        <!--v-bind: 可以让所有不是以v-开头的标签属性 接受vue的管理-->
+        <!--vue在解析完html标签后 会将所有的指令全部移除 为了不污染整个html-->
+
+        <!--
+            当class被v-bind修饰之后; 它有三种可选值:
+                字符串
+                    "test" "test big"
+                对象
+                    {
+                        test:true,
+                        big:true
+                    }
+                数组
+                    [str,str]
+                    [obj,obj]
+                    [str,obj]
+        -->
+        <div :class="['test2']" v-text="msg" @click="handleC"></div>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+           msg:"测试vue如何应用样式",
+           testClassName:["test",{big:true}]
+        },
+        methods:{
+            handleC(){
+                this.testClassName.test = !this.testClassName.test;
+                this.testClassName.test2 = !this.testClassName.test2;
+            }
+        }
+    })
+</script>
+</html>

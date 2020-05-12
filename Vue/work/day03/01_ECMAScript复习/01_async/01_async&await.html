@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    async function test() {
+        await setTimeout(()=>{
+            console.log(1)
+        },2000)
+        console.log(2)
+    }
+
+    test()
+    console.log(3)
+
+
+    /*var id = setTimeout(()=>{
+        console.log(1)
+    },2000)
+    Promise.resolve(id).then(()=>{
+        console.log(2)
+    })
+    console.log(3)*/
+</script>
+</html>

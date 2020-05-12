@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+        <v-damu></v-damu>
+    </div>
+</body>
+<script src="MyPlugin/MyPlugin.js"></script>
+<script src="js/vue.js"></script>
+<script>
+
+    //myPlugin中的install方法 会被自动调用 而且参数传的是vue构造
+    //以后如果我们呢使用了一个插件之后  当前应用中 多了一个组件 多了一个指令 多了一个过滤器
+    //或者vue的原型上多了些方法 都是正常的
+    Vue.use(myPlugin)
+
+    var vm = new Vue({
+        el:"#app",
+        mounted(){
+            console.log(this.damu);
+            this.fn()
+        }
+    })
+</script>
+</html>

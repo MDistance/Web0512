@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*学习js数组api的注意点
+        1. 要弄清楚js api是用来干嘛的
+        2. 观察这个js api的参数
+            reduce接收两个参数
+                cb
+                   参数:
+                     Accumulator (adder) (累计器)
+                     Current Value (item) (当前值)
+                     Current Index (index) (当前索引)
+                     Source Array (arr) (源数组)
+                   返回值:
+                      会累加给adder
+                initialValue
+                    第一次迭代时 adder的值
+        3. 观察这个js api的返回值
+                adder
+        4. 当前这个api 会不会影响老数组
+                默认情况下不会影响老数组
+     */
+
+    /*
+        reduce:
+            当出现 对数组元素进行累加的需求时 就要使用reduce api
+    */
+
+
+    //隐式迭代  : 我们自己没有写循环的语法 浏览器内部帮我们做了循环
+    var arr = [1,2,3,4];
+    var res = arr.reduce((adder,item,index,arr)=>{
+            return adder + item;
+    })
+
+    console.log(res,arr)
+</script>
+</html>

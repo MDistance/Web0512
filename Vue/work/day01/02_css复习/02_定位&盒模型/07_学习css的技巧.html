@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #app{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+    
+        #test{
+            position: absolute;
+            left:10%;
+            top:10%;
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+
+            background: url(./img/damulaop.jpg) no-repeat;
+            /* background-position: 10% 10%; */
+            background-position: -30px -30px;
+            /*
+                background-position百分比参照于:
+                (container width - image width) 
+                100 - 400 = -300
+            */
+        }
+
+        /* 学习css的技巧 
+            1. 要知道这个css属性是用来干嘛的
+            2. 要去阅读api 观察这个属性的默认值
+                    left top : auto
+            3. 观察这个属性是否可继承
+            4. 如果这个属性的值 可以是百分比 那么一定要阅读一下这个百分比参照于谁
+                    background-position : (container width - image width) 
+        */
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="test">
+
+        </div>
+    </div>
+</body>
+</html>

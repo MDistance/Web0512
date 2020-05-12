@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--<input type="text" v-model.number="message" placeholder="edit me">-->
+        <!--<input type="text" v-model.trim="message" placeholder="edit me">-->
+        <input type="text" v-model.lazy="message" placeholder="edit me">
+    </div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:""
+        }
+    })
+</script>
+</html>

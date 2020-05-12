@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //js函数的形参列表 可以 与实参列表不一致
+    //arguments不是函数的属性!!! 而是函数的一个内部特征
+    //this也不是函数的属性!!! 而是函数的一个内部特征
+
+    //arguments,03_this 归函数的执行上下文来管理
+    /*
+        执行上下文 就是一套规则
+            确定了函数在调用时 arguments 为实参列表
+            根据函数的调用形式不一样 确定this的值
+            提升
+    */
+    function test(a) {
+        console.log(arguments)
+    }
+
+
+    test(1,2,3,4,5)
+</script>
+</html>

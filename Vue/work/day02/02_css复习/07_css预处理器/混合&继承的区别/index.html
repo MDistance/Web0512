@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            border: 5px solid;
+            background: pink;
+        }
+        #wrap #inner {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: gray;
+        }
+
+
+        /*
+            代表触发ie6 7 8 中的haslayout(ie 6 7 8的BFC)
+            * : css hack css声明前面如果有* 代表当前这个声明只在ie678中起作用
+        */
+        .clearFix{
+            *zoom: 1;
+        }
+        /*ie 6 7 8 是不支持after伪元素的*/
+        .clearFix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrap" class="clearFix">
+        <div id="inner"></div>
+    </div>
+</body>
+</html>

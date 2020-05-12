@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="damu.wife.wifeName">
+        {{damu.wife.wifeName}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            damu:{
+                name:"达姆",
+                age:18,
+                wife:{
+                    wifeName:"冬雨",
+                    wifeAge:18
+                }
+            }
+        }
+    })
+
+
+    /*setTimeout(()=>{
+        vm.damu.wife.wifeName = "28岁的周冬雨"
+    },2000)*/
+</script>
+</html>

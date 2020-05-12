@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- 
+        html的标签属性:
+            预定义的标签属性: type checked
+                浏览器会去读取预定义属性的值 并在浏览器上做出相应的动作
+            自定义的标签属性: damu
+                自定义标签属性只有一个功能;用于携带数据
+
+
+        attribute: 对html标签所有属性的抽象
+        property: type checked
+            一般我们把dom元素节点的直接属性 我们称之为property;
+            property一般用来抽象预定义的标签属性;
+            property一般可以分为两类:
+                布尔值属性:checked (重点讨论的!!!  因为用户是可以操作到布尔值属性的)
+                非布尔值属性:type
+    -->
+    <input type="checkbox" checked="checked" damu="达姆" >
+
+</body>
+<script>
+    // DOM节点(本质上是一个js对象)
+    //     attributes: 属性节点
+    var inputNode = document.querySelector("input");
+    debugger  //手动打断点
+</script>
+</html>

@@ -1,0 +1,42 @@
+export default {
+  api:{
+    getContactList:{
+      url:"/contactList",
+      method:"get",
+      toast:true,
+      data:{a:"a"},
+      // 单个请求级别的钩子
+      hooks:{
+        beforeReq(){},
+        afterReqSuccess(body){body.xxx = "请求级别的处理";},
+        afterReqFail(){},
+      }
+    },
+    delContactById:{
+      url:"/contact",
+      method:"delete"
+    },
+    updateContact:{
+      url:"/contact/edit",
+      method:"put"
+    },
+    createContactByForm:{
+      url:"/contact/new/form",
+      method:"post",
+      isForm:true
+    },
+    createContactByJosn:{
+      url:"/contact/new/json",
+      method:"post"
+    }
+  },
+  baseUrl:"http://localhost:9000/api",
+  timeout:5000,
+  name:"contact",
+  //模块级别的钩子
+  hooks:{
+    beforeReq(){},
+    afterReqSuccess(data){data.xxx="模块级别的处理";},
+    afterReqFail(){},
+  }
+}

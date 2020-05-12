@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   /*
+        当一个函数被调用时;就会创建一个执行上下文
+            狭义上来讲  执行上下文就是一个c++对象
+                    局部变量
+                    this
+                    arguments
+            广义上来讲  执行上下文是一套规则
+                    规定了函数调用方式不同 this的指向不同
+
+        this指向于谁;我们主要是看函数调用位置上的调用形式
+            fn() :      独立调用  (this指向window)
+            obj.fn() :  隐式调用  (this指向obj)
+            new fn() :  构造调用  (this指向构造出来的实例对象)
+            fn.call(obj)
+            fn.apply(obj): 显示调用  (this指向指定的对象)
+
+
+        1. 隐式丢失
+            以隐式绑定的形式 进行 函数的传递
+            最终使用了独立调用的形式进行调用 就会出现隐式丢失的情况!!!!
+
+            使用硬绑定来解决隐式丢失
+                bind函数: 返回一个指定了this的一个新的函数  并不是对函数的调用
+
+       2. 回调函数的this
+            所有回调函数的this 不能瞎猜  只能查阅文档;
+            因为回调函数不是你执行的 而是浏览器 或者 第三方库执行的
+            我们看不到回调函数执行位置上的执行方式 所以没有办法确定this执行
+            可是浏览器开发者 第三方库的开发者是清除回调函数被怎么执行的!!!
+            所以 文档上肯定有
+
+      3. ES6的箭头函数!!!
+            箭头函数的this指向其上一层执行上下文中的this
+
+   */
+
+   document.write("戏子入画 一生天涯")
+
+   var write = document.write.bind(document);
+   write("懵逼树上懵逼果;懵逼树下你和我;懵逼树前排排坐;一个一个懵逼果")
+
+
+
+   /*浏览器的内部:
+    function setTimeout(fn){
+       fn()
+    }*/
+
+   setTimeout(()=> {
+       console.log(this)
+   })
+
+
+    /*
+        第三方库:
+            function test(fn){
+                fn()
+            }
+
+       用户代码:
+           var obj={
+                name:"xxx",
+                fn(){
+                    console.log(this.name)
+                }
+           }
+
+           test(obj.fn.bind(obj))
+    */
+</script>
+</html>

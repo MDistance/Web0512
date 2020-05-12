@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <span v-html="damu.wife.wifeName"></span>
+        {{damu.wife.wifeName}}
+    </div>
+</body>
+<script src="./mvvm/mvvm.js"></script>
+<script src="./mvvm/observer.js"></script>
+<script src="./mvvm/compile.js"></script>
+<script src="./mvvm/watcher.js"></script>
+<script>
+
+    /*vue是如何实现数据响应式的?
+        实现 dep 和 watcher 的多对多关系
+            dep 是在数据劫持时创建的;每一个data中的属性都分配到了一个dep闭包(id 是不一样的)
+            watcher 是在模板解析的最后一步创建的;每一个watcher都对应着一个指令!!!!
+                                                    在new watcher时;指令对应的更新器会变成一个闭包存着
+
+
+        为什么要构建 dep 和 watcher的多对多关系?
+            一个dep可以抽象成 一个data中的属性
+            一个watcher可以抽象成 一个指令
+
+            data中的属性 与 指令 本身在使用时 就是一个多对多的关系
+                <div id="app">
+                    <span v-html="damu.wife.wifeName"></span>
+                    {{damu.wife.wifeName}}
+                </div>
+
+                是不是 一个指令可以对应多个 data中的属性?  是
+                    v-html="damu.wife.wifeName"
+                    v-html中对应了三个data中的属性
+                是不是 一个属性可以对应多个指令? 是
+                    v-html="damu.wife.wifeName"
+                    {{damu.wife.wifeName}}
+                    任意一个属性都对应着 v-html  {{}}
+
+
+        怎么构建的?
+            通过get & set 方法
+            每一个dep中 都会一个subs的属性(数组)  存放着dep所对应的所有watcher
+            每一个watcher中 都有有一个depids的属性(对象) 存放着watcher所对应的所有dep
+    */
+
+
+    var vm = new MVVM({
+        el:"#app",
+        data:{
+            damu:{
+                name:"达姆",
+                age:18,
+                wife:{
+                    wifeName:"冬雨",
+                    wifeAge:18
+                }
+            }
+        }
+    })
+
+
+    setTimeout(()=>{
+        vm.damu.wife.wifeName = "28岁的周冬雨"
+    },2000)
+</script>
+</html>

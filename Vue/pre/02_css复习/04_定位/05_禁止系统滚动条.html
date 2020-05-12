@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /*
+            当html和body只有一方具有overflow属性 那么这个overflow属性作用于系统
+            当html和body双方都具有overflow属性 那么html的overflow属性作用于系统
+                                                   body的overflow属性作用于自己
+        */
+        html{
+            margin: 30px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+        body{
+            margin: 30px;
+            border: 1px solid black;
+            height: 300px;
+            overflow: auto;
+        }
+        #app{
+            width: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" style="height: 3000px">
+
+    </div>
+</body>
+</html>

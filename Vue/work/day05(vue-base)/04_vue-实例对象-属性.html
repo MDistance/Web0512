@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    /*
+        1.所有配置对象的data属性(对象)所对应的属性都会转绑给Vue实例对象
+        2.一个Vue实例就是一个组件对象
+            el拥有两个功能:
+                1.指定了根组件的模板
+                2.指定了根组件的挂载位置
+    */
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        name:"root",
+        el:"#app",
+        data:{
+            msg:"xxx"
+        }
+    })
+
+    console.log(vm.$root === vm)
+    console.log(vm.$el)
+
+    //在vue的内部 data本质上是一个函数!!! data函数的返回值才是我们真正的数据
+    console.log(vm.$options.name)
+    console.log(vm.$data) //vm.$options.data()
+</script>
+</html>

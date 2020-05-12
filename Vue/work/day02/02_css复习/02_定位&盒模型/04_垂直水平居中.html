@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /* 
+            绝对定位盒模型的特性:
+                横向上盒模型相关的尺寸 + left + right = 包含块的padding-box横向的尺寸
+                纵向上盒模型相关的尺寸 + top + bottom = 包含块的padding-box纵向的尺寸 
+            
+            app的包含块是初始包含块
+                width + padding(R&L) + border(R&L) +margin(R&L) + 0 + 0 = 视口横向的尺寸
+                 200      0+0           0+0             auto  
+
+            app的包含块是初始包含块
+                width + padding(R&L) + border(R&L) +margin(R&L) + 0 + 0 = 视口横向的尺寸
+                 auto      0+0           0+0             auto      
+        */
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            /* width: 200px; */
+            /* height: 200px; */
+            background: hotpink;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        app
+    </div>
+</body>
+</html>

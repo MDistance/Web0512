@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // 对象不变性的第一个级别:  禁止对象扩展属性
+    // 对象不变性的第二个级别:  密封对象
+            //在禁止对象扩展的基础上把现有属性的configurable都调整为false
+    // 对象不变性的第三个级别:  冻结对象
+            //在密封对象的基础上把现有属性的writable都调整为false
+    var obj = {
+        name:"达姆",
+        wife:"周冬雨"
+    }
+
+    //禁止对象的扩展
+    //Object.preventExtensions(obj)
+
+    //密封对象
+    // Object.seal(obj)
+
+    //冻结对象
+    Object.freeze(obj)
+
+    console.log(obj);
+</script>
+</html>

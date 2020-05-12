@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span>firstName:</span> <input type="text" v-model="firstName"> <br>
+        <span>lastName:</span> <input type="text" v-model="lastName"> <br>
+        <span>fullName:</span> <input type="text" v-model="fullName"> <br>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac"
+        },
+        computed:{
+            fullName:{
+                get(){
+                    return `${this.firstName}-${this.lastName}`
+                },
+                set(val){
+                    //当直接修改技术属性的值时 被触发
+                    const arr = val.split("-");
+                    this.firstName = arr[0];
+                    this.lastName = arr[1];
+                }
+            }
+        }
+    })
+</script>
+</html>

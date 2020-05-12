@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #app{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 300px;
+            height: 300px;
+            border: 1px solid;
+        }
+    
+        #test{
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: hotpink;
+        }
+
+        /* 前端坐标系
+            x轴
+            y轴
+            圆点在哪 
+
+            我们使用的css属性不一样 前端坐标系会产生改变!!!!
+
+            绝对定位: 正值往里收 负值往外扩
+        */
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="test">
+
+        </div>
+    </div>
+</body>
+</html>

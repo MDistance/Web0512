@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--语法!!!!-->
+    <div id="app">
+        {{msg}}  <!--插值表达式 在插值表达式内部 我们可以直接使用对应的vm实例对象data中的数据-->
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    /*
+        Vue(本身是一个构造函数) 会被注册为一个全局变量
+            语法: new Vue(options)
+            参数: options:配置对象
+            返回值: 新的Vue的实例对象
+    */
+
+    /*
+        options:
+            el : 选择器字符串;代表的是当前这个vm实例对象 要管理的区域(当前vm实例对象的挂载节点)
+            data: 对象;用来存放当前vm实例对象的数据
+    */
+
+    /*
+        当前这个demo体现了vue的一个特征:
+            声明式编程: 在整个demo的编写过程中  完全没有去操作dom 就把对应的数据渲染到界面上了
+    */
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue"
+        }
+    })
+</script>
+</html>
+
+
+<!--
+    涉及的所有vue的api 暂时不用特意去记忆; 从第二节课开始 我们会展开api的讲解
+    vue的特征:
+        1. 声明式编程 (区别于dom编程)
+        2. 响应式数据
+        3. 数据双向绑定
+
+    vue编程思想
+    数据驱动
+-->

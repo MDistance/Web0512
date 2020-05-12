@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    /*
+        在js中对变量的查找 是有一定的规则:
+            左查询 : 对等号左边的变量发起的查询
+                在整条作用域链中;都没有找到对应变量的声明;v8引擎会在全局自动声明一份
+            右查询 : 对等号非左边的变量发起的查询
+                在整条作用域链中;都没有找到对应变量的声明;v8引擎会选择报错
+    */
+
+    (function () {
+        function test(a) {
+            var b =a;
+            console.log(b)
+        }
+        test("aaaaa")
+    })()
+
+
+    console.log(b,"全局")
+</script>
+</html>

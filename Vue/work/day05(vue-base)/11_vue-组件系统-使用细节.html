@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test">
+        <!--
+            1. 一个vue组件就是一个vue实例!!!
+                var v-child = new vueComponent()
+                vueComponent.prototype = Object.create(Vue.prototype)
+                    实现了对象级别的一个继承; vueComponent.prototype.__proto__ = Vue.prototype
+
+                v-child.__proto__ = vueComponent.prototype
+                vueComponent.prototype.__proto__ = Vue.prototype ($on,$emit)
+                Vue.prototype.__proto__ = Object.Prototype
+                Object.Prototype.__proto__ = null
+
+            2. 如果在组件标签上使用事件指令 那么绑定的不是dom事件! 而是vue的自定义事件
+                给v-child这个组件绑定了一个自定义事件 事件名叫click
+                v-child.$on("click",handleC)
+        -->
+        <v-child @click="handleC"></v-child>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#test",
+        methods:{
+            handleC(val){
+                console.log("handleC from root",val)
+            }
+        },
+        components:{
+            "v-child":{
+                template:`<div :style="styleObj" @click="handleC">v-child</div>`,
+                data(){
+                    return {
+                        msg:"msg from v-child",
+                        styleObj:{
+                            width:"100px",
+                            height:"100px",
+                            background:"pink",
+                            textAlign:"center",
+                            lineHeight:"100px"
+                        }
+                    }
+                },
+                methods:{
+                    handleC(){
+                        // this: 当前的组件对象(vm实例对象)
+                        //v-child.$emit("click",123)
+                        this.$emit("click",this.msg)
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

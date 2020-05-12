@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" @keydown.13="handleInput">
+        <button @click.middle="handleC">click me</button>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    //注意 事件的回调函数 要定义在methods中 不要定义在data中 这么做不规范 出了任何问题 vue是不会负责的
+    Vue.config.productionTip=false; // 去除提示
+    new Vue({
+        el:"#app",
+        methods:{
+            handleInput(){
+                console.log("handleInput")
+            },
+            handleC(){
+                console.log("handleC")
+            }
+        }
+    })
+
+    //语义化版本号   x.y.z
+    //升z位:  代表解决了一些bug
+    //升y位:  代表新增了功能
+    //升x位:  代表大版本更新 使用习惯 使用语法 源码结构可能都产生了变化 需要你重新学习api
+</script>
+</html>

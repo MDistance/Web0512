@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <v-damu></v-damu>
+        <v-damu></v-damu>
+        <v-damu></v-damu>
+        <v-damu></v-damu>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+
+    //在new Vue之前 要构建组件
+    //定义一个全局组件;全局组件可以在页面上的任何位置使用
+    //一个组件最重要的: 1. 模板  2.往哪挂载
+
+
+    //el 在子组件中是不能使用的
+    //data 在子组件中必须是个函数 只有根组件中 data才能是一个对象
+    Vue.component("v-damu",{
+        template:"<div><strong>{{msg}}</strong> <i>123</i></div>",
+        data(){
+            return {
+                msg:"v-damu"
+            }
+        }
+    })
+
+
+    var vm = new Vue({
+        el:"#app"
+    })
+</script>
+</html>

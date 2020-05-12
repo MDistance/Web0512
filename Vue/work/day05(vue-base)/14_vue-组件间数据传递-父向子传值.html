@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <v-child :msg="msg"></v-child>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+
+    /*
+        1. 父向子传值:
+            父组件通过子组件 标签的自定义属性 向子组件进行传值
+            子组件通过一个叫props的配置 去接收并验证父组件传递来的数据
+    */
+
+
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        data:{
+          msg : "msg from app app app app app"
+        },
+        components:{
+            "v-child":{
+                // props: type [type1,type2] {type:type,required...}
+                props:{
+                    msg:{
+                        type:String,
+                        //required: true,  //default和required一般选择一个
+                        // default:123
+                        /*default: function () {
+                            return [1,2,3]
+                        }*/
+                        validator: function (value) {
+                            console.log(value,value.length)
+                            return value.length > 20
+                        }
+                    }
+                },
+                template:`<i>{{msg}}</i>`
+            }
+        }
+    })
+</script>
+</html>

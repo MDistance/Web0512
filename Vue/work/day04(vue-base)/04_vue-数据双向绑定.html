@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <!--v-model 本质上是标签的自定义属性-->
+        <!--
+            以v-开头的标签属性 vue都会去解析!!!
+            如果以v-开头 而且确实是vue指令的 vue会赋予其实际的功能!!!!
+            v-model 一般只给输入型标签使用
+        -->
+        <input type="text" v-model="msg">
+        {{msg}}
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    /*数据双向绑定: v-modle
+        view层去主动的修改data中的数据
+        data中的数据得到 会响应式的更新界面*/
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello Vue"
+        }
+    })
+
+
+    /*
+        vue api学习思路:
+            html模板中的语法 插值表达式 指令
+            vue 配置项有多少个 每个配置项代表什么意思
+    */
+</script>
+</html>
+
+
+<!--
+    涉及的所有vue的api 暂时不用特意去记忆; 从第二节课开始 我们会展开api的讲解
+    vue的特征:
+        1. 声明式编程 (区别于dom编程)
+        2. 响应式数据
+        3. 数据双向绑定
+
+    vue编程思想
+        数据驱动
+-->

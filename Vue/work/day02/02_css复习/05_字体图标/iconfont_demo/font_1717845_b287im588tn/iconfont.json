@@ -1,0 +1,16 @@
+{
+  "id": "1717845",
+  "name": "bj191021",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1813311",
+      "name": "狗狗",
+      "font_class": "gougou",
+      "unicode": "e721",
+      "unicode_decimal": 59169
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* css伪类选择器
+            #wrap .item:nth-child(1) : 以child为中心
+                去#wrap中 找第一个子节点; 而且这个子节点的class一定要为item
+            nth-of-type : 以type(元素的类型)为中心
+
+            总结:
+                如果父元素底下的子元素是同一类型的
+                    nth-child & nth-of-type 用谁都可以
+                如果父元素底下的子元素不是同一类型的    
+                    如果以元素的类型为中心的:nth-of-type
+                    如果以子节点的顺序为中心的:nth-child
+
+            最佳实践:
+                    nth-child & nth-of-type 最好与元素标签名结合使用    
+
+        */
+
+        /* 
+            #wrap .item:nth-child(1){
+                color: red;
+            }
+        */
+
+        #wrap i:nth-of-type(1){
+                color: red;
+        }
+
+        /* #wrap p:nth-of-type(1){
+                color: red;
+        }
+        #wrap span:nth-of-type(1){
+                color: red;
+        }
+        #wrap i:nth-of-type(1){
+                color: red;
+        } */
+
+    </style>
+</head>
+<body>
+    <!-- 在html的规范中 ul中的直接子元素一般只能是li ; 如果你不遵守这种规范 
+    在浏览器的解析时出了任何问题 都是很难解决的 -->
+    <div id="wrap">
+        <p class="item"> p-item </p>
+        <span class="item"> span-item </span>
+        <i class="item"> i-item </i>
+        <p class="item"> p-item </p>
+    </div>
+</body>
+</html>

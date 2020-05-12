@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .child{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: pink;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <v-child :count="count" class="child"></v-child>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+
+    /*
+        1. 父向子传值:
+            父组件通过子组件 标签的自定义属性 向子组件进行传值
+            子组件通过一个叫props的配置 去接收并验证父组件传递来的数据
+    */
+
+
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        data:{
+          count:1
+        },
+        components:{
+            "v-child":{
+                props:{
+                   count:{
+                        type:Number,
+                        validator: function (value) {
+                            return value > 0
+                        }
+                    }
+                },
+                data(){
+                  return {
+                      myCount:this.count
+                  }
+                },
+                template:`<i @click="add">{{myCount}}</i>`,
+                methods:{
+                    add(){
+                        this.myCount++
+                    }
+                }
+            }
+        }
+    })
+</script>
+</html>

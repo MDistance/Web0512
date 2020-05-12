@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #wrap{
+            width: 500px;
+            height: 300px;
+            border: 1px solid;
+
+            /*wrap开启了BFC*/
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #left{
+            /*浮动的元素层级只提半层*/
+            float: left;
+            width: 100px;
+            height: 300px;
+            background: pink;
+        }
+        #right{
+            overflow: hidden;
+            width:400px;
+            height: 300px;
+            background: gray;
+        }
+    </style>
+</head>
+<body>
+    <!--左边固定 右边自适应-->
+    <div id="wrap">
+        <div id="left"></div>
+        <div id="right">right</div>
+    </div>
+</body>
+</html>

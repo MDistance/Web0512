@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 75px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span>firstName:</span> <input type="text" v-model="firstName"> <br>
+        <span>lastName:</span> <input type="text" v-model="lastName"> <br>
+        <span>fullName:</span> <input type="text" v-model="fullName"> <br>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"T",
+            lastName:"Mac",
+            fullName:"T-Mac"
+        },
+        //用来监听 data中数据!
+        /*watch:{
+            firstName(val){
+                this.fullName = `${val}-${this.lastName}`
+            },
+            lastName(val){
+                this.fullName = `${this.firstName}-${val}`
+            }
+        }*/
+
+        mounted(){
+            console.log("----")
+            this.$watch("firstName",function(val){
+                this.fullName = `${val}-${this.lastName}`
+            });
+
+            this.$watch("lastName",function(val){
+                this.fullName = `${val}-${this.lastName}`
+            })
+        }
+    })
+
+
+</script>
+</html>

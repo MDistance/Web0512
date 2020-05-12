@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="handleC">click me</button>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    //注意 事件的回调函数 要定义在methods中 不要定义在data中 这么做不规范 出了任何问题 vue是不会负责的
+    new Vue({
+        el:"#app",
+        methods:{
+            handleC(){
+                console.log("methods",this)
+            }
+        }
+    })
+</script>
+</html>

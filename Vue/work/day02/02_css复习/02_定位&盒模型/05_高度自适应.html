@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #app{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        .header{
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background: pink;
+        }
+        .content{
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: gray;
+        }
+
+        /* app 就是 content包含块;
+           
+             H       P  B  M Top bottom    app padding-box的高度
+            auto     0  0  0  50   0     =  (视口的高度)
+         */
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            header
+        </div>
+        <div class="content"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    // 1. every() 方法测试数组的所有元素是否都通过了指定函数的测试
+    // 2. callback , 03_this
+    // 3. 布尔值 : 数组的所有元素是否都通过了指定函数的测试
+    // 4. 不影响老数组
+
+
+    var arr =[1,2,30,4,5,6,7,8];
+    var result = arr.every(function(item,index){
+        if(item<9){
+            return true;
+        }
+    })
+    console.log(result,arr);
+
+</script>
+</html>

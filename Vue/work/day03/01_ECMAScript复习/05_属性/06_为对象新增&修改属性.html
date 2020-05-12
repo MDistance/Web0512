@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+   var obj = {
+       a:"a"
+   }
+
+   Object.defineProperty(obj,"a",{
+       value:"-----",
+       writable:false,
+       enumerable:true,
+       configurable:true
+   })
+
+   Object.defineProperty(obj,"b",{
+       value:"b",
+       writable:false,
+       enumerable:true,
+       configurable:true
+   })
+
+   //静默失败
+   obj.b = "xxx";
+   obj.a = "xxx";
+   console.log(obj.a,obj.b)
+</script>
+</html>

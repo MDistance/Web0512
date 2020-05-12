@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //字面量
+    var damu ={}
+    Object.defineProperty(damu,"age",{
+        enumerable:true,
+        configurable:true,
+
+        /*value:"--",
+        writable:true,*/
+
+        //get 和 set 也是属性描述符
+        get:function () {
+            console.log("get")
+            return this._age_
+        },
+        set:function (val) {
+            console.log("set",val)
+            this._age_ = val
+        }
+    })
+
+    damu.age;
+    damu.age = 10;
+</script>
+</html>

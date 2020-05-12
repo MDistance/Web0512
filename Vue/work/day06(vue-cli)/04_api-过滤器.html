@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+       {{new Date() | dateFilter}}
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/moment.js/2.24.0/moment.min.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    //使用过滤器时  过滤器定义的回调会被自动调用  传的参数就是过滤器作用的那个值
+    /*Vue.filter('dateFilter', function (value) {
+        return moment(value).format("YYYY-MM-DD HH:mm:ss");
+    })*/
+
+    var vm = new Vue({
+        el:"#app",
+        filters:{
+            dateFilter(value){
+                // return moment(value).format("YYYY-MM-DD HH:mm:ss");
+                return 123;
+            }
+        }
+    })
+</script>
+</html>

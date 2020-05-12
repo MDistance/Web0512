@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            display: inline-block;
+            width: 70px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(val,key,index) in obj">
+                <span>{{index}}</span>
+                <span>{{key}}</span>:
+                <span>{{val}}</span>
+            </li>
+        </ul>
+        <button @click="update">update</button>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    Vue.config.productionTip=false;
+    new Vue({
+        el:"#app",
+        data:{
+            obj:{
+                name:"damu",
+                age:18,
+                wife:"冬雨"
+            }
+        },
+        methods:{
+            update(){
+               // this.obj.son = "达姆娃娃";
+               // Vue.set(this.obj,"son","达姆娃娃")
+               this.$set(this.obj,"son","达姆娃娃")
+            }
+        }
+    })
+</script>
+</html>

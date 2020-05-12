@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //全局变量 会 自动挂给window对象的
+    var a = "a";
+
+    console.log(Object.getOwnPropertyDescriptor(window,"a"))
+
+
+    console.log(window.a)
+    delete window.a
+    console.log(window.a)
+
+
+</script>
+</html>
