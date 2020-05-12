@@ -1,0 +1,46 @@
+.listContainer .navList {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.listContainer .navList ._p {
+  width: 33.3333%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #333;
+  position: relative;
+}
+.listContainer .navList ._p.active:after {
+  content: '';
+  width: 40%;
+  height: 4rpx;
+  background: #d43c33;
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+}
+.listContainer .navList ._p.price .jiantou {
+  background: #f00;
+  position: absolute;
+}
+.listContainer .navList ._p.price .jiantou .iconfont {
+  font-size: 28rpx;
+  position: absolute;
+  right: -30rpx;
+  top: 4rpx;
+  color: #999;
+}
+.listContainer .navList ._p.price .jiantou .iconfont.defaultSort {
+  color: #d43c33;
+}
+.listContainer .shopListContainer {
+  margin-top: 80rpx;
+}
+

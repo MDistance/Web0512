@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="star"></div>
+    <div id="result"></div>
+    <button class="btn">点击</button>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.raty.min.js"></script>
+<script type="text/javascript">
+    $('#star').raty({
+        hints: ['1', '2', '3', '4', '5'],
+        starOff: 'star-off.png',
+        starOn: 'star-on.png',
+        click:function (score) {
+            $('div').raty('score')
+        },
+        target: '#result',
+        targetKeep : true,
+        number: 5,
+        targetText: '请选择评分',
+        cancel :true,
+        cancelClass:' raty-cancel ',
+        cancelHint:  '取消此评分！',
+        cancelOff :'face-b-off.png',
+        cancelOn :'face-b.png',
+        cancelPlace :'right',
+        half :true,
+        halfShow :false,
+//        mouseout:function () {
+//          alert('star')
+//        },
+//        mouseover:function () {
+//            alert('star')
+//        }
+        precision :true
+    });
+    $('.btn').click(function () {
+        $('#star').raty('score',3.5)
+//        $('#star').raty('click',3)
+    })
+</script>
+</body>
+</html>

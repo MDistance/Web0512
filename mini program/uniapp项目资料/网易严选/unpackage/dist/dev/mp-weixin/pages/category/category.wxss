@@ -1,0 +1,104 @@
+#categoryContainer .header {
+  width: 100%;
+  height: 56rpx;
+  position: relative;
+  padding: 20rpx 0;
+}
+#categoryContainer .header .headerBg {
+  width: 90%;
+  height: 56rpx;
+  background: #ededed;
+  margin: auto;
+  border-radius: 10rpx;
+}
+#categoryContainer .header ._span {
+  position: absolute;
+  text-align: center;
+  height: 56rpx;
+  line-height: 56rpx;
+  left: 0;
+  top: 20rpx;
+  width: 100%;
+  font-size: 24rpx;
+}
+#categoryContainer .content {
+  border-top: 1rpx solid #eee;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+}
+#categoryContainer .content .left {
+  width: 20%;
+  border-right: 1rpx solid #eee;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+#categoryContainer .content .left .scrollContainer {
+  height: calc(100vh - 96rpx) /* 1vh = 屏幕高度的百分之一 */;
+}
+#categoryContainer .content .left .scrollContainer ::-webkit-scrollbar {
+  width: 0;
+}
+#categoryContainer .content .left .scrollContainer .navList ._li {
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 10rpx 0;
+}
+#categoryContainer .content .left .scrollContainer .navList ._li.active {
+  color: #b4282d;
+  position: relative;
+}
+#categoryContainer .content .left .scrollContainer .navList ._li.active:after {
+  content: '';
+  height: 70%;
+  width: 2rpx;
+  background: #b4282d;
+  position: absolute;
+  top: 15%;
+  left: 6rpx;
+}
+#categoryContainer .content .right {
+  width: 80%;
+}
+#categoryContainer .content .right .scrollContainer {
+  height: calc(100vh - 96rpx);
+}
+#categoryContainer .content .right .proList {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+}
+#categoryContainer .content .right .proList .cateImg {
+  width: 520rpx;
+  height: 190rpx;
+  margin: 20rpx auto;
+}
+#categoryContainer .content .right .proList .proItem {
+  width: 33%;
+  padding: 10rpx;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+}
+#categoryContainer .content .right .proList .proItem image {
+  width: 90%;
+  height: 144rpx;
+}
+#categoryContainer .content .right .proList .proItem ._p {
+  font-size: 24rpx;
+  text-align: center;
+}
+

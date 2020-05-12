@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background:pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="500" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+        var img = new Image();
+        img.src = 'img/1.jpg'
+        img.onload = function () {
+          draw(img);
+        }
+        function draw(img) {
+            painting.beginPath();
+            painting.drawImage(img,0,0,250,400);
+//            马赛克大小（马赛克模糊程度）
+            var size = 5;
+//            1.读取前半部分的像素信息
+            var oldImageData = painting.getImageData(0,0,250,400);
+            var newImageData = painting.createImageData(250,400);
+//            2.处理前半部分的像素信息
+            for (var i = 0; i < oldImageData.width/size; i++) {
+                for (var j = 0; j < oldImageData.height/size; j++) {
+//                    获取前半部分的随机像素点信息 每25个格子看做一份
+                    var color = getPx(oldImageData,Math.floor(i*size+Math.random()*size),Math.floor(j*size+Math.random()*size));
+                    for (var a = 0; a < size; a++) {
+                        for (var b = 0; b < size; b++) {
+//                           (a,b)  小格子中的每一个坐标  （0,0）（4,4）
+//                            把获取颜色给后半部分添加（每25个是同一个颜色）
+                            setPx(newImageData,i*size+a,j*size+b,color);
+                        }
+
+                    }
+                }
+            }
+
+
+
+//            3.把改变后的像素信息添加到后半部分去
+            painting.putImageData(newImageData,250,0);
+
+        }
+        //        单个像素读取
+        function getPx(ImageData,x,y) {
+            var colorArr = [];
+            var width = ImageData.width;
+//            [255,0,0,0,255,0,0,0,255,0,0,0,255,0,0,0]
+            colorArr[0] = ImageData.data[(width*y+x)*4+0];
+            colorArr[1] = ImageData.data[(width*y+x)*4+1];
+            colorArr[2] = ImageData.data[(width*y+x)*4+2];
+            colorArr[3] = ImageData.data[(width*y+x)*4+3];
+            return colorArr;
+        }
+        //      单个像素写入
+        function setPx(ImageData,x,y,color) {
+//           要获取的是 像素对象的宽度   因为像素对象的宽度 不一定和画布宽度相等
+            var width = ImageData.width;
+            ImageData.data[(width*y+x)*4+0] = color[0];
+            ImageData.data[(width*y+x)*4+1] = color[1];
+            ImageData.data[(width*y+x)*4+2] = color[2];
+            ImageData.data[(width*y+x)*4+3] = color[3];
+        }
+    };
+</script>
+</html>

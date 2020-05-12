@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+			  	<!-- 菜单容器 -->
+			  <aside class="mui-off-canvas-left">
+			    <div class="mui-scroll-wrapper">
+			      <div class="mui-scroll">
+			      	我是侧滑菜单内容
+			      </div>
+			    </div>
+			  </aside>
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+		      <h1 class="mui-title">标题</h1>
+		    </header>
+		    <div class="mui-content mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		       		 我是主页面的内容
+		      </div>
+		    </div>  
+		  </div>
+		</div>
+		
+	</body>
+	
+	<script>
+		var btn = document.querySelector('.mui-action-menu');
+		btn.addEventListener('tap',function(){
+//			mui('.mui-off-canvas-wrap').offCanvas('show');
+			mui('.mui-off-canvas-wrap').offCanvas().toggle();
+			
+			setTimeout(function(){
+				console.log(mui('.mui-off-canvas-wrap').offCanvas().isShown('right'));
+			},20)
+			
+		});	
+		
+		document.querySelector('.mui-off-canvas-wrap').addEventListener('shown',function (event) {
+		    console.log('出现')
+		})
+		
+		document.querySelector('.mui-off-canvas-wrap').addEventListener('hidden',function (event) {
+		    console.log('隐藏')
+		})
+				
+		
+	</script>
+
+</html>

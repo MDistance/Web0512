@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        #wrap{
+            /*wrap必须要有宽高*/
+            /*width:194px ;*/
+            /*height: 336px;*/
+            width:auto;
+            position: relative;
+            margin: 200px auto;
+            overflow: hidden;
+        }
+        /*瓶纸*/
+        #cokeBg{
+            position: absolute;
+            top:10px;
+        }
+        #cokeBg img{
+            /*解决图片4像素留白*/
+            /*display: block;*/
+            float: left;
+        }
+        /*瓶体*/
+        #cokeCan{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <!--瓶纸-->
+    <div id="cokeBg">
+        <img src="img/coke_bg.jpg" alt="">
+        <img src="img/coke_bg.jpg" alt="">
+    </div>
+    <!--瓶体-->
+    <div id="cokeCan">
+        <img src="img/coke_can.png" alt="">
+    </div>
+</div>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+</body>
+<script type="text/javascript">
+window.onload = function () {
+    var wrap = document.getElementById('wrap');
+//    瓶体
+  var cokeCan = document.getElementById('cokeCan');
+//   瓶纸
+  var cokeBg = document.getElementById('cokeBg');
+  var cokeBgImg = cokeBg.getElementsByTagName('img');//数组
+//    根据选择器获取dom
+//  var cokeBgImg = document.querySelectorAll('#cokeBg img');//数组
+////     获取一个dom
+//    var li = document.querySelector('ul li');//dom
+//    console.log(li)
+  var num = 0;
+//  获取瓶体图片的宽高 用于设置wrap元素的宽高
+  var cokeCanW = cokeCan.offsetWidth;
+  var cokeCanH = cokeCan.offsetHeight;
+    wrap.style.width = cokeCanW + 'px';
+    wrap.style.height = cokeCanH + 'px';
+//    设置瓶纸容器的宽度  应该为 瓶纸图片的2倍
+    cokeBg.style.width = cokeBgImg[0].offsetWidth*2 + 'px';
+// 瓶纸移动
+    setInterval(function () {
+//        因为瓶纸元素  是向左移动  所以translateX的值为负数   num--
+        num--;
+//        瓶纸边界值判断    一张瓶纸的宽
+        if (Math.abs(num) > cokeBgImg[0].offsetWidth){
+            num = 0;
+        }
+        cokeBg.style.transform = 'translateX('+ num +'px)'
+
+    },20)
+
+}
+</script>
+</html>

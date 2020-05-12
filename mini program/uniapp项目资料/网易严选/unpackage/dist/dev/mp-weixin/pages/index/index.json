@@ -1,0 +1,9 @@
+{
+  "navigationBarBackgroundColor": "#BB2C08",
+  "navigationBarTitleText": "首页",
+  "usingComponents": {
+    "recommend": "/components/recommend/recommend",
+    "cate-list": "/components/cateList/cateList",
+    "index-header": "/components/header/header"
+  }
+}

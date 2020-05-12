@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+<!-- inline_block元素： input ,button , img ,audio ,video ,canvas-->
+
+<!--音频-->
+<audio id="myAudio" src="resource/audio/test.mp3" controls></audio>
+
+<!--视频-->
+<video id="myVideo" src="resource/video/test.mp4" controls></video>
+
+</body>
+<script type="text/javascript">
+    var myAudio = document.getElementById('myAudio')
+    var myVideo = document.getElementById('myVideo')
+//    ontimeupdate  播放过程中实时触发
+    myAudio.ontimeupdate = function () {
+//        durantion  音频总时长
+//        console.log(myAudio.duration)
+//        currentTime   音频已播放时长
+//        console.log(myAudio.currentTime)
+//        paused：布尔值。音频文件是否暂停。（ture表示暂停，false表示播放）
+//        console.log(myAudio.paused)
+        
+//        ended：布尔值。音频文件播放结束（ture表示播放结束，false表示播放中或者暂停）
+        console.log(myAudio.ended)
+    }
+//    console.log(myAudio.paused)
+    myVideo.ontimeupdate = function () {
+//      console.log(myVideo.duration)
+//        console.log(myVideo.currentTime)
+        console.log(myVideo.paused);
+        console.log(myVideo.ended)
+    }
+//    onvolumechange 声音改变时触发
+    myAudio.onvolumechange = function () {
+      // volume:0~1的任意值   。控制音量  0 代表静音  1 音量满格
+        console.log(myAudio.volume)
+//        muted  布尔值  静音 （true表示静音，false表示非静音）
+//       问题： 拖拽音量控制条    调整音量为0是 muted依然为false
+        if (myAudio.volume === 0){
+            myAudio.muted = true;
+        }
+        console.log(myAudio.muted)
+//        问题：点击静音按钮  对应的音量显示有问题
+        if (myAudio.muted === true){
+            myAudio.volume = 0;
+        }
+    }
+    myVideo.onvolumechange = function () {
+      console.log(myVideo.volume);
+      console.log(myVideo.muted)
+    }
+</script>
+</html>

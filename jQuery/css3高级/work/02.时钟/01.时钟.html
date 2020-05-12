@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 300px;
+            height: 300px;
+            background: orange;
+            margin: 100px auto;
+            position: relative;
+        }
+        #wrap div{
+            position: absolute;
+        }
+        #hour{
+            width: 6px;
+            height: 60px;
+            background: black;
+            top:90px;
+            left:147px;
+            transform-origin: 3px 60px;
+        }
+        #min{
+            width: 4px;
+            height: 80px;
+            background: black;
+            top:70px;
+            left:148px;
+            transform-origin: 2px 80px;
+        }
+        #sec{
+            width: 2px;
+            height: 100px;
+            background: red;
+            top:50px;
+            left:149px;
+            transform-origin: 1px 100px;
+        }
+        #circle{
+            width: 20px;
+            height: 20px;
+            left:140px;
+            top:140px;
+            border-radius: 50%;
+            background: yellowgreen;
+        }
+        #list{
+            list-style: none;
+            width: 300px;
+            height: 300px;
+            position: relative;
+            /*background: pink;*/
+        }
+        #list li{
+            width: 2px;
+            height: 8px;
+            background: black;
+            position: absolute;
+            top:0;
+            left:149px;
+            /*元素的变换基点 默认是元素的中心点
+               变换基点坐标系参照   元素的左上角为（0,0）坐标点
+            */
+            transform-origin: 1px 150px;
+        }
+        #list li:nth-child(5n+1){
+            width: 4px;
+            height: 12px;
+            left:148px;
+            transform-origin: 2px 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!--刻度-->
+        <ul id="list"></ul>
+        <!--时针-->
+        <div id="hour"></div>
+        <!--分针-->
+        <div id="min"></div>
+        <!--秒针-->
+        <div id="sec"></div>
+        <!--小圆球-->
+        <div id="circle"></div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+      var list = document.getElementById('list');
+        for (var i = 0; i < 60; i++) {
+            var li = document.createElement('li');
+            li.style.transform = 'rotate('+6*i+'deg)'
+            list.appendChild(li);
+        }
+//        获取元素指针的dom对象
+        var hourDom = document.getElementById('hour');
+        var minDom = document.getElementById('min');
+        var secDom = document.getElementById('sec');
+        setInterval(function () {
+//           获取当前时间
+            var date = new Date();
+//            分别获取时分秒
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+//            00:03:30  == 3.5min == 3*6+0.5*6 = 21deg
+            min = min + sec / 60;
+//            03:30:00 == 3.5h == 3*30+0.5*30 = 105deg
+            hour = hour+ min / 60;
+//            修改时分秒  旋转角度
+            hourDom.style.transform = 'rotate('+hour*30+'deg)';
+            minDom.style.transform = 'rotate('+min*6+'deg)';
+            secDom.style.transform = 'rotate('+sec*6+'deg)';
+        },1000)
+
+    }
+</script>
+</html>

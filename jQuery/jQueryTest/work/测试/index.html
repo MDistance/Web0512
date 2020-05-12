@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrap{
+            width: 1000px;
+            /*height: 800px;*/
+            border:1px solid #000;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .hideBox{
+            width: 1100px;
+        }
+        .item{
+            width: 300px;
+            height: 200px;
+            margin-right: 50px;
+            margin-bottom: 30px;
+            background: pink;
+            float: left;
+        }
+        .m_r_0{
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="hideBox">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var str = 'sdfsdfxcvxvsfdsdf'
+//        关系数组
+//        数组允许使用字符串来当做索引值    这种数组就是关系数组
+//        关系数组有一个问题    无论内部用字符串当索引存储了多少内容   长度都为0
+        var arr = [];
+        for (var i = 0; i < str.length; i++) {
+            arr[str[i]] = arr[str[i]]+1 || 1;
+        }
+        console.log(arr)
+
+    </script>
+</body>
+</html>

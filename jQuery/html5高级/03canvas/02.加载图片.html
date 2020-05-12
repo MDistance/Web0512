@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+</body>
+<script type="text/javascript">
+    var myCanvas = document.getElementById('myCanvas');
+    var painting = myCanvas.getContext('2d');
+    painting.beginPath();
+    var img = new Image();
+    img.src = 'img/icon_picture.png';
+//  把图片放在画布上
+//    图片加载的速度 一定比我代码执行的速度慢
+//    所以使用drawImage的时候需要先确定我的图片加载完成
+//    参数1：引入图片对象
+//    参数2，参数3：图片左上角在画布上的坐标
+//    参数4，参数5：图片显示区域的宽度与高度
+    img.onload = function () {
+        painting.drawImage(img,0,0,100,100)
+    }
+
+</script>
+</html>

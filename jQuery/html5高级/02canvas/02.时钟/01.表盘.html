@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            background: grey;
+            /*
+            canvas 默认大小 300*150
+            */
+
+            /*width: 400px;*/
+            /*height: 400px;*/
+            /*不能再css中设置画布的宽度与高度*/
+
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas');
+    //2.获取画笔 （获取上下文）
+    var painting = myCanvas.getContext('2d');
+    setInterval(function () {
+        painting.clearRect(0,0,myCanvas.width,myCanvas.height)
+        auto();
+    },1000);
+    function auto() {
+        painting.save();
+        //    准备工作
+        //    1，将圆心调整到画布的中间
+            painting.translate(200,200);
+        //    2.将整个画布逆时针旋转90度
+            painting.rotate(-90*Math.PI/180);
+        //    3.初始化一些样式
+            painting.lineWidth = 8;
+            painting.strokeStyle = "black";
+            painting.lineCap = "round";
+        //  外层空心圆盘
+            painting.save();
+                painting.beginPath();
+                painting.strokeStyle = '#325FA2';
+                painting.lineWidth = '14';
+                painting.arc(0,0,140,0,2*Math.PI)
+                painting.stroke();
+            painting.restore()
+        //时针刻度
+            painting.save();
+            for (var i = 0; i <12; i++) {
+                painting.rotate(30*Math.PI/180);
+                painting.beginPath();
+                painting.moveTo(120,0);
+                painting.lineTo(100,0);
+                painting.stroke();
+            }
+            painting.restore();
+        //    分钟刻度
+            painting.save();
+            for (var i = 0; i < 60; i++) {
+                if (i % 5 !==0){
+                    painting.beginPath();
+                    painting.lineWidth = '4';
+        //            painting.strokeStyle = 'red'
+                    painting.moveTo(120,0);
+                    painting.lineTo(117,0);
+                    painting.stroke();
+                }
+                painting.rotate(6*Math.PI/180)
+            }
+            painting.restore();
+        //    获取当前时间
+            var date = new Date();
+            var hour = date.getHours();
+            var min = date.getMinutes();
+            var sec = date.getSeconds();
+        //    00:03:30
+            min = min + sec/60;
+        //    03:30:00
+            hour = hour + min/60;
+        //    时针
+            painting.save();
+                painting.beginPath();
+                painting.lineWidth = 14;
+                painting.rotate(hour*30*Math.PI/180);
+                painting.moveTo(-20,0);
+                painting.lineTo(80,0);
+                painting.stroke();
+            painting.restore();
+        //    分针
+            painting.save();
+                painting.beginPath();
+                painting.lineWidth = 10;
+                painting.rotate(min*6*Math.PI/180);
+                painting.moveTo(-28,0);
+                painting.lineTo(112,0);
+                painting.stroke();
+            painting.restore();
+        //    秒针
+            painting.save();
+                painting.fillStyle = '#D40000';
+                painting.strokeStyle = '#D40000';
+                painting.lineWidth = 6;
+                painting.rotate(sec*6*Math.PI/180);
+                painting.beginPath();
+                painting.moveTo(-30,0);
+                painting.lineTo(83,0);
+                painting.stroke();
+                painting.beginPath();
+                painting.arc(0,0,10,0,2*Math.PI);
+                painting.fill();
+                painting.beginPath();
+                painting.arc(96,0,10,0,2*Math.PI);
+                painting.stroke();
+            painting.restore();
+    painting.restore();
+    }
+</script>
+</html>

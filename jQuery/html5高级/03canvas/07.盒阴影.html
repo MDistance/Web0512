@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+
+        painting.beginPath();
+
+        //画布文字中样式
+        painting.font = 'bold 30px 微软雅黑';
+        painting.save();
+        painting.shadowOffsetX = '10';
+        painting.shadowOffsetY = '10';
+        painting.shadowBlur = '5';
+        painting.shadowColor = 'red'
+        painting.fillRect(50,50,100,100)
+        painting.restore();
+        painting.save();
+        painting.shadowOffsetX = '20';
+        painting.shadowOffsetY = '20';
+        painting.shadowBlur = '5';
+        painting.shadowColor = 'blue'
+        painting.fillRect(50,50,100,100)
+        painting.restore();
+
+    };
+</script>
+</html>

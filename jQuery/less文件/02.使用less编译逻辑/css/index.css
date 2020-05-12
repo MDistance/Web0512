@@ -1,0 +1,12 @@
+/*我在css中能被看到*/
+#wrap {
+  width: 500px;
+  height: 500px;
+  background: #ffc0cb;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}

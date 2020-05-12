@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "商品列表",
+  "usingComponents": {
+    "shop-list": "/components/shopList/shopList"
+  }
+}

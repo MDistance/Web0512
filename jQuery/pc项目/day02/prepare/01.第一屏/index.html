@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+
+        .box1{
+            background: pink;
+            /*transform: translate(200px,0) scale(0.5);*/
+            /*transform: translate(200px,0) rotate(45deg);*/
+            transform: translate(200px,0) skew(45deg) ;
+        }
+        .box2{
+            background: yellowgreen;
+            /*2d变换 综合变换变换属性的顺序是会影响最终渲染结果的
+                如果scale 写在了translate 的前边   translate的平移值也会跟着scale的比例缩放
+                如果rotate 写在了translate的前边  translate会按照旋转后新的坐标系 发生平移
+            */
+            /*transform: scale(0.5) translate(200px,0);*/
+            /*transform:  rotate(45deg) translate(200px,0);*/
+            transform:  skew(45deg) translate(200px,0);
+        }
+        .box3{
+            width: 150px;
+            height: 10px;
+            background: red;
+        }
+        .test{
+            position: absolute;
+            left:0;
+            top:0;
+            width: 200px;
+            height: 200px;
+            background: rgba(100,100,100,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="box1 box"></div>
+    <div class="box2 box"></div>
+    <div class="box3 box"></div>
+<div class="test"></div>
+</body>
+</html>

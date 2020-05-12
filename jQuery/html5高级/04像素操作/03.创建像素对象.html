@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+            /*background: yellowgreen;*/
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+//      createImageData   创建像素对象
+//        参数1，参数2   是宽度与高度
+//        返回值是一个对象
+//        data：数组（rgba像素信息）  依然是黑色透明色[0,0,0,0]
+//        width：创建像素对象的宽度   横向上像素点的个数
+//        height：创建像素对象的高度  纵向上像素点的个数
+        var ImageData = painting.createImageData(100,100);
+        console.log(ImageData);
+        for (var i = 0; i < ImageData.data.length; i++) {
+           ImageData.data[4*i+0] = '0';
+           ImageData.data[4*i+1] = '0';
+           ImageData.data[4*i+2] = '255';
+           ImageData.data[4*i+3] = '255';
+        }
+        painting.putImageData(ImageData,0,0);
+    };
+</script>
+</html>

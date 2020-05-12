@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		
+		<!--不支持循环播放的没有无缝-->
+		<!--<div class="mui-slider">
+		  <div class="mui-slider-group">
+		    <div class="mui-slider-item"><a href="#"><img src="img/1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/3.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/4.jpg" /></a></div>
+		  </div>
+		</div>-->
+		
+		<!--<button type="button" id="btn" class="mui-btn mui-btn-blue mui-btn-block">点我开播</button>-->		
+		<!--支持循环播放的有无缝-->
+		
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block">1</button>
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block">2</button>
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block">3</button>
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block">4</button>
+		<div class="mui-slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/4.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/3.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/4.jpg" /></a></div>
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/1.jpg" /></a></div>
+		  </div>
+		  
+		  	<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		
+		
+		
+	</body>
+	<script>
+		//获得slider插件对象
+//		var gallery = mui('.mui-slider');
+//		var flag = false;
+//		var btn = document.getElementById('btn');
+//		btn.addEventListener('tap',function(){
+//			if(flag){
+//				gallery.slider({
+//				  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+//				});
+//				this.innerText = '点我开播';
+//			}else{
+//				gallery.slider({
+//				  interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+//				});
+//				this.innerText = '点我关播';
+//			}
+//			flag = !flag;
+//		});
+		
+		
+		//点击一组按钮，跳转对应的图片
+		//获得slider插件对象
+		var gallery = mui('.mui-slider');		
+		mui('body').on('tap','.mui-btn',function(event){
+			//通过事件目标对象获取文本拿到index值；
+			//this在这里面式body
+			var index = event.target.innerText - 1;
+			gallery.slider().gotoItem(index);
+		});
+		
+	</script>
+	
+</html>

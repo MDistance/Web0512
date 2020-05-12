@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            /*background: rgba(255,0,0,0.3);*/
+            position: relative;
+            /*开启3d空间*/
+            transform-style: preserve-3d;
+            /*景深*/
+            /*perspective: 300px;*/
+            /*测试*/
+            transform: rotateX(0deg) rotateY(0deg);
+            /*修改基点到正方体的中心（立体中心）*/
+            transform-origin: 50% 50% -100px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 30px;
+            position: absolute;
+            left:0;
+            top:0;
+            transition: 1s;
+        }
+        .box img{
+            width: 200px;
+            height: 200px;
+            opacity: 0.5;
+
+        }
+        .box1{
+            /*background: rgba(0,255,0,0.3);*/
+        }
+        .box2{
+            /*background: rgba(0,0,255,0.3);*/
+            top:-200px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        .box3{
+            /*background: rgba(255,255,0,0.3);*/
+            left:200px;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        .box4{
+            /*background: rgba(0,255,255,0.3);*/
+            top:200px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        .box5{
+            /*background: rgba(255,0,255,0.3);*/
+            left:-200px;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        .box6{
+            /*background: rgba(128,205,55,0.3);*/
+            /*让元素正面向外*/
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+        #wrap:hover .box1{
+            transform: translateZ(200px);
+        }
+        #wrap:hover .box2{
+            transform:rotateX(90deg) translateZ(200px);
+        }
+        #wrap:hover .box3{
+            transform:rotateY(90deg) translateZ(200px);
+        }
+        #wrap:hover .box4{
+            transform:rotateX(-90deg) translateZ(200px);
+        }
+        #wrap:hover .box5{
+            transform:rotateY(-90deg) translateZ(200px);
+        }
+        #wrap:hover .box6{
+            transform: translateZ(-400px) rotateY(180deg);
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left:50px;
+            top:50px;
+        }
+        .inner img{
+            width: 100px;
+            height: 100px;
+        }
+        .inner1{
+            transform: translateZ(-50px);
+        }
+        .inner2{
+            left:50px;
+            top:-50px;
+            transform-origin: bottom;
+            transform:translateZ(-50px) rotateX(90deg);
+        }
+        .inner3{
+            left:150px;
+            transform-origin: left;
+            transform:translateZ(-50px) rotateY(90deg);
+        }
+        .inner4{
+            top:150px;
+            transform-origin: top;
+            transform:translateZ(-50px) rotateX(-90deg);
+        }
+        .inner5{
+            left:-50px;
+            transform-origin: right;
+            transform:translateZ(-50px) rotateY(-90deg);
+        }
+        .inner6{
+            transform: translateZ(-150px) rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div class="box box1"><img src="img/1.jpg" alt=""></div>
+    <div class="box box2"><img src="img/2.jpg" alt=""></div>
+    <div class="box box3"><img src="img/3.jpg" alt=""></div>
+    <div class="box box4"><img src="img/4.jpg" alt=""></div>
+    <div class="box box5"><img src="img/5.jpg" alt=""></div>
+    <div class="box box6"><img src="img/6.jpg" alt=""></div>
+
+
+    <div class="inner inner1"><img src="img/1.jpg" alt=""></div>
+    <div class="inner inner2"><img src="img/2.jpg" alt=""></div>
+    <div class="inner inner3"><img src="img/3.jpg" alt=""></div>
+    <div class="inner inner4"><img src="img/4.jpg" alt=""></div>
+    <div class="inner inner5"><img src="img/5.jpg" alt=""></div>
+    <div class="inner inner6"><img src="img/6.jpg" alt=""></div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var wrap = document.getElementById('wrap');
+        var num = 0;
+        setInterval(function () {
+            num++;
+            wrap.style.transform = 'rotateX('+ num +'deg) rotateY('+ num +'deg)'
+        },50)
+    }
+</script>
+</html>

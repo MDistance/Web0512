@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+        painting.font = 'bold 30px 微软雅黑';
+        painting.save();
+            //        阴影偏移的坐标
+            painting.shadowOffsetX = '15';
+            painting.shadowOffsetY = '15';
+    //        模糊程度
+            painting.shadowBlur = '15';
+    //        阴影颜色
+            painting.shadowColor = 'green';
+    //        填充文字
+            painting.fillText('atguigu尚硅谷',100,100)
+        painting.restore();
+        painting.save();
+        //        阴影偏移的坐标
+        painting.shadowOffsetX = '25';
+        painting.shadowOffsetY = '25';
+        //        模糊程度
+        painting.shadowBlur = '15';
+        //        阴影颜色
+        painting.shadowColor = 'red';
+        //        填充文字
+        painting.fillText('atguigu尚硅谷',100,100)
+        painting.restore();
+
+    };
+</script>
+</html>

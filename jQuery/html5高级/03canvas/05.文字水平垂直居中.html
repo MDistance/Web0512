@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+        painting.beginPath();
+        painting.font = 'bold 30px 微软雅黑';
+//        水平对齐方式
+        painting.textAlign = 'center';
+//        垂直对齐方式
+        painting.textBaseline = 'middle';
+//        把文字写在画布的中心点
+        painting.fillText('我的学生全都困了',200,200);
+    };
+</script>
+</html>

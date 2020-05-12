@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#wrap {
+  width: 400px;
+  border: 1px solid #8c8c8c;
+  margin: 0 auto;
+}
+#wrap::before {
+  content: 'hahahahaha';
+}
+#wrap ul {
+  list-style: none;
+}
+#wrap ul li {
+  height: 30px;
+  line-height: 30px;
+}
+#wrap ul li:hover {
+  background: pink;
+}
+#wrap ul li:hover a {
+  color: #fff;
+}
+#wrap ul li:nth-child(2n+1) {
+  background: red;
+}
+#wrap ul li a {
+  text-decoration: none;
+}
+#wrap .header .headerMain {
+  width: 1100px;
+  height: 80px;
+  margin: 0 auto;
+}
+#wrap .headerRight .rightTop .list .item {
+  background: #ffc0cb;
+}

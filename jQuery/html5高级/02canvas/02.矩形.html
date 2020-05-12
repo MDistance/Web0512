@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0  ;
+        }
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: pink;
+            margin: 0 auto;
+            /*width: 600px;*/
+            /*height: 300px;*/
+        }
+
+    </style>
+<body>
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas')
+//    2.获取画笔 (获取上下文)
+    var painting = myCanvas.getContext('2d');
+//      canvas默认的坐标起始点 为画布的左上角
+//    画笔默认颜色为黑色
+//    改变绘图的颜色，线条等样式时  一定要写在绘图方法之前
+//    绘图的先后顺序 会影响图形互相覆盖的情况    后绘制的会盖住先绘制的
+//    fill都与填充有关  stroke 都与描边有关   rect都与矩形有关
+//    3.开始绘图
+//    填充样式
+    painting.fillStyle = 'yellowGreen';
+//    填充矩形
+//    参数1，参数2：矩形左上角的坐标
+//    参数3，参数4：矩形的宽度与高度
+    painting.fillRect(0,0,100,100)
+//    描边样式
+
+//    描边图形线条粗细
+    painting.lineWidth = '10'
+//    描边矩形
+    painting.strokeRect(10,10,100,100)
+</script>
+</html>

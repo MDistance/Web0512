@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0  ;
+        }
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: pink;
+            margin: 0 auto;
+            /*width: 400px;*/
+            /*height: 400px;*/
+        }
+
+    </style>
+<body>
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas');
+    //    2.获取画笔(获取上下文)
+    var painting = myCanvas.getContext('2d');
+//  3.开始绘制新路径
+    painting.beginPath();
+    painting.fillRect(0,0,100,100)
+//    橡皮擦
+//    画布本身的颜色(背景色)不会被清除掉   只会清除掉绘制的图形
+//    参数1，参数2：你要清除的区域的坐标起始
+//    参数3，参数4：你要清除的区域的大小  宽度与高度
+//    painting.clearRect(25,25,50,50)
+//    橡皮擦使用最多的方式 就是清除整个画布的图形
+    painting.clearRect(0,0,myCanvas.width,myCanvas.height)
+</script>
+</html>

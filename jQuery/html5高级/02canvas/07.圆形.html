@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+
+            /*
+            canvas 默认大小 300*150
+            */
+
+            /*width: 400px;*/
+            /*height: 400px;*/
+            /*不能再css中设置画布的宽度与高度*/
+
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas');
+    //2.获取画笔 （获取上下文）
+    var painting = myCanvas.getContext('2d');
+    //3.开始绘制新路径
+    painting.beginPath();
+
+//    绘制圆形
+//    参数1，参数2：圆心点坐标
+//    参数3：半径
+//    参数4，参数5：起始弧度，结束弧度
+//    参数6：是否逆时针画图  默认是顺时针  false        逆时针是true；
+//    painting.arc(200,200,100,0,2*Math.PI);
+//    painting.arc(200,200,100,0,0.5*Math.PI,true);
+//    painting.arc(200,200,100,0,Math.PI,true);
+    painting.arc(200,200,100,Math.PI,0);
+//    绘图方法
+    painting.stroke();
+//    painting.fill()
+</script>
+</html>

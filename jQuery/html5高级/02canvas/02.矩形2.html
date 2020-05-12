@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0  ;
+        }
+        body{
+            text-align: center;
+        }
+        canvas{
+            background: pink;
+            margin: 0 auto;
+            /*width: 600px;*/
+            /*height: 300px;*/
+        }
+
+    </style>
+<body>
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas')
+//    2.获取画笔 (获取上下文)
+    var painting = myCanvas.getContext('2d');
+//    3.开始绘制新路径
+    painting.beginPath();
+//    4.开始绘图
+//      准备绘制的路径  一定要在绘图方法之前设置
+    painting.fillStyle = 'blue'
+//    准备路径
+    painting.rect(0,0,100,100);//图形1
+//    绘图方法
+    painting.fill();
+//    开始绘制新路径(抬笔)
+    painting.beginPath();
+    painting.rect(100,100,100,100);//图形2
+    painting.stroke();
+</script>
+</html>

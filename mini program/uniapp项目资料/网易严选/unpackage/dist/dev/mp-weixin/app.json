@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/carts/carts",
+    "pages/list/list",
+    "pages/personal/personal",
+    "pages/login/login",
+    "pages/category/category",
+    "pages/detail/detail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "硅谷商城",
+    "navigationBarBackgroundColor": "#D43C33",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#555",
+    "selectedColor": "#D43C33",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/static/tabBar/tab-home.png",
+        "selectedIconPath": "/static/tabBar/tab-home-current.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "/static/tabBar/tab-cate.png",
+        "selectedIconPath": "/static/tabBar/tab-cate-current.png"
+      },
+      {
+        "pagePath": "pages/carts/carts",
+        "text": "购物车",
+        "iconPath": "/static/tabBar/tab-cart.png",
+        "selectedIconPath": "/static/tabBar/tab-cart-current.png"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "/static/tabBar/tab-my.png",
+        "selectedIconPath": "/static/tabBar/tab-my-current.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

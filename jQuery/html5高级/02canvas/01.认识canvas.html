@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+            /*canvas 默认宽高 300*150
+                canvas 绝对不能再css里边设置宽高
+                canvas 是行内块元素 (inline-block)
+                canvas 标签内部的文本信息 不会直接显示给用户
+                而是用于canvas不能正常显示时的提示信息
+            */
+            /*width: 400px;*/
+            /*height: 400px;*/
+
+        }
+    </style>
+<body>
+    <canvas id="myCanvas" width="400" height="400">
+        您的浏览器不支持canvas，建议升级
+    </canvas>
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        img{
+            display: block;
+        }
+        #wrap{
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            right:0;
+            bottom: 0;
+        }
+        #home{
+            width: 50px;
+            height: 50px;
+            background-image: url("img/home.png");
+            background-repeat: no-repeat;
+            position: absolute;
+            left:0;
+            top: 0;
+            z-index: 5;
+            border-radius: 50%;
+            transition:transform 1s;
+        }
+        #list{
+            position: absolute;
+            top:4px;
+            left:4px;
+        }
+        #list li{
+            position: absolute;
+            width: 42px;
+            height: 42px;
+            left: 0;
+            top: 0;
+
+        }
+        #list li img{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!--大图-->
+        <div id="home"></div>
+        <!--小图-->
+        <ul id="list">
+            <li><a href="javascript:;"><img src="img/clos.png" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/full.png" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/open.png" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/prev.png" alt=""></a></li>
+            <li><a href="javascript:;"><img src="img/refresh.png" alt=""></a></li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+   window.onload = function () {
+       var home = document.getElementById('home');
+       var liNodes = document.querySelectorAll('#list li');//数组
+       var flag = true;
+       var c = 200;
+       var isMove = false;
+       home.onclick = function () {
+           if (isMove){
+               return
+           }
+           isMove = true;
+           if (flag){
+//        逆时针逻辑
+               home.style.transform = 'rotate(-360deg)';
+               for (var i = 0; i < liNodes.length; i++) {
+                   liNodes[i].style.left = -getPoint(c,90/(liNodes.length-1)*i).left + 'px';
+                   liNodes[i].style.top = -getPoint(c,90/(liNodes.length-1)*i).top + 'px';
+//                   li逆时针旋转
+                   liNodes[i].style.transform= 'rotate(-720deg)';
+//                   li过渡  0.5s 0.1s(过度时间与延迟时间中间要写空格)
+                   liNodes[i].style.transition = '0.5s '+i*0.1+'s';
+               }
+           }else {
+//          顺时针逻辑
+               home.style.transform = 'rotate(0deg)'
+               for (var i = 0; i < liNodes.length; i++) {
+                    liNodes[i].style.left = '0';
+                    liNodes[i].style.top = '0';
+//                    li 顺时针旋转
+                   liNodes[i].style.transform = 'rotate(0deg)';
+                   liNodes[i].style.transition = '1s '+0.1*(liNodes.length-1-i)+'s';    
+               }
+           }
+//      更新flag
+           flag = !flag;
+           this.addEventListener('transitionend',homeIsmove);
+           function homeIsmove() {
+                isMove = false;
+
+               this.removeEventListener('transitionend',homeIsmove);
+           }
+       }
+//       封装函数：确定元素的位置
+       function getPoint(c,deg) {
+//          弧度 = 角度 * PI / 180
+         var left = c * Math.sin(deg*Math.PI/180);
+         var top = c * Math.cos(deg*Math.PI/180);
+         return {left:left,top:top};
+       }
+//       给每一个li添加点击事件
+       for (var i = 0; i < liNodes.length; i++) {
+           liNodes[i].onclick = function () {
+             this.style.transform = 'rotate(-720deg) scale(1.5)';
+             this.style.opacity = '0.5';
+//             重置li过渡样式
+               this.style.transition = '0.5s';
+//               setTimeout(function () {
+//
+//               },2000)
+//               transitionend  必须使用addEventListener 进行绑定
+//               transitionend的执行次数  由你过渡的属性的个数决定
+//               webKitTransitionEnd    为了兼容所有浏览器transitionend和webKitTransitionEnd需要同时绑定
+               this.addEventListener('transitionend',fun);
+               this.addEventListener('webKitTransitionEnd',fun);
+               function fun() {
+//                       console.log('过渡结束啦')
+                   this.style.transform = 'rotate(-720deg) scale(1)';
+                   this.style.opacity = '1';
+                   this.style.transition = '0s';
+                   this.removeEventListener('transitionend',fun);
+                   this.removeEventListener('webKitTransitionEnd',fun);
+               }
+           }
+           
+       }
+   }
+</script>
+</html>

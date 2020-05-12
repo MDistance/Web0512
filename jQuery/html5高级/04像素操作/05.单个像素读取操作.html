@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="500" height="500">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+//        获取整个画布像素点信息
+        var ImageData = painting.getImageData(0,0,myCanvas.width,myCanvas.height);
+        console.log(ImageData);
+        for (var i = 0; i <ImageData.width; i++) {
+//            setPx(ImageData,0,4,[0,0,255,255])
+            setPx(ImageData,i,4,[0,0,255,255])
+        }
+        for (var i = 0; i < ImageData.height; i++) {
+            setPx(ImageData,4,i,[0,255,0,255])
+
+        }
+        painting.putImageData(ImageData,0,0);
+       console.log( getPx(ImageData,4,4));
+//        单个像素读取
+        function getPx(ImageData,x,y) {
+            var colorArr = [];
+            var width = ImageData.width;
+//            [255,0,0,0,255,0,0,0,255,0,0,0,255,0,0,0]
+            colorArr[0] = ImageData.data[(width*y+x)*4+0];
+            colorArr[1] = ImageData.data[(width*y+x)*4+1];
+            colorArr[2] = ImageData.data[(width*y+x)*4+2];
+            colorArr[3] = ImageData.data[(width*y+x)*4+3];
+            return colorArr;
+        }
+
+//      单个像素写入
+        function setPx(ImageData,x,y,color) {
+//           要获取的是 像素对象的宽度   因为像素对象的宽度 不一定和画布宽度相等
+            var width = ImageData.width;
+            ImageData.data[(width*y+x)*4+0] = color[0];
+            ImageData.data[(width*y+x)*4+1] = color[1];
+            ImageData.data[(width*y+x)*4+2] = color[2];
+            ImageData.data[(width*y+x)*4+3] = color[3];
+        }
+
+
+    };
+</script>
+</html>

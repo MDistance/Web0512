@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background:pink;
+
+            /*background: rgba(255,0,0,0.5);*/
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+
+        painting.beginPath();
+        painting.fillStyle = 'green';
+        painting.fillRect(0,0,100,100);
+//        读取像素
+        var ImageDate = painting.getImageData(0,0,100,100);
+        console.log(ImageDate);
+//        把上边绿色区域变成红色
+//        [0,0,0,0]
+        for (var i = 0; i < ImageDate.data.length; i++) {
+//            四个为一组中的第一个
+            ImageDate.data[4*i+0] = 255;
+//            四个为一组中的第二个
+            ImageDate.data[4*i+1] = 0;
+//            四个为一组中的第三个
+            ImageDate.data[4*i+2] = 0;
+//            四个为一组中的第四个
+            ImageDate.data[4*i+3] = 255;
+//            if ( i % 4 == 0){
+//                ImageDate.data[i] = 255;
+//            }
+        }
+        console.log(ImageDate.data);
+//        写入像素
+//        参数1 ：填入的对象
+//        参数2，参数3：填入图形的位置
+        painting.putImageData(ImageDate,0,0)
+    };
+</script>
+</html>

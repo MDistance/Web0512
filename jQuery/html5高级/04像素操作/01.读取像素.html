@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background:pink;
+
+            /*background: rgba(255,0,0,0.5);*/
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+
+</canvas>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        //1.获取画布
+        var myCanvas = document.getElementById('myCanvas');
+        //2.获取画笔 （上下文）
+        var painting = myCanvas.getContext('2d');
+        painting.fillStyle = 'red';
+        painting.fillRect(0,0,100,100);
+//        读取像素getImageData
+//        参数1，参数2：读取像素区域左上角的坐标
+//        参数3，参数4，读取像素区域的宽度与高度
+//        返回值是一个对象
+//        data:数组 (rgba像素信息)
+//        width:读取像素区域宽度，横向上像素点的个数
+//        height：读取像素区域高度，纵向上像素点的个数
+//        只能读取画布图形上的颜色，不能读取画布的颜色
+//        如果画布没有元素，返回的颜色是黑色的透明色【0,0,0,0】；
+//         canvas中 rgba里边的a（透明度）  范围是0-255
+
+      var imgData =  painting.getImageData(0,0,myCanvas.width,myCanvas.height);
+      console.log(imgData)
+    };
+</script>
+</html>

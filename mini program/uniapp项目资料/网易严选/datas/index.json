@@ -1,0 +1,86 @@
+{
+	"kingKongModule": {
+	  "norColor": "ff000000",
+	  "selectedColor": "ffffffff",
+	  "background": "https://yanxuan.nosdn.127.net/fe0bd37a552434cc0d27c1889ff3e1fe.png",
+	  "kingKongList": [
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/newItem",
+	      "picUrl": "https://yanxuan.nosdn.127.net/c6fd8835a6400b7da7a016ad85506b69.png",
+	      "text": "新品首发",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1005000&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/fede8b110c502ec5799702d5ec824792.png",
+	      "text": "居家生活",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1010000&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/896a3beac514ae8f40aafe028e5fec56.png",
+	      "text": "服饰鞋包",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1005002&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/37520d1204a0c55474021b43dac2a69e.png",
+	      "text": "美食酒水",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1013001&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/6c3bd9d885c818b1f73e497335a68b47.png",
+	      "text": "个护清洁",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1011000&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/559d2a240ec20b096590a902217009ff.png",
+	      "text": "母婴亲子",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=109243029&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/5c088559ebcc3f0ffcda663f04dfbeb2.png",
+	      "text": "运动旅行",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1043000&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/fbca8e1f2948f0c09fc7672c2c125384.png",
+	      "text": "数码家电",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://m.you.163.com/item/list?categoryId=1019000&style=pd",
+	      "picUrl": "https://yanxuan.nosdn.127.net/f7281169d4e82d5d8d52aa1fec83fe01.png",
+	      "text": "全球特色",
+	      "textColor": "333333"
+	    },
+	    {
+	      "schemeUrl": "https://act.you.163.com/act/pub/OuB7EL0tpQ3Z.html",
+	      "picUrl": "https://yanxuan.nosdn.127.net/12e8efd15b9b210ab156a7ee9b340548.gif",
+	      "text": "好货抄底",
+	      "textColor": "333333"
+	    }
+	  ]
+	},
+	"policyDescList": [
+	  {
+	    "icon": "https://yanxuan.nosdn.127.net/a03dd909803b9ac032eba58b7253a2f6.png",
+	    "schemeUrl": "",
+	    "desc": "网易自营品牌"
+	  },
+	  {
+	    "icon": "https://yanxuan.nosdn.127.net/2d0402ffcd52b3ec3b07422681c42a89.png",
+	    "schemeUrl": "",
+	    "desc": "30天无忧退货"
+	  },
+	  {
+	    "icon": "https://yanxuan.nosdn.127.net/eb61ee48e8942dbd1784c9ee75ebe955.png",
+	    "schemeUrl": "",
+	    "desc": "48小时快速退款"
+	  }
+	]
+}

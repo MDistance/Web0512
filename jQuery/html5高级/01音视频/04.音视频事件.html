@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- inline_block元素： input ,button , img ,audio ,video ,canvas-->
+
+<!--音频-->
+<audio id="myAudio" src="resource/audio/test.mp3" controls></audio>
+
+<!--视频-->
+<video id="myVideo" src="resource/video/test.mp4" controls></video>
+
+</body>
+<script type="text/javascript">
+    var myAudio = document.getElementById('myAudio');
+    var myVideo = document.getElementById('myVideo');
+//    onloadedmetadata 当音频元数据加载完毕时触发。
+
+    myAudio.onloadedmetadata = function () {
+      console.log('音频元数据加载完成')
+    }
+    myVideo.onloadedmetadata = function () {
+        console.log('视频元数据加载完成')
+    }
+//    ontimeupdate 播放过程中实时触发。
+    myAudio.ontimeupdate = function () {
+      console.log('音频正在播放')
+    }
+    myVideo.ontimeupdate = function () {
+      console.log('视频正在播放')
+    }
+    
+    myAudio.onvolumechange = function () {
+      console.log('音乐声音发生改变')
+    }
+    myVideo.onvolumechange = function () {
+      console.log('当视频声音发生改变')
+    }
+</script>
+</html>

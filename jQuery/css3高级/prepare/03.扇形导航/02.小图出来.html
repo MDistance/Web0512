@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #wrap{
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            right:0;
+            bottom: 0;
+        }
+        #home{
+            width: 50px;
+            height: 50px;
+            background: url("img/home.png") no-repeat;
+            position: absolute;
+            border-radius: 50%;
+            z-index: 5;
+            transition: 2s;
+        }
+        #list{
+            position: absolute;
+        }
+        #list li{
+            position: absolute;
+            /*没有设定left和top*/
+            left:0;
+            top:0;
+            /*transition: 2s;*/
+
+        }
+        #list li img{
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <!--大图-->
+    <div id="home"></div>
+    <!--小图-->
+    <ul id="list">
+        <!--禁止A标签的默认行为  javascript:; 表示空连接
+            #号或者##依然会发生跳转 给变地址栏
+        -->
+        <li><a href="javascript:;"><img src="img/clos.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/full.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/open.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/prev.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/refresh.png" alt=""></a></li>
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var home = document.getElementById('home');
+//        querySelectorAll用于查找dom的方法   可以写选择  返回值也是数组
+        var liNodes = document.querySelectorAll('#list li');
+//        定义判断图片现在是否为展开的标识变量
+        var flag = true;
+//        定义半径
+        var c = 200;
+//        给home绑定单击事件
+        home.onclick = function () {
+            if (flag){
+//                展开的逻辑
+                home.style.transform = 'rotate(-360deg)'
+//           展开时小图 旋转  改变位置  有过渡
+                for (var i = 0;i<liNodes.length;i++){
+                    liNodes[i].style.left = -geiPoint(c,90/(liNodes.length-1)*i).left+'px';
+                    liNodes[i].style.top = -geiPoint(c,90/(liNodes.length-1)*i).top+'px';
+                    liNodes[i].style.transform = 'rotate(-720deg)';
+                    liNodes[i].style.transition ='2s '+0.1*i+'s';
+                }
+
+            }else{
+//                收起的逻辑
+                home.style.transform = 'rotate(0deg)'
+                for (var i = 0; i< liNodes.length;i++){
+                    liNodes[i].style.left = 0+'px';
+                    liNodes[i].style.top = 0+'px';
+                    liNodes[i].style.transform = 'rotate(0deg)';
+                    liNodes[i].style.transition ='2s '+0.1*(liNodes.length-1-i)+'s';
+                }
+            }
+            flag = !flag
+        };
+    function geiPoint(c,deg) {
+//         Math.sin和Math.cos方法传递的参数为弧度值
+//        弧度 = 角度*pi/180
+      var left = c*Math.sin(deg*Math.PI/180);
+      var top = c*Math.cos(deg*Math.PI/180);
+//       return [left,top];
+        return {left:left,top:top}
+    }
+    }
+</script>
+</html>

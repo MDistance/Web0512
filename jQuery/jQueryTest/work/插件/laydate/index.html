@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layDate快速使用</title>
+    <link rel="stylesheet" href="js/theme/default/laydate.css" media="all">
+</head>
+<body>
+<input type="text" id="test1">
+<script src="js/laydate.js"></script>
+<script src="laydate.js"></script>
+<script>
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test1' //指定元素
+//        ,range: '#'
+        ,format: 'yyyy年MM月dd日',
+        value: '2018年08月18日',
+        isInitValue: true
+        ,theme: 'grid'
+        ,calendar: true,
+        mark:{
+            '0-0-15': '发工资'
+        }
+    });
+</script>
+</body>
+</html>

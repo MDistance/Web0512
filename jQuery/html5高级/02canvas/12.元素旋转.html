@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+
+            /*
+            canvas 默认大小 300*150
+            */
+
+            /*width: 400px;*/
+            /*height: 400px;*/
+            /*不能再css中设置画布的宽度与高度*/
+
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas');
+    //2.获取画笔 （获取上下文）
+    var painting = myCanvas.getContext('2d');
+
+    painting.beginPath();
+    painting.fillStyle = 'yellowgreen';
+    //    旋转（弧度）
+//    旋转变换基点 左上角
+//    rotate，translate都会影响坐标轴（方向和位置）
+//    如果rotate写在translate之前，translate要沿着rotate产生的新的坐标轴的方向发生位移
+    painting.rotate(30*Math.PI/180)
+//    painting.translate(100,100);
+    painting.fillRect(0,0,100,30);
+
+</script>
+</html>

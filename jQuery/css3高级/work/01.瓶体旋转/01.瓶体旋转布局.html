@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+        }
+        #wrap{
+            margin: 100px auto;
+            /*width: 194px;*/
+            /*height: 336px;*/
+            position: relative;
+            overflow: hidden;
+        }
+        #cokeCan,#cokeBg{
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #cokeBg{
+            top:10px;
+        }
+        #cokeBg img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <!--瓶纸-->
+        <div id="cokeBg">
+            <img src="img/coke_bg.jpg" alt="">
+            <img src="img/coke_bg.jpg" alt="">
+        </div>
+        <!--瓶体-->
+        <div id="cokeCan">
+            <img src="img/coke_can.png" alt="">
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+      var wrap = document.getElementById('wrap');
+      var cokeCan = document.getElementById('cokeCan');
+      var cokeBg = document.getElementById('cokeBg');
+      var cokeBgImg = cokeBg.querySelectorAll('img');//数组
+//      读取瓶体的宽度与高度
+        var cokeCanW = cokeCan.offsetWidth;
+        var cokeCanH = cokeCan.offsetHeight;
+//      设置wrao宽度与高度
+        wrap.style.width = cokeCanW+'px';
+        wrap.style.height = cokeCanH+'px';
+//        设置cokeBg宽度 = 两张瓶纸图片的宽
+        cokeBg.style.width = cokeBgImg[0].offsetWidth * 2 + 'px';
+
+        var num = 0;
+//        cokeBg 向左移动
+        setInterval(function () {
+            num--;
+//            num 这个平移的值  需要边界值判断
+            if(Math.abs(num) === cokeBgImg[0].offsetWidth){
+              num = 0;
+            }
+            cokeBg.style.transform = 'translateX('+num+'px)'
+        },20)
+    }
+</script>
+</html>

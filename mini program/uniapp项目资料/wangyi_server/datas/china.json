@@ -1,0 +1,24 @@
+{
+	"provinces": [
+		{
+			"name": "北京市",
+			"id": 0
+		}
+	],
+	"cities": [
+		{
+			"name": "北京市",
+			"parentId": 0,
+			"id": 33
+		},
+		{
+			"name": "青岛市"
+		}
+	],
+	"countries": [
+		{
+			"name": "昌平区",
+			"parentId": 33
+		}
+	]
+}

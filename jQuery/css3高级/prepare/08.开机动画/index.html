@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            height: 100%;
+        }
+        #wrap{
+            width: 100%;
+            height: 100%;
+            background: grey;
+            position: relative;
+        }
+        #box{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+            /*开启3d空间*/
+            transform-style: preserve-3d;
+            /*景深*/
+            perspective:300px;
+        }
+        #box img{
+            width: 100%;
+            animation: move 1s linear infinite;
+        }
+        @keyframes move {
+            from{transform: rotateY(0deg)}
+            to{transform: rotateY(360deg)}
+        }
+    </style>
+</head>
+<body>
+
+<!--模拟屏幕:避免操作html，body-->
+<div id="wrap">
+
+    <div id="box">
+        <img src="img/logo.png" alt="">
+        <p>已加载0%</p>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript">
+    var pNode = document.querySelector('#box p');
+    var arr = [];
+    for (var i in imgData) {
+        // []
+//      [].concat([
+//        [
+//            // "img/load/777.png",
+//            "img/load/logo.png",
+//            "img/load/logo2.png",
+//            "img/load/logo3.png",
+//            "img/load/logo4.png"
+//        ]
+      arr = arr.concat(imgData[i]);
+      
+    }
+//    定义计数变量   用于记录图片已经加载完成的张数
+    var num = 0;
+    for (var i = 0; i < arr.length; i++) {
+//        创建img标签   创建图片对象
+        var img = new Image();
+//        设置src属性  加载图片
+        img.src = arr[i];
+
+//        图片是否加载成功
+        img.onload = function () {
+          num++;
+//          已加载完成的图片张数/图片总数 = 等于加载完成的比例
+          pNode.innerHTML = '已加载'+Math.round(num/arr.length*100)+'%'
+        }
+    }
+
+</script>
+</html>

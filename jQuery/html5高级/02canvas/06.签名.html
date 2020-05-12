@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            text-align: center;
+        }
+        #myCanvas{
+            background: pink;
+
+            /*
+            canvas 默认大小 300*150
+            */
+
+            /*width: 400px;*/
+            /*height: 400px;*/
+            /*不能再css中设置画布的宽度与高度*/
+
+        }
+
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="400" height="400">
+    您的浏览器不支持canvas，建议浏览器升级（更换）
+</canvas>
+
+</body>
+<script type="text/javascript">
+    //1.获取画布
+    var myCanvas = document.getElementById('myCanvas');
+    //2.获取画笔 （获取上下文）
+    var painting = myCanvas.getContext('2d');
+
+    myCanvas.onmousedown = function (event) {
+        painting.strokeStyle = 'blue'
+//      获取起始点
+        painting.beginPath();
+        painting.moveTo(event.offsetX,event.offsetY)
+        document.onmousemove = function (event) {
+//          每一次移动  都需要获取最新的坐标  然后设置线段结束点
+            painting.lineTo(event.offsetX,event.offsetY)
+//            描边
+            painting.stroke();
+        }
+        document.onmouseup = function () {
+          document.onmousemove = document.onmouseup = null;
+        }
+        return false;
+    }
+</script>
+</html>

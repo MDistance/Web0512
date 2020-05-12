@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,0,0,0.3);
+            position: relative;
+            /*开启3d空间*/
+            transform-style: preserve-3d;
+            /*景深*/
+            /*perspective: 300px;*/
+            /*测试*/
+            transform: rotateX(0deg) rotateY(0deg);
+            /*修改基点到正方体的中心（立体中心）*/
+            transform-origin: 50% 50% -100px;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 30px;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .box1{
+            background: rgba(0,255,0,0.3);
+        }
+        .box2{
+            background: rgba(0,0,255,0.3);
+            top:-200px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        .box3{
+            background: rgba(255,255,0,0.3);
+            left:200px;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        .box4{
+            background: rgba(0,255,255,0.3);
+            top:200px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        .box5{
+            background: rgba(255,0,255,0.3);
+            left:-200px;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        .box6{
+            background: rgba(128,205,55,0.3);
+            /*让元素正面向外*/
+            transform: translateZ(-200px) rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+    <div class="box box4">4</div>
+    <div class="box box5">5</div>
+    <div class="box box6">6</div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+      var wrap = document.getElementById('wrap');
+        var num = 0;
+      setInterval(function () {
+          num++;
+          wrap.style.transform = 'rotateX('+ num +'deg) rotateY('+ num +'deg)'
+      },50)
+    }
+</script>
+</html>

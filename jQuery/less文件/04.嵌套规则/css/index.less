@@ -1,0 +1,62 @@
+@zero:0;
+* {
+  margin: @zero;
+  padding: @zero;
+}
+//在less里边 如果使用嵌套 默认是后代选择器
+//& 在less里边 代表当前元素自身
+// 在less里边 只要设置伪类，伪元素等等带‘：’的 一般情况下都要使用 ‘&’；
+//实际使用嵌套时 如果明确的知道 当前class或者id一定不会重复  或者有明确的特征  可以适当地减少嵌套的层数
+#wrap{
+  width: 400px;
+  border: 1px solid #8c8c8c;
+  margin: 0 auto;
+  &::before{
+    content: 'hahahahaha';
+  }
+  ul{
+    list-style: none;
+    li{
+      height: 30px;
+      line-height: 30px;
+      //#wrap ul li:hover
+      &:hover{
+        background: pink;
+        a{
+          color: #fff;
+        }
+      }
+      &:nth-child(2n+1){
+        background: red;
+      }
+      a{
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#wrap{
+  .header{
+    .headerMain{
+      width: 1100px;
+      height: 80px;
+      margin: 0 auto;
+    }
+  }
+      .headerLeft{}
+      .headerRight{
+        .rightTop{
+          .active{}
+          .list{
+            .item{background: pink}
+          }
+        }
+        .rightBottom{}
+      }
+
+
+
+  .main{}
+  .footer{}
+}

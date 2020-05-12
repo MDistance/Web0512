@@ -1,0 +1,34 @@
+<view class="songContainer">
+  <view class="contentContainer">
+    <text>{{song.ar[0].name}}</text>
+    <view class="circle"></view>
+    <image class="needle {{isPlay?'needleRotate':''}}" src="/static/images/song/needle.png"></image>
+
+    <view class="discContainer {{isPlay?'discRotate':''}}">
+      <image class="disc " src="/static/images/song/disc.png"></image>
+      <image class="musicImg " src="{{song.al.picUrl}}"></image>
+    </view>
+
+    <view class="audioControl">
+      <text>{{momentCurrentTime}}</text>
+      <view class="barControl">
+      <view class="audio-current-time" style="width:{{currentWidth+'rpx'}}">
+        <view class="audio-progress"></view>
+      </view>
+      </view>
+      <text>{{momentDurationTime}}</text>
+    </view>
+
+
+
+
+    <!-- 底部控制播放区域 -->
+    <view class="musicControl">
+      <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+      <text class="iconfont icon-shangyishou" bindtap="switchSong" data-type="pre"></text>
+      <text  bindtap="playControl" class="iconfont {{isPlay?'icon-zanting':'icon-bofang'}} big"></text>
+      <text class="iconfont icon-next" bindtap="switchSong" data-type="next"></text>
+      <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
+    </view>
+  </view>
+</view>

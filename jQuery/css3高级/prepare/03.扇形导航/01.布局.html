@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            display: block;
+        }
+        #wrap{
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            right:0;
+            bottom: 0;
+        }
+        #home{
+            width: 50px;
+            height: 50px;
+            background-image: url("img/home.png");
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 2;
+            left:0;
+            top:0;
+            /*js点击时 触发旋转的操作 需要过渡*/
+            transition:transform 2s;
+        }
+        #list li{
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: absolute;
+            left: 4px;
+            top:4px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <!--大图-->
+    <div id="home"></div>
+    <!--小图-->
+    <ul id="list">
+        <!--   #号  不是空连接
+            #   页面头部
+            javascript:;  才算真正意义上的空连接
+        -->
+        <li><a href="javascript:;"><img src="img/clos.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/full.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/open.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/prev.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="img/refresh.png" alt=""></a></li>
+    </ul>
+</div>
+
+</body>
+<script type="text/javascript">
+    /*
+    * 矩阵数列
+    * 就算2d变换设置的属性  先后顺序没有区别   但是对于浏览器来说 他也是两个过渡效果
+    * 顺序不同，参数不对等 都会影响过渡
+    * 两个动画之间覆盖  浏览器就不会给过渡效果
+    * 过渡1   rotate(-720deg) scale(1)   过渡1  rotate(0deg) scale(1)
+    * */
+
+    window.onload = function () {
+      var home = document.getElementById('home');
+      var liNodes = document.querySelectorAll('#list li');//数组
+      var flag = true;
+//      过渡是否正在执行中的标识变量
+      var isMove = false;
+      var c = 200;
+//  c = 200    ∠1 = 22.5
+//      sin∠1 = a/c   left = a = 200*sin（22.5）；
+//      cos∠1 = b/c   top = b =200*cos(22.5)
+
+
+//      home点击是 需要判断是逆时针还是顺时针旋转  是展开还是收起
+      home.onclick = function () {
+//          如果ismove为true时  说明过渡正在执行    所以直接return
+          if (isMove){
+              return
+          }
+          isMove = true;
+        if (flag){
+//            逆时针旋转 展开
+//            flag = false;
+            this.style.transform = 'rotate(-720deg) ';
+            for (var i = 0; i<liNodes.length;i++){
+                liNodes[i].style.left = -getPoint(c,i*90/(liNodes.length-1)).left+'px';
+                liNodes[i].style.top = -getPoint(c,i*90/(liNodes.length-1)).top+'px';
+                liNodes[i].style.transform = ' scale(1) rotate(-720deg) '
+                liNodes[i].style.transition = '2s '+i*0.1+'s'
+            }
+        }else {
+//            顺时针旋转  收起
+//            flag = true;
+            this.style.transform = 'rotate(0deg)';
+//          让小图 回到原本的位置
+            for (var i = 0; i<liNodes.length;i++){
+                liNodes[i].style.left = '4px';
+                liNodes[i].style.top = '4px';
+                liNodes[i].style.transform = ' scale(1) rotate(0deg)'
+                liNodes[i].style.transition = '2s '+(liNodes.length-i)*0.1+'s'
+            }
+        }
+//        更新开关状态
+          flag = !flag;
+        liNodes[4].addEventListener('transitionend',trans);
+        function trans() {
+            isMove = false;
+            liNodes[4].removeEventListener('transitionend',trans)
+        }
+      }
+//     点击小图逻辑
+//        给每一个li绑定点击事件
+        for (var i = 0; i < liNodes.length; i++) {
+
+            liNodes[i].onclick = function () {
+//          点击谁  谁就放大，改变透明度
+                this.style.transform = ' rotate(-720deg) scale(1.5)';
+                this.style.opacity = '0.5';
+//          需要覆盖原有的延迟时间   从新设置transition   延迟的默认是0s
+                this.style.transition = '1s';
+//                setInterval(function () {
+//
+//                },3000)
+//                js提供了专门检测过渡是否执行完成的回调 transitionend
+//                transitionend存在多次执行   解决方案  回调函数的结尾  直接解绑
+//                transitionend执行的次数 由过渡的属性的个数来决定
+//                兼容问题webkitTransitionEnd
+                this.addEventListener('transitionend',fun);
+                this.addEventListener('webkitTransitionEnd',fun);
+//                回调函数
+                function fun() {
+//                    console.log('过渡执行完成');
+//                    过渡完成时  恢复li小图标的状态
+                    this.style.transform = ' rotate(-720deg) scale(1)';
+                    this.style.opacity = '1';
+//                    因为小图复原没有过渡  所以从新设置过渡
+                    this.style.transition = '0s';
+                    this.removeEventListener('transitionend',fun);
+                    this.removeEventListener('webkitTransitionEnd',fun)
+                }
+            }
+        }
+      function getPoint(c,deg) {
+//          Math.sin 传递的参数要为弧度
+//          角度转弧度   deg*π/180
+        var left = c*Math.sin(deg*Math.PI/180);
+        var top = c*Math.cos(deg*Math.PI/180);
+
+        return {left:left,top:top}
+      }
+//      console.log(getPoint(200,22.5).left)
+//      console.log(getPoint(200,22.5).top)
+    }
+</script>
+</html>
