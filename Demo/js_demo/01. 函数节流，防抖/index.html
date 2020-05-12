@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数节流，防抖</title>
+</head>
+<body>
+
+<input type="text" id="search">
+
+<script type="text/javascript">
+    /*
+    * 函数节流：
+    *   1. 在指定的时间内让指定的功能只执行一次， 如： 300ms内只执行一次
+    *
+    * 函数防抖:
+    *   1. 在高频抖动，高频事件执行过后执行目标函数，最终只执行一次
+    * */
+    function sendAjax(){
+      console.log('发送ajax请求');
+    }
+    let isSend = false; // 搜索框关键字模糊匹配
+    document.getElementById('search').oninput = function () {
+      if(isSend){
+        return;
+      }
+      isSend = true;
+      setTimeout(() => {
+        sendAjax()
+        isSend = false;
+      }, 300)
+    }
+
+    /*
+    * 自适应(百分比  + rem)
+    *   1. 页面内容的大小实时根据窗口大小的改变而改变
+    * 响应式(多媒体查询器 @media)
+    *   2. 页面布局根据不同的窗口大小范围进行不同的排列， 如： 1920屏 4列布局   1366的屏3列
+    * */
+
+    // 函数防抖  自适应  响应式
+    let timeoutId;
+    window.addEventListener('resize', function(){
+      timeoutId && clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        sendAjax()
+      }, 2000)
+    })
+</script>
+</body>
+</html>
